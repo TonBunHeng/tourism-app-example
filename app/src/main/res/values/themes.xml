@@ -7,19 +7,16 @@
 
     <style name="Theme.SmartTourismApp" parent="Base.Theme.SmartTourismApp" />
 
-
-    <!-- Splash Screen -->
+    <!-- Splash screen -->
     <style name="Theme.SmartTourismApp.Splash" parent="Theme.SplashScreen">
-        <item name="windowSplashScreenBackground">
-            @color/white
-        </item>
 
-        <item name="windowSplashScreenAnimatedIcon">
-            @drawable/app_logo
-        </item>
+        <!-- Backgroundcolor -->
+        <item name="windowSplashScreenBackground">@color/white</item>
 
-        <item name="postSplashScreenTheme">
-            @style/Theme.SmartTourismApp
-        </item>
+        <!-- App Icon -->
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_app_launcher</item>
+
+        <!-- Theme after splash -->
+        <item name="postSplashScreenTheme">@style/Theme.SmartTourismApp</item>
     </style>
 </resources>
