@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/background"
     tools:context=".ui.splash.SplashActivity">
 
     <ImageView
@@ -14,6 +14,7 @@
         android:layout_height="278dp"
         android:layout_gravity="center"
         android:src="@drawable/app_logo"
+        android:contentDescription="@string/app_name"
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,9 +26,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="20dp"
-        android:text="Smart Tourism App"
+        android:text="@string/app_name"
         android:textSize="24sp"
-        android:textColor="#003E83"
+        android:textColor="@color/primary"
         android:textStyle="bold"
 
         app:layout_constraintEnd_toEndOf="parent"
