@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Typography -->
+    <dimen name="headline_large">32dp</dimen>
+    <dimen name="headline_medium">28dp</dimen>
+    <dimen name="title_large">22dp</dimen>
+    <dimen name="title_medium">16dp</dimen>
+    <dimen name="body_large">16dp</dimen>
+    <dimen name="body_medium">14dp</dimen>
+    <dimen name="label_large">14dp</dimen>
+    <dimen name="label_medium">12dp</dimen>
+    
+    <!-- Spacing -->
+    <dimen name="spacing_xs">4dp</dimen>
+    <dimen name="spacing_sm">8dp</dimen>
+    <dimen name="spacing_md">12dp</dimen>
+    <dimen name="spacing_lg">16dp</dimen>
+    <dimen name="spacing_xl">24dp</dimen>
+    <dimen name="spacing_xxl">32dp</dimen>
+    
+    <!-- Radius -->
+    <dimen name="round_xs">4dp</dimen>
+    <dimen name="round_sm">8dp</dimen>
+    <dimen name="round_md">12dp</dimen>
+    <dimen name="round_lg">16dp</dimen>
+    <dimen name="round_xl">24dp</dimen>
+</resources>
