@@ -2,7 +2,18 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.SmartTourismApp" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <!-- Primary Color -->
+<!--        <item name="colorPrimary">@color/primary</item>-->
+<!--        <item name="colorOnPrimary">@color/on_primary</item>-->
+
+<!--        &lt;!&ndash; Secondary Color &ndash;&gt;-->
+<!--        <item name="colorSecondary">@color/secondary</item>-->
+<!--        <item name="colorOnSecondary">@color/on_secondary</item>-->
+
+<!--        &lt;!&ndash; UI Backgroun Primary and Surface&ndash;&gt;-->
+<!--        <item name="android:colorBackground">@color/primary_background</item>-->
+<!--        <item name="colorSurface">@color/surface</item>-->
+<!--        <item name="colorError">@color/error</item>-->
     </style>
 
     <style name="Theme.SmartTourismApp" parent="Base.Theme.SmartTourismApp" />
@@ -10,8 +21,8 @@
     <!-- Splash screen -->
     <style name="Theme.SmartTourismApp.Splash" parent="Theme.SplashScreen">
 
-        <!-- Backgroundcolor -->
-        <item name="windowSplashScreenBackground">@color/white</item>
+        <!-- Background color -->
+        <item name="windowSplashScreenBackground">@color/background</item>
 
         <!-- App Icon -->
         <item name="windowSplashScreenAnimatedIcon">@drawable/ic_app_launcher</item>
