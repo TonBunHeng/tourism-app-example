@@ -3,29 +3,34 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="@dimen/spacing_xl">
 
     <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/imgOnboardin"
-        android:contentDescription="Onboarding Image"/>
+        android:id="@+id/imgOnboarding"
+        android:layout_width="280dp"
+        android:layout_height="280dp"
+        android:adjustViewBounds="true"/>
 
     <TextView
+        android:id="@+id/tvTitle"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/txtTitle"
-        android:layout_marginTop="32dp"
-        android:textSize="20sp"
-        android:textStyle="bold"/>
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_xxl"
+        android:textSize="@dimen/title_large"
+        android:textStyle="bold"
+        android:textColor="@color/primary"
+        android:gravity="center"/>
 
     <TextView
+        android:id="@+id/tvDescription"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/txtDescription"
-        android:layout_marginTop="12dp"
-        android:textSize="15sp"
-        android:layout_gravity="center"
-        android:textStyle="bold"/>
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_md"
+        android:textSize="@dimen/title_medium"
+        android:textStyle="bold"
+        android:textColor="@color/primary"
+        android:gravity="center"/>
 
 </LinearLayout>

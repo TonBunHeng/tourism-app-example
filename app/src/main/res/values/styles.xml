@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- 1. Filled Button (Primary Action) -->
-    <style name="Primary.Button" parent="Widget.Material3.Button">
+    <style name="AppButton.Primary" parent="Widget.Material3.Button">
         <!-- Size -->
         <item name="cornerRadius">8dp</item>
         <item name="android:textSize">18sp</item>
+        <item name="android:paddingHorizontal" tools:targetApi="26">40dp</item>
 
         <!-- Color -->
+        <item name="android:textColor">@color/on_primary</item>
         <item name="backgroundTint">@color/primary</item>
 
         <!-- Style -->
@@ -14,10 +16,11 @@
     </style>
 
     <!-- 2. Outlined Button (Secondary Action - Border) -->
-    <style name="Secondary.Button" parent="Widget.Material3.Button.OutlinedButton">
+    <style name="AppButton.Secondary" parent="Widget.Material3.Button.OutlinedButton">
         <!-- Size -->
         <item name="cornerRadius">8dp</item>
         <item name="android:textSize">18sp</item>
+        <item name="android:paddingHorizontal" tools:targetApi="26">40dp</item>
         <item name="strokeWidth">2dp</item>
 
         <!-- Color -->
@@ -30,7 +33,22 @@
     </style>
 
     <!-- 3. Text Button (Tertiary Action - No Background & Border) -->
-    <style name="Tertiary.Button" parent="Widget.Material3.Button">
+    <style name="AppButton.Tertiary" parent="Widget.Material3.Button">
         <item name="color">@color/primary</item>
+    </style>
+
+
+
+    <!-- Splash screen -->
+    <style name="Theme.SmartTourismApp.Splash" parent="Theme.SplashScreen">
+
+        <!-- Background color -->
+        <item name="android:windowSplashScreenBackground" tools:targetApi="31">@color/background</item>
+
+        <!-- App Icon -->
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_app_launcher</item>
+
+        <!-- Theme after splash -->
+        <item name="postSplashScreenTheme">@style/Theme.SmartTourismApp</item>
     </style>
 </resources>

@@ -5,7 +5,6 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background"
     tools:context=".ui.splash.SplashActivity">
 
     <ImageView
@@ -13,7 +12,7 @@
         android:layout_width="278dp"
         android:layout_height="278dp"
         android:layout_gravity="center"
-        android:src="@drawable/app_logo"
+        android:src="@drawable/ic_app_launcher"
         android:contentDescription="@string/app_name"
 
         app:layout_constraintEnd_toEndOf="parent"

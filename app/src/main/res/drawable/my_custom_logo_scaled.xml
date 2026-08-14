@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <inset xmlns:android="http://schemas.android.com/apk/res/android"
-    android:drawable="@drawable/app_logo"
+    android:drawable="@drawable/ic_app_launcher"
     android:insetTop="18dp"
     android:insetBottom="18dp"
     android:insetLeft="18dp"

@@ -12,7 +12,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.smarttourismapp.R;
-import com.example.smarttourismapp.ui.onboarding.OnBoardingActivity;
+import com.example.smarttourismapp.ui.onboarding.OnboardingActivity;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -27,7 +27,7 @@ public class SplashActivity extends AppCompatActivity {
         new Handler().postDelayed(() ->{
             Intent intent = new Intent(
                 SplashActivity.this,
-                OnBoardingActivity.class
+                OnboardingActivity.class
             );
             startActivity(intent);
             finish();
