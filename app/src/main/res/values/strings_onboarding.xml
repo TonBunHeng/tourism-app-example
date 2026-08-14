@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Title -->
+    <string name="onboarding_title_1" translatable="false">Turn it on!</string>
+    <string name="onboarding_title_2" translatable="false">Get Notified</string>
+    <string name="onboarding_title_3" translatable="false">Discover with journey</string>
+    <string name="onboarding_title_4" translatable="false">Let’s get started</string>
+
+    <!-- Description -->
+    <string name="onboarding_description1" translatable="false">For the bast experience, we need your PGS location. It helps with pass redemption, nearby recommendations, and more!</string>
+    <string name="onboarding_description2" translatable="false">We’ll alert you when you’re near must-see spots and may even surprise you with new adventures. Get ready to explore.</string>
+    <string name="onboarding_description3" translatable="false">Look out for the Journey button which will take you on a multimedia tour. Designed for a new generation of travelers. </string>
+    <string name="onboarding_description4" translatable="false">Manage passes, tickets, 24/7 live chat, attraction directories, and maps. All in one app.</string>
+</resources>

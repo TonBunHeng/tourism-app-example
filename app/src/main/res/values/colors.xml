@@ -1,5 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <!-- Brand and Core Colors -->
+    <color name="primary">#003E83</color>
+    <color name="on_primary">#FFFFFF</color>
+
+    <color name="secondary">#00E676</color>
+    <color name="on_secondary">#000000</color>
+
+    <!-- UI Background and Surface -->
+    <color name="background">#FFFFFF</color>
+    <color name="surface">#A9A9A9</color>
+    <color name="mute">#CCCCCC</color>
+
+    <!-- Text Color -->
+    <color name="text_primary">#1D1B20</color>
+    <color name="text_secondary">#49454F</color>
+    <color name="text_disable">#79747E</color>
+
+    <!-- Status -->
+    <color name="success">#2E7D32</color>
+    <color name="warning">#ED6C02</color>
+    <color name="info">#1976D2</color>
+    <color name="error">#BA1A1A</color>
 </resources>

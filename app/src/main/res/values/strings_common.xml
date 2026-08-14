@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Button -->
+    <string name="common_get_start" translatable="false">Get Started</string>
+    <string name="common_next" translatable="false">Next</string>
+    <string name="common_skip" translatable="false">Skip</string>
+</resources>
