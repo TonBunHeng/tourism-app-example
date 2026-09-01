@@ -1,4 +1,4 @@
 <resources>
-    <string name="app_name" translatable="false">Smart Tourism App</string>
-    <string name="string" translatable="false">\@string/</string>
+    <string name="app_name">Smart Tourism App</string>
+    <string name="string">\@string/</string>
 </resources>

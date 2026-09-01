@@ -1,7 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Button -->
-    <string name="common_get_start" translatable="false">Get Started</string>
-    <string name="common_next" translatable="false">Next</string>
-    <string name="common_skip" translatable="false">Skip</string>
+    <string name="common_btn_get_start">Get Started</string>
+    <string name="common_btn_next">Next</string>
+    <string name="common_btn_skip">Skip</string>
+    <string name="common_btn_forgot">Forgot your password?</string>
+    <string name="common_btn_sign_in">Sign In</string>
+    <string name="common_btn_sign_up">Sign Up</string>
+    <string name="common_btn_continue_with_facebook">Continue with Facebook</string>
+    <string name="common_btn_continue_with_google">Continue with Google</string>
+
+    <!-- Text Input -->
+    <string name="common_text_input_email">Email*</string>
+    <string name="common_text_input_email_hint">user@example.com</string>
+    <string name="common_text_input_password">Password*</string>
+    <string name="common_text_input_password_hint">Please enter password</string>
+    
+    <!-- Check Box -->
+    <string name="common_check_box_remember">Remember Me</string>
 </resources>

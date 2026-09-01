@@ -45,4 +45,10 @@ dependencies {
 
     implementation 'androidx.core:core-splashscreen:1.2.0'
     implementation "com.tbuonomo:dotsindicator:4.3"
+
+    // Google Sign-In SDK
+    implementation 'com.google.android.gms:play-services-auth:21.2.0'
+
+    // Facebook Login SDK
+    implementation 'com.facebook.android:facebook-login:17.0.0'
 }
