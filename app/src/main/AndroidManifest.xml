@@ -11,9 +11,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SmartTourismApp" >
+
+        <!-- Onboarding Screen -->
         <activity
             android:name=".ui.onboarding.OnboardingActivity"
             android:exported="false" />
+
         <!-- Splash Screen -->
         <activity
             android:name=".ui.splash.SplashActivity"
@@ -24,19 +27,30 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity> <!-- Traveller Screen -->
+        </activity>
+
+        <!-- Traveller Screen -->
         <activity
             android:name=".ui.traveller.TravellerMainActivity"
-            android:exported="false" /> <!-- Business Screen -->
+            android:exported="false" />
+
+        <!-- Business Screen -->
         <activity
             android:name=".ui.business.BusinessMainActivity"
-            android:exported="false" /> <!-- Register Screen -->
+            android:exported="false" />
+
+        <!-- Register Screen -->
         <activity
             android:name=".ui.auth.RegisterActivity"
-            android:exported="false" /> <!-- Login Screen -->
+            android:exported="false" />
+
+        <!-- Sign In Screen -->
         <activity
-            android:name=".ui.auth.LoginActivity"
-            android:exported="false" /> <!-- Main Screen -->
+            android:name=".ui.auth.SignInActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan"/>
+
+        <!-- Main Screen -->
         <activity
             android:name=".MainActivity"
             android:exported="false" >
@@ -49,6 +63,7 @@
             <!-- </intent-filter> -->
 
         </activity>
+
     </application>
 
 </manifest>

@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Login Screen -->
-    <string name="auth_sign_in" translatable="false">Sign In</string>
+    <!-- Sign In Screen -->
+    <string name="auth_sign_in">Sign In</string>
+    <string name="auth_sign_guide">Please sing in your account before to use this app!</string>
+    <string name="auth_no_account">Don’t have an account?</string>
+    <string name="auth_or">or</string>
+
 </resources>

@@ -42,14 +42,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             style="@style/AppButton.Primary"
-            android:text="@string/common_next"/>
+            android:text="@string/common_btn_next"/>
 
         <Button
             android:id="@+id/btnSkip"
             style="@style/AppButton.Secondary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/common_skip" />
+            android:text="@string/common_btn_skip" />
 
     </LinearLayout>
 

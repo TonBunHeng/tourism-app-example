@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- 1. Filled Button (Primary Action) -->
+    <style name="AppButton.Primary" parent="Widget.Material3.Button">
+        <!-- Size -->
+        <item name="cornerRadius">8dp</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:paddingHorizontal" tools:targetApi="26">40dp</item>
+
+        <!-- Color -->
+        <item name="android:textColor">@color/on_primary</item>
+        <item name="backgroundTint">@color/primary</item>
+
+        <!-- Style -->
+<!--        <item name="android:textStyle">bold</item>-->
+    </style>
+
+    <!-- 2. Outlined Button (Secondary Action - Border) -->
+    <style name="AppButton.Secondary" parent="Widget.Material3.Button.OutlinedButton">
+        <!-- Size -->
+        <item name="cornerRadius">8dp</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:paddingHorizontal" tools:targetApi="26">40dp</item>
+        <item name="strokeWidth">1dp</item>
+
+        <!-- Color -->
+        <item name="android:textColor">@color/on_secondary</item>
+        <item name="strokeColor">@color/primary</item>
+
+        <!-- Style -->
+<!--        <item name="android:textStyle">bold</item>-->
+
+    </style>
+
+    <!-- 3. Text Button (Tertiary Action - No Background & Border) -->
+    <style name="AppButton.Tertiary" parent="Widget.Material3.Button.TextButton">
+        <item name="textFillColor">@color/primary</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:paddingHorizontal" tools:targetApi="26">0dp</item>
+        <item name="android:paddingVertical" tools:targetApi="26">0dp</item>
+    </style>
+</resources>

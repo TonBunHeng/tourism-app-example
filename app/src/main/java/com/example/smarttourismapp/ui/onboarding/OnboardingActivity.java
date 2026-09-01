@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.LinearLayout;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,11 +12,8 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.viewpager2.widget.ViewPager2;
 
-import com.example.smarttourismapp.MainActivity;
 import com.example.smarttourismapp.R;
-import com.example.smarttourismapp.ui.auth.LoginActivity;
-import com.google.android.material.tabs.TabLayout;
-import com.google.android.material.tabs.TabLayoutMediator;
+import com.example.smarttourismapp.ui.auth.SignInActivity;
 import com.tbuonomo.viewpagerdotsindicator.DotsIndicator;
 
 import java.util.ArrayList;
@@ -65,10 +61,10 @@ public class OnboardingActivity extends AppCompatActivity {
             public void onPageSelected(int position) {
                 super.onPageSelected(position);
                 if (position == items.size() - 1 ){
-                    btnNext.setText(R.string.common_get_start);
+                    btnNext.setText(R.string.common_btn_get_start);
                     btnSkip.setVisibility(View.INVISIBLE);
                 } else {
-                    btnNext.setText(R.string.common_next);
+                    btnNext.setText(R.string.common_btn_next);
                     btnSkip.setVisibility(View.VISIBLE);
                 }
             }
@@ -79,16 +75,17 @@ public class OnboardingActivity extends AppCompatActivity {
             if (viewPager.getCurrentItem() + 1 < adapter.getItemCount()){
                 viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
             }else {
-                navigateToHome();
+                navigateToSignIn();
             }
         });
 
-        // Click on btnSkip to LoginActivity directly
-        btnSkip.setOnClickListener(v -> navigateToHome());
+        // Click on btnSkip to SignInActivity directly
+        btnSkip.setOnClickListener(v -> navigateToSignIn());
 
     }
-    private void navigateToHome(){
-        startActivity(new Intent(OnboardingActivity.this, LoginActivity.class));
+    // Redirect to Sign in screen
+    private void navigateToSignIn(){
+        startActivity(new Intent(OnboardingActivity.this, SignInActivity.class));
         finish();
     }
 }
