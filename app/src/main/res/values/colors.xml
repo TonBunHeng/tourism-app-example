@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Brand Primary Colors - Ocean Blue -->
+    <color name="primary">#1565C0</color>
+    <color name="on_primary">#FFFFFF</color>
+    <color name="primary_container">#D0E4FF</color>
+    <color name="on_primary_container">#001D36</color>
+
+    <!-- Brand Secondary - Deep Sky / Sapphire Blue -->
+    <color name="secondary">#0277BD</color>
+    <color name="on_secondary">#FFFFFF</color>
+    <color name="secondary_container">#E1F5FE</color>
+    <color name="on_secondary_container">#001F29</color>
+
+    <!-- Brand Accent / Gold - Sky Blue Accent -->
+    <color name="tertiary">#0288D1</color>
+    <color name="on_tertiary">#FFFFFF</color>
+    <color name="tertiary_container">#E0F7FA</color>
+    <color name="on_tertiary_container">#001F24</color>
+
+    <!-- Backgrounds & Surfaces -->
+    <color name="background">#F4F7FA</color>
+    <color name="on_background">#1A1C1E</color>
+    <color name="surface">#FFFFFF</color>
+    <color name="on_surface">#1A1C1E</color>
+    <color name="surface_variant">#E0E3EC</color>
+    <color name="on_surface_variant">#43474E</color>
+    <color name="surface_tint">#1565C0</color>
+    <color name="outline">#73777F</color>
+    <color name="outline_variant">#C3C7D0</color>
+
+    <!-- Functional & Utility Colors -->
+    <color name="rating_gold">#FFB300</color>
+    <color name="favorite_red">#E53935</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="transparent">#00000000</color>
+
+    <!-- Status Badges -->
+    <color name="status_upcoming_bg">#E3F2FD</color>
+    <color name="status_upcoming_text">#1565C0</color>
+    <color name="status_completed_bg">#F0F0F0</color>
+    <color name="status_completed_text">#616161</color>
+
+    <!-- Chat Bubbles -->
+    <color name="chat_user_bg">#1565C0</color>
+    <color name="chat_user_text">#FFFFFF</color>
+    <color name="chat_ai_bg">#E8F0FE</color>
+    <color name="chat_ai_text">#1A1C1E</color>
+
+    <!-- Overlays -->
+    <color name="scrim_overlay">#66000000</color>
+    <color name="hero_gradient_start">#00000000</color>
+    <color name="hero_gradient_end">#CC000000</color>
+</resources>

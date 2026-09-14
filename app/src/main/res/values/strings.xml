@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AngkorVerses Travel</string>
+    <string name="app_tagline">Explore the Wonders of Angkor &amp; Beyond</string>
+
+    <!-- Auth -->
+    <string name="welcome_back">Welcome Back!</string>
+    <string name="sign_in_to_continue">Sign in to discover your next adventure</string>
+    <string name="email">Email Address</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="full_name">Full Name</string>
+    <string name="login">Sign In</string>
+    <string name="register">Create Account</string>
+    <string name="don_t_have_an_account">Don\'t have an account? Sign Up</string>
+    <string name="already_have_an_account">Already have an account? Sign In</string>
+    <string name="continue_as_guest">Continue as Guest</string>
+
+    <!-- Navigation -->
+    <string name="nav_home">Home</string>
+    <string name="nav_favorites">Favorites</string>
+    <string name="nav_trips">My Trips</string>
+    <string name="nav_profile">Profile</string>
+
+    <!-- Home -->
+    <string name="greeting_user">Hello, Explorer 👋</string>
+    <string name="home_subtitle">Where do you want to explore today?</string>
+    <string name="search_placeholder">Search temples, cities, tours...</string>
+    <string name="categories">Categories</string>
+    <string name="featured_destinations">Featured Destinations</string>
+    <string name="popular_attractions">Popular Attractions</string>
+    <string name="upcoming_events">Upcoming Events</string>
+    <string name="see_all">See All</string>
+    <string name="ai_banner_title">Angkor AI Travel Assistant</string>
+    <string name="ai_banner_desc">Ask me anything about Siem Reap, itinerary ideas, or local Cambodian customs!</string>
+    <string name="ask_ai_now">Ask Assistant ✨</string>
+
+    <!-- Place Detail -->
+    <string name="about">About Destination</string>
+    <string name="location">Location</string>
+    <string name="rating">Rating</string>
+    <string name="price_per_person">Ticket / Fee</string>
+    <string name="reviews">Reviews &amp; Ratings</string>
+    <string name="add_to_trip">Add to Trip</string>
+    <string name="book_tour">Book Tour Now</string>
+    <string name="highlights">Highlights</string>
+
+    <!-- Trips -->
+    <string name="my_trips">My Travel Itineraries</string>
+    <string name="create_new_trip">Create New Trip</string>
+    <string name="trip_title">Trip Name</string>
+    <string name="destination">Destination</string>
+    <string name="start_date">Start Date</string>
+    <string name="end_date">End Date</string>
+    <string name="budget">Estimated Budget ($)</string>
+    <string name="notes">Notes &amp; Preferences</string>
+    <string name="create_trip_btn">Save Itinerary</string>
+    <string name="tab_upcoming">Upcoming</string>
+    <string name="tab_completed">Completed</string>
+    <string name="no_trips_found">No trips planned yet.</string>
+    <string name="no_trips_desc">Start planning your dream trip to Angkor and surrounding sites!</string>
+
+    <!-- Favorites -->
+    <string name="favorite_places">Saved Destinations</string>
+    <string name="no_favorites">No favorites saved</string>
+    <string name="no_favorites_desc">Tap the heart icon on any place to save it to your wishlist.</string>
+
+    <!-- Profile -->
+    <string name="my_profile">My Profile</string>
+    <string name="stat_trips">Trips</string>
+    <string name="stat_favorites">Favorites</string>
+    <string name="stat_reviews">Reviews</string>
+    <string name="account_settings">Account Settings</string>
+    <string name="my_bookings">My Bookings</string>
+    <string name="travel_preferences">Travel Preferences</string>
+    <string name="help_support">Help &amp; Support</string>
+    <string name="logout">Log Out</string>
+
+    <!-- AI Chat -->
+    <string name="ai_chat_title">Angkor AI Assistant</string>
+    <string name="ai_chat_subtitle">Online • Travel Expert</string>
+    <string name="chat_input_hint">Ask for trip tips, itineraries, or culture...</string>
+    <string name="prompt_1">Best time to visit Angkor Wat?</string>
+    <string name="prompt_2">3-day Siem Reap Itinerary</string>
+    <string name="prompt_3">Local street food recommendations</string>
+
+    <!-- Notifications -->
+    <string name="notifications">Notifications</string>
+    <string name="mark_all_read">Mark all as read</string>
+    <string name="no_notifications">No notifications</string>
+</resources>

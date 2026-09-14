@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Base.Theme.Tourism_App" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/primary_container</item>
+        <item name="colorOnPrimary">@color/on_primary_container</item>
+        <item name="colorPrimaryContainer">@color/primary</item>
+        <item name="colorOnPrimaryContainer">@color/on_primary</item>
+
+        <item name="android:statusBarColor">@color/transparent</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+
+    <style name="Theme.Tourism_App" parent="Base.Theme.Tourism_App" />
+</resources>

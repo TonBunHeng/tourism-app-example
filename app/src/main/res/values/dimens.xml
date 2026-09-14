@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Padding & Margins -->
+    <dimen name="spacing_xxs">2dp</dimen>
+    <dimen name="spacing_xs">4dp</dimen>
+    <dimen name="spacing_small">8dp</dimen>
+    <dimen name="spacing_medium">12dp</dimen>
+    <dimen name="spacing_normal">16dp</dimen>
+    <dimen name="spacing_large">20dp</dimen>
+    <dimen name="spacing_xlarge">24dp</dimen>
+    <dimen name="spacing_xxlarge">32dp</dimen>
+
+    <!-- Card Corner Radii -->
+    <dimen name="card_corner_small">8dp</dimen>
+    <dimen name="card_corner_medium">16dp</dimen>
+    <dimen name="card_corner_large">24dp</dimen>
+    <dimen name="chip_corner">20dp</dimen>
+
+    <!-- Component Heights / Sizes -->
+    <dimen name="avatar_small">36dp</dimen>
+    <dimen name="avatar_medium">48dp</dimen>
+    <dimen name="avatar_large">80dp</dimen>
+    <dimen name="featured_card_width">280dp</dimen>
+    <dimen name="featured_card_height">180dp</dimen>
+    <dimen name="place_card_width">200dp</dimen>
+    <dimen name="place_card_image_height">130dp</dimen>
+    <dimen name="detail_header_height">300dp</dimen>
+    <dimen name="icon_size_small">18dp</dimen>
+    <dimen name="icon_size_medium">24dp</dimen>
+    <dimen name="icon_size_large">32dp</dimen>
+
+    <!-- Text Sizes -->
+    <dimen name="text_caption">12sp</dimen>
+    <dimen name="text_body">14sp</dimen>
+    <dimen name="text_subhead">16sp</dimen>
+    <dimen name="text_title">18sp</dimen>
+    <dimen name="text_headline">22sp</dimen>
+    <dimen name="text_display">28sp</dimen>
+</resources>
