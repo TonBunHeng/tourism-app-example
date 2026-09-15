@@ -26,19 +26,4 @@
         app:labelVisibilityMode="labeled"
         app:menu="@menu/bottom_nav_menu" />
 
-    <!-- AI Travel Assistant Floating Action Button anchored cleanly above bottom navigation -->
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab_ai_chat"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        android:contentDescription="@string/ai_banner_title"
-        android:src="@drawable/ic_sparkles"
-        app:backgroundTint="@color/primary"
-        app:elevation="6dp"
-        app:layout_anchor="@id/bottom_navigation"
-        app:layout_anchorGravity="top|end"
-        app:tint="@color/on_primary" />
-
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -11,123 +12,154 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <!-- Toolbar Header -->
+        <!-- TOOLBAR -->
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbar_ai_chat"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
+            android:layout_height="wrap_content"
+            android:minHeight="?attr/actionBarSize"
             android:background="@color/surface"
-            app:elevation="2dp"
+            android:elevation="2dp"
             app:navigationIcon="@drawable/ic_arrow_back"
             app:navigationIconTint="@color/on_surface"
             app:title="@string/ai_chat_title"
             app:titleCentered="false"
             app:titleTextColor="@color/on_surface" />
 
-        <!-- Quick Prompts Chips Scroll -->
-        <HorizontalScrollView
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:clipToPadding="false"
-            android:paddingHorizontal="12dp"
-            android:paddingVertical="8dp"
-            android:scrollbars="none">
+            android:layout_height="match_parent">
 
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:orientation="vertical"
+                app:layout_constraintWidth_max="@dimen/screen_content_max_width"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent">
 
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/chip_prompt_1"
-                    style="@style/Widget.Material3.Chip.Assist.Elevated"
-                    android:layout_width="wrap_content"
+                <!-- QUICK PROMPTS -->
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
-                    android:text="@string/prompt_1"
-                    app:chipIcon="@drawable/ic_sparkles"
-                    app:chipIconTint="@color/primary" />
+                    android:clipToPadding="false"
+                    android:paddingStart="12dp"
+                    android:paddingTop="8dp"
+                    android:paddingEnd="12dp"
+                    android:paddingBottom="8dp"
+                    android:scrollbars="none">
 
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/chip_prompt_2"
-                    style="@style/Widget.Material3.Chip.Assist.Elevated"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
-                    android:text="@string/prompt_2"
-                    app:chipIcon="@drawable/ic_sparkles"
-                    app:chipIconTint="@color/primary" />
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
 
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/chip_prompt_3"
-                    style="@style/Widget.Material3.Chip.Assist.Elevated"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/prompt_3"
-                    app:chipIcon="@drawable/ic_sparkles"
-                    app:chipIconTint="@color/primary" />
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/chip_prompt_1"
+                            style="@style/Widget.Material3.Chip.Assist.Elevated"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="8dp"
+                            android:text="@string/prompt_1"
+                            app:chipIcon="@drawable/ic_sparkles"
+                            app:chipIconTint="@color/primary" />
 
-            </LinearLayout>
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/chip_prompt_2"
+                            style="@style/Widget.Material3.Chip.Assist.Elevated"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="8dp"
+                            android:text="@string/prompt_2"
+                            app:chipIcon="@drawable/ic_sparkles"
+                            app:chipIconTint="@color/primary" />
 
-        </HorizontalScrollView>
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/chip_prompt_3"
+                            style="@style/Widget.Material3.Chip.Assist.Elevated"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/prompt_3"
+                            app:chipIcon="@drawable/ic_sparkles"
+                            app:chipIconTint="@color/primary" />
 
-        <!-- Chat Messages List -->
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_chat_messages"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:clipToPadding="false"
-            android:padding="8dp"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/item_chat_message" />
+                    </LinearLayout>
 
-        <!-- Bottom Chat Input Bar -->
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:cardBackgroundColor="@color/surface"
-            app:cardElevation="8dp"
-            app:strokeWidth="0dp">
+                </HorizontalScrollView>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:padding="12dp">
-
-                <EditText
-                    android:id="@+id/et_chat_input"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                <!-- CHAT MESSAGES -->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_chat_messages"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
                     android:layout_weight="1"
-                    android:background="@drawable/chip_corner"
-                    android:backgroundTint="@color/background"
-                    android:hint="@string/chat_input_hint"
-                    android:importantForAutofill="no"
-                    android:inputType="textMultiLine"
-                    android:maxLines="4"
-                    android:paddingHorizontal="16dp"
-                    android:paddingVertical="12dp"
-                    android:textColor="@color/on_surface"
-                    android:textColorHint="@color/outline"
-                    android:textSize="14sp" />
+                    android:clipToPadding="false"
+                    android:paddingStart="12dp"
+                    android:paddingTop="8dp"
+                    android:paddingEnd="12dp"
+                    android:paddingBottom="8dp"
+                    android:scrollbars="none"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/item_chat_message" />
 
-                <ImageButton
-                    android:id="@+id/btn_send_message"
-                    android:layout_width="44dp"
-                    android:layout_height="44dp"
-                    android:layout_marginStart="8dp"
-                    android:background="@drawable/chip_corner"
-                    android:backgroundTint="@color/primary"
-                    android:contentDescription="@string/ai_chat_title"
-                    android:src="@drawable/ic_send"
-                    app:tint="@color/on_primary" />
+                <!-- CHAT INPUT -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/chat_input_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardBackgroundColor="@color/surface"
+                    app:cardElevation="6dp"
+                    app:strokeWidth="0dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingStart="12dp"
+                        android:paddingTop="10dp"
+                        android:paddingEnd="12dp"
+                        android:paddingBottom="10dp">
+
+                        <EditText
+                            android:id="@+id/et_chat_input"
+                            android:layout_width="0dp"
+                            android:layout_height="48dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/chip_corner"
+                            android:backgroundTint="@color/background"
+                            android:gravity="center_vertical"
+                            android:hint="@string/chat_input_hint"
+                            android:importantForAutofill="no"
+                            android:inputType="textCapSentences|textMultiLine"
+                            android:maxLines="4"
+                            android:paddingStart="16dp"
+                            android:paddingEnd="16dp"
+                            android:textColor="@color/on_surface"
+                            android:textColorHint="@color/outline"
+                            android:textSize="14sp" />
+
+                        <ImageButton
+                            android:id="@+id/btn_send_message"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:layout_marginStart="8dp"
+                            android:background="@drawable/chip_corner"
+                            android:backgroundTint="@color/primary"
+                            android:contentDescription="@string/send_message"
+                            android:padding="12dp"
+                            android:src="@drawable/ic_send"
+                            app:tint="@color/on_primary" />
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
 
             </LinearLayout>
 
-        </com.google.android.material.card.MaterialCardView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>
 

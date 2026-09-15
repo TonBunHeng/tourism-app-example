@@ -10,7 +10,8 @@
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbar_favorites"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
+        android:layout_height="wrap_content"
+        android:minHeight="?attr/actionBarSize"
         android:background="@color/surface"
         app:elevation="2dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -29,19 +30,24 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toolbar_favorites">
 
-        <FrameLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <!-- Saved Places RecyclerView Grid -->
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_favorites"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
                 android:clipToPadding="false"
                 android:paddingTop="8dp"
                 android:paddingHorizontal="8dp"
                 android:paddingBottom="90dp"
+                app:layout_constraintWidth_max="@dimen/screen_content_max_width"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                 app:spanCount="2"
                 tools:listitem="@layout/item_place" />
@@ -51,11 +57,14 @@
                 android:id="@+id/layout_empty_favorites"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
                 android:gravity="center"
                 android:orientation="vertical"
                 android:padding="32dp"
-                android:visibility="gone">
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent">
 
                 <ImageView
                     android:layout_width="80dp"
@@ -84,7 +93,7 @@
 
             </LinearLayout>
 
-        </FrameLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 

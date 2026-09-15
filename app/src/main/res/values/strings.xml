@@ -19,6 +19,7 @@
     <!-- Navigation -->
     <string name="nav_home">Home</string>
     <string name="nav_favorites">Favorites</string>
+    <string name="nav_ai_chat">AI Assistant</string>
     <string name="nav_trips">My Trips</string>
     <string name="nav_profile">Profile</string>
 
@@ -83,6 +84,8 @@
     <string name="prompt_1">Best time to visit Angkor Wat?</string>
     <string name="prompt_2">3-day Siem Reap Itinerary</string>
     <string name="prompt_3">Local street food recommendations</string>
+    <string name="send_message">Send</string>
+    <string name="back">Back</string>
 
     <!-- Notifications -->
     <string name="notifications">Notifications</string>

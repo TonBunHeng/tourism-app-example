@@ -40,7 +40,7 @@ public class HomeFragment extends Fragment {
         ViewCompat.setOnApplyWindowInsetsListener(binding.swipeRefreshHome, (v, insets) -> {
             Insets statusBarInsets = insets.getInsets(WindowInsetsCompat.Type.statusBars());
             if (binding != null) {
-                int topPadding = statusBarInsets.top > 0 ? statusBarInsets.top + 8 : 36;
+                int topPadding = statusBarInsets.top > 0 ? statusBarInsets.top + 8 : 12;
                 binding.layoutTopHeader.setPadding(
                         binding.layoutTopHeader.getPaddingLeft(),
                         topPadding,

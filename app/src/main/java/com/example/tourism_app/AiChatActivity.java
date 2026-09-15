@@ -23,9 +23,24 @@ public class AiChatActivity extends AppCompatActivity {
         binding = ActivityAiChatBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        ViewCompat.setOnApplyWindowInsetsListener(binding.toolbarAiChat, (v, insets) -> {
+        ViewCompat.setOnApplyWindowInsetsListener(binding.getRoot(), (v, insets) -> {
             Insets statusBarInsets = insets.getInsets(WindowInsetsCompat.Type.statusBars());
-            v.setPadding(v.getPaddingLeft(), statusBarInsets.top, v.getPaddingRight(), v.getPaddingBottom());
+            Insets navInsets = insets.getInsets(WindowInsetsCompat.Type.navigationBars() | WindowInsetsCompat.Type.ime());
+
+            binding.toolbarAiChat.setPadding(
+                    binding.toolbarAiChat.getPaddingLeft(),
+                    statusBarInsets.top,
+                    binding.toolbarAiChat.getPaddingRight(),
+                    binding.toolbarAiChat.getPaddingBottom()
+            );
+
+            binding.chatInputContainer.setPadding(
+                    binding.chatInputContainer.getPaddingLeft(),
+                    binding.chatInputContainer.getPaddingTop(),
+                    binding.chatInputContainer.getPaddingRight(),
+                    navInsets.bottom
+            );
+
             return insets;
         });
 

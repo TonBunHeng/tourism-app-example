@@ -3,6 +3,9 @@ package com.example.tourism_app;
 import android.os.Bundle;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 import com.example.tourism_app.adapter.ReviewAdapter;
 import com.example.tourism_app.databinding.ActivityPlaceDetailBinding;
 import com.example.tourism_app.model.MockDataProvider;
@@ -18,6 +21,12 @@ public class PlaceDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityPlaceDetailBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        ViewCompat.setOnApplyWindowInsetsListener(binding.cardBottomBar, (v, insets) -> {
+            Insets navInsets = insets.getInsets(WindowInsetsCompat.Type.navigationBars());
+            v.setPadding(v.getPaddingLeft(), v.getPaddingTop(), v.getPaddingRight(), navInsets.bottom);
+            return insets;
+        });
 
         place = (Place) getIntent().getSerializableExtra("extra_place");
         if (place == null) {

@@ -26,7 +26,7 @@ public class TripDetailActivity extends AppCompatActivity {
 
         binding.tvTripDetailTitle.setText(trip.getTitle());
         binding.tvTripDetailDates.setText(trip.getDates() + " • " + trip.getDestination());
-        binding.btnTripBack.setOnClickListener(v -> finish());
+        binding.toolbarTripDetail.setNavigationOnClickListener(v -> finish());
 
         PlaceAdapter placeAdapter = new PlaceAdapter(MockDataProvider.getFeaturedPlaces(), new PlaceAdapter.OnPlaceClickListener() {
             @Override

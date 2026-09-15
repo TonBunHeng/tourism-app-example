@@ -14,7 +14,8 @@
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbar_create_trip"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
+            android:layout_height="wrap_content"
+            android:minHeight="?attr/actionBarSize"
             android:background="@color/surface"
             app:elevation="2dp"
             app:navigationIcon="@drawable/ic_arrow_back"
@@ -28,131 +29,141 @@
             android:layout_height="match_parent"
             android:fillViewport="true">
 
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
                 android:padding="20dp">
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/til_trip_name"
-                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/trip_title"
-                    app:startIconDrawable="@drawable/ic_trip">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/et_trip_name"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="textCapWords" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/til_destination"
-                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:hint="@string/destination"
-                    app:startIconDrawable="@drawable/ic_location">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/et_destination"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="textCapWords" />
-                </com.google.android.material.textfield.TextInputLayout>
-
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:orientation="horizontal">
+                    android:orientation="vertical"
+                    app:layout_constraintWidth_max="@dimen/form_max_width"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
 
                     <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/til_start_date"
+                        android:id="@+id/til_trip_name"
                         style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-                        android:layout_width="0dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="8dp"
-                        android:layout_weight="1"
-                        android:hint="@string/start_date"
-                        app:startIconDrawable="@drawable/ic_calendar">
+                        android:hint="@string/trip_title"
+                        app:startIconDrawable="@drawable/ic_trip">
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/et_start_date"
+                            android:id="@+id/et_trip_name"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:focusable="false"
-                            android:inputType="none" />
+                            android:inputType="textCapWords" />
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/til_end_date"
+                        android:id="@+id/til_destination"
                         style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-                        android:layout_width="0dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:layout_weight="1"
-                        android:hint="@string/end_date"
-                        app:startIconDrawable="@drawable/ic_calendar">
+                        android:layout_marginTop="16dp"
+                        android:hint="@string/destination"
+                        app:startIconDrawable="@drawable/ic_location">
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/et_end_date"
+                            android:id="@+id/et_destination"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:focusable="false"
-                            android:inputType="none" />
+                            android:inputType="textCapWords" />
                     </com.google.android.material.textfield.TextInputLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/til_start_date"
+                            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="8dp"
+                            android:layout_weight="1"
+                            android:hint="@string/start_date"
+                            app:startIconDrawable="@drawable/ic_calendar">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/et_start_date"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:focusable="false"
+                                android:inputType="none" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/til_end_date"
+                            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_weight="1"
+                            android:hint="@string/end_date"
+                            app:startIconDrawable="@drawable/ic_calendar">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/et_end_date"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:focusable="false"
+                                android:inputType="none" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                    </LinearLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/til_budget"
+                        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:hint="@string/budget"
+                        app:startIconDrawable="@drawable/ic_ticket">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/et_budget"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="numberDecimal" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/til_notes"
+                        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:hint="@string/notes">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/et_notes"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="top"
+                            android:inputType="textMultiLine"
+                            android:minLines="3" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_save_trip"
+                        android:layout_width="match_parent"
+                        android:layout_height="54dp"
+                        android:layout_marginTop="32dp"
+                        android:text="@string/create_trip_btn"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        app:cornerRadius="12dp" />
 
                 </LinearLayout>
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/til_budget"
-                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:hint="@string/budget"
-                    app:startIconDrawable="@drawable/ic_ticket">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/et_budget"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="numberDecimal" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/til_notes"
-                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:hint="@string/notes">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/et_notes"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="top"
-                        android:inputType="textMultiLine"
-                        android:minLines="3" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btn_save_trip"
-                    android:layout_width="match_parent"
-                    android:layout_height="54dp"
-                    android:layout_marginTop="32dp"
-                    android:text="@string/create_trip_btn"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    app:cornerRadius="12dp" />
-
-            </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.core.widget.NestedScrollView>
 

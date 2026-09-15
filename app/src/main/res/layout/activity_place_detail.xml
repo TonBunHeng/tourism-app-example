@@ -76,171 +76,201 @@
         android:layout_marginBottom="72dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:padding="20dp">
 
-            <TextView
-                android:id="@+id/tv_detail_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/on_surface"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                tools:text="Angkor Wat Temple" />
-
-            <!-- Location & Rating Row -->
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="16dp"
-                    android:layout_height="16dp"
-                    android:contentDescription="@string/location"
-                    android:src="@drawable/ic_location"
-                    app:tint="@color/primary" />
+                android:orientation="vertical"
+                app:layout_constraintWidth_max="@dimen/screen_content_max_width"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
                 <TextView
-                    android:id="@+id/tv_detail_location"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    android:layout_weight="1"
-                    android:textColor="@color/outline"
-                    android:textSize="14sp"
-                    tools:text="Siem Reap, Cambodia" />
-
-                <ImageView
-                    android:layout_width="16dp"
-                    android:layout_height="16dp"
-                    android:contentDescription="@string/rating"
-                    android:src="@drawable/ic_star"
-                    app:tint="@color/rating_gold" />
-
-                <TextView
-                    android:id="@+id/tv_detail_rating"
+                    android:id="@+id/tv_detail_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
                     android:textColor="@color/on_surface"
-                    android:textSize="14sp"
+                    android:textSize="24sp"
                     android:textStyle="bold"
-                    tools:text="4.9 (1.2k reviews)" />
+                    tools:text="Angkor Wat Temple" />
+
+                <!-- Location & Rating Row -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:contentDescription="@string/location"
+                        android:src="@drawable/ic_location"
+                        app:tint="@color/primary" />
+
+                    <TextView
+                        android:id="@+id/tv_detail_location"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:layout_weight="1"
+                        android:textColor="@color/outline"
+                        android:textSize="14sp"
+                        tools:text="Siem Reap, Cambodia" />
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:contentDescription="@string/rating"
+                        android:src="@drawable/ic_star"
+                        app:tint="@color/rating_gold" />
+
+                    <TextView
+                        android:id="@+id/tv_detail_rating"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:textColor="@color/on_surface"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        tools:text="4.9 (1.2k reviews)" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginVertical="16dp"
+                    android:background="@color/outline_variant" />
+
+                <!-- About Section -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/about"
+                    android:textColor="@color/on_surface"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_detail_description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:lineSpacingExtra="4dp"
+                    android:textColor="@color/on_surface_variant"
+                    android:textSize="14sp"
+                    tools:text="Angkor Wat is a temple complex in Cambodia and the largest religious monument in the world by land area, on a site measuring 162.6 hectares. Originally constructed as a Hindu temple dedicated to Vishnu, it was transformed into a Buddhist temple towards the end of the 12th century." />
+
+                <!-- Reviews Section -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:text="@string/reviews"
+                    android:textColor="@color/on_surface"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_detail_reviews"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:nestedScrollingEnabled="false"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/item_review" />
 
             </LinearLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginVertical="16dp"
-                android:background="@color/outline_variant" />
-
-            <!-- About Section -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/about"
-                android:textColor="@color/on_surface"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tv_detail_description"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:lineSpacingExtra="4dp"
-                android:textColor="@color/on_surface_variant"
-                android:textSize="14sp"
-                tools:text="Angkor Wat is a temple complex in Cambodia and the largest religious monument in the world by land area, on a site measuring 162.6 hectares. Originally constructed as a Hindu temple dedicated to Vishnu, it was transformed into a Buddhist temple towards the end of the 12th century." />
-
-            <!-- Reviews Section -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:text="@string/reviews"
-                android:textColor="@color/on_surface"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_detail_reviews"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:nestedScrollingEnabled="false"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                tools:listitem="@layout/item_review" />
-
-        </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.core.widget.NestedScrollView>
 
     <!-- Bottom Sticky Booking / Add Bar -->
     <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_bottom_bar"
         android:layout_width="match_parent"
-        android:layout_height="72dp"
+        android:layout_height="wrap_content"
+        android:minHeight="72dp"
         android:layout_gravity="bottom"
         app:cardBackgroundColor="@color/surface"
         app:cardElevation="8dp"
         app:strokeWidth="0dp">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:paddingHorizontal="16dp">
+            android:layout_height="wrap_content">
 
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="12dp"
+                app:layout_constraintWidth_max="@dimen/screen_content_max_width"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent">
 
-                <TextView
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="@string/price_per_person"
-                    android:textColor="@color/outline"
-                    android:textSize="11sp" />
+                    android:layout_weight="1"
+                    android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/tv_detail_price"
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/price_per_person"
+                        android:textColor="@color/outline"
+                        android:textSize="11sp" />
+
+                    <TextView
+                        android:id="@+id/tv_detail_price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/primary"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:maxLines="1"
+                        android:ellipsize="end"
+                        tools:text="$37.00" />
+                </LinearLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_add_to_trip"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="44dp"
+                    android:layout_marginEnd="6dp"
+                    android:paddingHorizontal="10dp"
+                    android:textSize="13sp"
+                    android:text="@string/add_to_trip"
                     android:textColor="@color/primary"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    tools:text="$37.00" />
+                    app:cornerRadius="12dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_book_now"
+                    android:layout_width="wrap_content"
+                    android:layout_height="44dp"
+                    android:paddingHorizontal="10dp"
+                    android:textSize="13sp"
+                    android:text="@string/book_tour"
+                    android:textColor="@color/on_primary"
+                    app:cornerRadius="12dp" />
+
             </LinearLayout>
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btn_add_to_trip"
-                style="@style/Widget.Material3.Button.OutlinedButton"
-                android:layout_width="wrap_content"
-                android:layout_height="48dp"
-                android:layout_marginEnd="8dp"
-                android:text="@string/add_to_trip"
-                android:textColor="@color/primary"
-                app:cornerRadius="12dp" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btn_book_now"
-                android:layout_width="wrap_content"
-                android:layout_height="48dp"
-                android:text="@string/book_tour"
-                android:textColor="@color/on_primary"
-                app:cornerRadius="12dp" />
-
-        </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </com.google.android.material.card.MaterialCardView>
 
