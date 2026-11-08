@@ -19,14 +19,22 @@ android {
     }
 
     buildTypes {
+        debug {
+            buildConfigField "String", "BASE_URL", "\"http://10.0.2.2:8000/api/travel/\""
+        }
         release {
             minifyEnabled false
+            buildConfigField "String", "BASE_URL", "\"https://angkorvers.vercel.app/api/travel/\""
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_11
         targetCompatibility JavaVersion.VERSION_11
+    }
+    buildFeatures {
+        viewBinding true
+        buildConfig true
     }
 }
 
@@ -41,7 +49,24 @@ dependencies {
     androidTestImplementation libs.ext.junit
     androidTestImplementation libs.espresso.core
 
+    // Network & Serialization (Matching web axios + backend REST API)
+    implementation libs.retrofit
+    implementation libs.retrofit.converter.gson
+    implementation libs.okhttp
+    implementation libs.okhttp.logging
 
+    // Security & EncryptedSharedPreferences
+    implementation libs.androidx.security.crypto
+
+    // Architecture Components (MVVM: ViewModel & LiveData)
+    implementation libs.androidx.lifecycle.viewmodel
+    implementation libs.androidx.lifecycle.livedata
+
+    // SwipeRefreshLayout
+    implementation libs.androidx.swiperefreshlayout
+
+    // Image loading
+    implementation libs.glide
 
     implementation 'androidx.core:core-splashscreen:1.2.0'
     implementation "com.tbuonomo:dotsindicator:4.3"
