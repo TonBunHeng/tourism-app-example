@@ -108,3 +108,4 @@ public class AuthViewModel extends AndroidViewModel {
         });
     }
 }
+

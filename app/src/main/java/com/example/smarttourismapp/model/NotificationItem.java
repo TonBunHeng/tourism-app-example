@@ -75,3 +75,4 @@ public class NotificationItem implements Serializable {
         this.createdAt = createdAt;
     }
 }
+

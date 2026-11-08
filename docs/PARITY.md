@@ -66,3 +66,4 @@ This document tracks feature parity between the **tourism-travel** web portal, t
 | 58 | Settings: Theme Mode (Light / Dark) | Web Theme Toggle | AppCompatDelegate DayNight | `ui/settings/SettingsActivity` | Done |
 | 59 | Support & FAQs Screen | `src/pages/tourist/Support.jsx` | `GET /api/travel/settings`, `POST /api/travel/contact` | `ui/support/SupportActivity` | Done |
 | 60 | AI Chat Assistant (AngkorVers) | `src/pages/tourist/AIChat.jsx` | `POST /api/travel/ai/chat`, `GET /api/travel/ai/suggestions` | `ui/aichat/AIChatActivity` | Done |
+

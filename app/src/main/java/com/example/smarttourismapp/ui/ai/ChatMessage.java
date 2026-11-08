@@ -23,3 +23,4 @@ public class ChatMessage {
         return timestamp;
     }
 }
+

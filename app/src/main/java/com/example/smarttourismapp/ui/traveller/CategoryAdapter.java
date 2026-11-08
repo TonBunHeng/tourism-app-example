@@ -71,3 +71,4 @@ public class CategoryAdapter extends ListAdapter<Category, CategoryAdapter.Categ
         }
     }
 }
+

@@ -93,3 +93,4 @@ public class NotificationAdapter extends ListAdapter<NotificationItem, Notificat
         }
     }
 }
+

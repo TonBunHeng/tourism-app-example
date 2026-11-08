@@ -386,3 +386,4 @@ public class ProfileFragment extends Fragment {
         requireActivity().finish();
     }
 }
+

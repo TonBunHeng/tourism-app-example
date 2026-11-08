@@ -58,7 +58,9 @@ public class ApiClient {
 
     private static synchronized Retrofit getRetrofit(Context context) {
         if (retrofit == null) {
-            final Context appContext = context.getApplicationContext();
+            final Context appContext = (context != null && context.getApplicationContext() != null)
+                    ? context.getApplicationContext()
+                    : context;
             final AppPreference prefs = new AppPreference(appContext);
 
             HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();

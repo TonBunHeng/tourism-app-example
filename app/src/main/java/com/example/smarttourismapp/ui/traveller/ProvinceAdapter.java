@@ -85,3 +85,4 @@ public class ProvinceAdapter extends ListAdapter<Province, ProvinceAdapter.Provi
         }
     }
 }
+

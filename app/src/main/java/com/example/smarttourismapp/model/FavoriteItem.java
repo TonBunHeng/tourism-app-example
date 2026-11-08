@@ -71,3 +71,4 @@ public class FavoriteItem implements Serializable {
         this.place = place;
     }
 }
+

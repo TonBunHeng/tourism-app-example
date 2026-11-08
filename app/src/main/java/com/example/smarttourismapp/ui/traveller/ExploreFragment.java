@@ -227,3 +227,4 @@ public class ExploreFragment extends Fragment implements PlaceAdapter.OnPlaceCli
         binding = null;
     }
 }
+

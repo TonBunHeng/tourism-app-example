@@ -174,3 +174,4 @@ public class FavoritesFragment extends Fragment implements FavoritesAdapter.OnFa
         binding = null;
     }
 }
+

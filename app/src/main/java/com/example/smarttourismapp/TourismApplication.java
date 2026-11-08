@@ -27,3 +27,4 @@ public class TourismApplication extends Application {
         super.attachBaseContext(LocaleHelper.applyLocale(base));
     }
 }
+

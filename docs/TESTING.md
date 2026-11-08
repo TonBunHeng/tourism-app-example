@@ -86,3 +86,4 @@ This checklist verifies all features of `smarttourismapp` running against the ba
 - [ ] FAQ accordion expands and collapses answers to popular tourist questions.
 - [ ] Contact Us form validates name, email, subject, message and submits via `POST /api/travel/contact`.
 - [ ] AI Assistant screen allows conversational chatting with suggested prompt chips and quick replies.
+

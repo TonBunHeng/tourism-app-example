@@ -29,34 +29,45 @@ public class AppPreference {
     private final Gson gson;
 
     public AppPreference(Context context) {
-        Context appContext = context.getApplicationContext();
-        preferences = appContext.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
+        Context appContext = (context != null && context.getApplicationContext() != null)
+                ? context.getApplicationContext()
+                : context;
+
+        if (appContext != null) {
+            preferences = appContext.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
+        } else {
+            preferences = null;
+        }
         gson = new Gson();
 
-        try {
-            MasterKey masterKey = new MasterKey.Builder(appContext)
-                    .setKeyScheme(MasterKey.KeyScheme.AES256_GCM)
-                    .build();
+        if (appContext != null) {
+            try {
+                MasterKey masterKey = new MasterKey.Builder(appContext)
+                        .setKeyScheme(MasterKey.KeyScheme.AES256_GCM)
+                        .build();
 
-            securePreferences = EncryptedSharedPreferences.create(
-                    appContext,
-                    SECURE_PREF_NAME,
-                    masterKey,
-                    EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
-                    EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
-            );
-        } catch (Exception e) {
-            Log.w(TAG, "EncryptedSharedPreferences initialization failed, falling back to standard prefs", e);
-            securePreferences = preferences;
+                securePreferences = EncryptedSharedPreferences.create(
+                        appContext,
+                        SECURE_PREF_NAME,
+                        masterKey,
+                        EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
+                        EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
+                );
+            } catch (Exception e) {
+                Log.w(TAG, "EncryptedSharedPreferences initialization failed, falling back to standard prefs", e);
+                securePreferences = preferences;
+            }
         }
     }
 
     public boolean isFirstTime() {
-        return preferences.getBoolean(KEY_FIRST_TIME, true);
+        return preferences != null ? preferences.getBoolean(KEY_FIRST_TIME, true) : true;
     }
 
     public void setKeyFirstTimeLaunch(boolean isFirstTime) {
-        preferences.edit().putBoolean(KEY_FIRST_TIME, isFirstTime).apply();
+        if (preferences != null) {
+            preferences.edit().putBoolean(KEY_FIRST_TIME, isFirstTime).apply();
+        }
     }
 
     public void saveAuthToken(String token) {
@@ -64,7 +75,9 @@ public class AppPreference {
             securePreferences.edit().putString(KEY_AUTH_TOKEN, token).apply();
         }
         // Also keep sync in standard prefs as fallback if needed
-        preferences.edit().putString(KEY_AUTH_TOKEN, token).apply();
+        if (preferences != null) {
+            preferences.edit().putString(KEY_AUTH_TOKEN, token).apply();
+        }
     }
 
     public String getAuthToken() {
@@ -74,7 +87,7 @@ public class AppPreference {
                 return token;
             }
         }
-        return preferences.getString(KEY_AUTH_TOKEN, null);
+        return preferences != null ? preferences.getString(KEY_AUTH_TOKEN, null) : null;
     }
 
     public boolean isLoggedIn() {
@@ -83,13 +96,14 @@ public class AppPreference {
     }
 
     public void saveUser(User user) {
-        if (user != null) {
+        if (user != null && preferences != null) {
             String json = gson.toJson(user);
             preferences.edit().putString(KEY_USER_DATA, json).apply();
         }
     }
 
     public User getUser() {
+        if (preferences == null) return null;
         String json = preferences.getString(KEY_USER_DATA, null);
         if (json != null && !json.trim().isEmpty()) {
             try {
@@ -101,51 +115,61 @@ public class AppPreference {
     }
 
     public void setRememberMe(boolean remember, String email) {
-        preferences.edit()
-                .putBoolean(KEY_REMEMBER_ME, remember)
-                .putString(KEY_SAVED_EMAIL, remember ? email : "")
-                .apply();
+        if (preferences != null) {
+            preferences.edit()
+                    .putBoolean(KEY_REMEMBER_ME, remember)
+                    .putString(KEY_SAVED_EMAIL, remember ? email : "")
+                    .apply();
+        }
     }
 
     public boolean isRememberMe() {
-        return preferences.getBoolean(KEY_REMEMBER_ME, false);
+        return preferences != null ? preferences.getBoolean(KEY_REMEMBER_ME, false) : false;
     }
 
     public String getSavedEmail() {
-        return preferences.getString(KEY_SAVED_EMAIL, "");
+        return preferences != null ? preferences.getString(KEY_SAVED_EMAIL, "") : "";
     }
 
     public void setCustomBaseUrl(String url) {
-        preferences.edit().putString(KEY_BASE_URL, url).apply();
+        if (preferences != null) {
+            preferences.edit().putString(KEY_BASE_URL, url).apply();
+        }
     }
 
     public String getCustomBaseUrl() {
-        return preferences.getString(KEY_BASE_URL, null);
+        return preferences != null ? preferences.getString(KEY_BASE_URL, null) : null;
     }
 
     public void setLanguage(String langCode) {
-        preferences.edit().putString(KEY_LANGUAGE, langCode).apply();
+        if (preferences != null) {
+            preferences.edit().putString(KEY_LANGUAGE, langCode).apply();
+        }
     }
 
     public String getLanguage() {
-        return preferences.getString(KEY_LANGUAGE, "en");
+        return preferences != null ? preferences.getString(KEY_LANGUAGE, "en") : "en";
     }
 
     public void setDarkMode(boolean enabled) {
-        preferences.edit().putBoolean(KEY_DARK_MODE, enabled).apply();
+        if (preferences != null) {
+            preferences.edit().putBoolean(KEY_DARK_MODE, enabled).apply();
+        }
     }
 
     public boolean isDarkMode() {
-        return preferences.getBoolean(KEY_DARK_MODE, false);
+        return preferences != null ? preferences.getBoolean(KEY_DARK_MODE, false) : false;
     }
 
     public void clearSession() {
         if (securePreferences != null) {
             securePreferences.edit().remove(KEY_AUTH_TOKEN).apply();
         }
-        preferences.edit()
-                .remove(KEY_AUTH_TOKEN)
-                .remove(KEY_USER_DATA)
-                .apply();
+        if (preferences != null) {
+            preferences.edit()
+                    .remove(KEY_AUTH_TOKEN)
+                    .remove(KEY_USER_DATA)
+                    .apply();
+        }
     }
 }

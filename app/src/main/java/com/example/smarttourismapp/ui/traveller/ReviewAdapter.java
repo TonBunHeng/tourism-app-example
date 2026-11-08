@@ -97,3 +97,4 @@ public class ReviewAdapter extends ListAdapter<Review, ReviewAdapter.ReviewViewH
         }
     }
 }
+
