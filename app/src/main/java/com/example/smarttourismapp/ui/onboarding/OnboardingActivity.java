@@ -85,6 +85,7 @@ public class OnboardingActivity extends AppCompatActivity {
     }
     // Redirect to Sign in screen
     private void navigateToSignIn(){
+        new com.example.smarttourismapp.utils.AppPreference(this).setKeyFirstTimeLaunch(false);
         startActivity(new Intent(OnboardingActivity.this, SignInActivity.class));
         finish();
     }

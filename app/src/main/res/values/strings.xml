@@ -1,4 +1,69 @@
 <resources>
     <string name="app_name">Smart Tourism App</string>
-    <string name="string">\@string/</string>
+
+    <!-- Navigation -->
+    <string name="nav_home">Home</string>
+    <string name="nav_explore">Explore</string>
+    <string name="nav_bookings">Bookings</string>
+    <string name="nav_favorites">Favorites</string>
+    <string name="nav_profile">Profile</string>
+
+    <!-- Common -->
+    <string name="action_search">Search</string>
+    <string name="action_retry">Retry</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="action_save">Save</string>
+    <string name="action_edit">Edit</string>
+    <string name="action_delete">Delete</string>
+    <string name="action_sign_out">Sign Out</string>
+    <string name="action_view_all">View All</string>
+    <string name="action_book_now">Book Now</string>
+    <string name="action_share">Share</string>
+    <string name="action_write_review">Write a Review</string>
+
+    <!-- Home -->
+    <string name="home_hero_title">Experience Ancient Heritage</string>
+    <string name="home_hero_subtitle">Angkor &amp; Beyond</string>
+    <string name="home_search_hint">Search temples, provinces, hotels...</string>
+    <string name="home_categories">Categories</string>
+    <string name="home_featured">Featured Destinations</string>
+    <string name="home_provinces">Cambodia Provinces</string>
+    <string name="home_popular">Popular Attractions</string>
+    <string name="home_emergency_hotlines">Emergency Hotlines</string>
+
+    <!-- Explore -->
+    <string name="explore_title">Explore Cambodia</string>
+    <string name="explore_all_categories">All Categories</string>
+    <string name="explore_no_places">No destinations found matching your criteria.</string>
+
+    <!-- Bookings -->
+    <string name="bookings_title">My Bookings</string>
+    <string name="bookings_empty">You have no reservations yet.</string>
+    <string name="bookings_cancel_confirm">Are you sure you want to cancel this booking?</string>
+
+    <!-- Favorites -->
+    <string name="favorites_title">Saved Wishlist</string>
+    <string name="favorites_empty">Your wishlist is empty. Tap the heart on any destination to save it!</string>
+    <string name="favorites_all">All</string>
+    <string name="favorites_visited">Visited</string>
+    <string name="favorites_unvisited">Wishlist</string>
+
+    <!-- Profile & Settings -->
+    <string name="profile_edit">Edit Profile</string>
+    <string name="profile_change_password">Password</string>
+    <string name="profile_preferences">Preferences &amp; Settings</string>
+    <string name="profile_language">Language / ភាសា</string>
+    <string name="profile_dark_mode">Dark Mode</string>
+    <string name="profile_help_support">Tourism Helpdesk &amp; FAQs</string>
+    <string name="profile_delete_account">Request Account Erasure / Privacy Deletion</string>
+
+    <!-- Notifications -->
+    <string name="notifications_title">Notifications</string>
+    <string name="notifications_empty">No notifications yet.</string>
+    <string name="notifications_mark_all_read">Mark all as read</string>
+
+    <!-- Support & AI -->
+    <string name="support_title">Tourism Help &amp; Support</string>
+    <string name="ai_assistant_title">AngkorVers AI Assistant</string>
+    <string name="ai_ask_hint">Ask about temples, culture, tips...</string>
 </resources>

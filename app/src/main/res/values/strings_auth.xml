@@ -2,8 +2,31 @@
 <resources>
     <!-- Sign In Screen -->
     <string name="auth_sign_in">Sign In</string>
-    <string name="auth_sign_guide">Please sing in your account before to use this app!</string>
+    <string name="auth_sign_guide">Please sign in to your account to continue!</string>
     <string name="auth_no_account">Don’t have an account?</string>
+    <string name="auth_already_have_account">Already registered?</string>
     <string name="auth_or">or</string>
 
+    <!-- Sign Up / Register Screen -->
+    <string name="auth_sign_up">Create Account</string>
+    <string name="auth_sign_up_guide">Choose your account type and start discovering or managing tourism in Cambodia</string>
+    <string name="auth_account_type">Select Account Type</string>
+    <string name="auth_role_tourist">Traveler / Tourist</string>
+    <string name="auth_role_tourist_desc">Explore ancient temples, book tours, and plan trips</string>
+    <string name="auth_role_business">Business Owner</string>
+    <string name="auth_role_business_desc">List and manage hotels, restaurants, and tourism services</string>
+    <string name="auth_full_name">Full Name*</string>
+    <string name="auth_full_name_hint">e.g. John Doe / Chan Sophal</string>
+    <string name="auth_phone">Phone Number</string>
+    <string name="auth_phone_hint">+855 12 345 678</string>
+    <string name="auth_location">Province / City</string>
+    <string name="auth_bio_tourist">Travel Interests &amp; Bio</string>
+    <string name="auth_bio_business">Business Description &amp; Category</string>
+    <string name="auth_bio_tourist_hint">e.g. Heritage lover excited to visit Angkor Wat...</string>
+    <string name="auth_bio_business_hint">e.g. Traditional Khmer restaurant in Siem Reap...</string>
+    <string name="auth_confirm_password">Confirm Password*</string>
+    <string name="auth_confirm_password_hint">Re-enter your password</string>
+    <string name="auth_btn_register">Complete Registration</string>
+    <string name="auth_signing_in">Signing in...</string>
+    <string name="auth_registering">Registering profile...</string>
 </resources>

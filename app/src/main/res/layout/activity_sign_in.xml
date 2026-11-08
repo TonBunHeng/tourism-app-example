@@ -140,14 +140,39 @@
             </LinearLayout>
 
 
-            <!-- Sign In -->
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnSignIn"
-                style="@style/AppButton.Primary"
+            <!-- Error Banner -->
+            <TextView
+                android:id="@+id/tvErrorMessage"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/spacing_md"
-                android:text="@string/common_btn_sign_in" />
+                android:layout_marginTop="@dimen/spacing_sm"
+                android:textColor="@color/error"
+                android:textSize="@dimen/body_medium"
+                android:visibility="gone"
+                tools:text="Login error message goes here" />
+
+            <!-- Sign In -->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_md">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnSignIn"
+                    style="@style/AppButton.Primary"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/common_btn_sign_in" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center"
+                    android:indeterminateTint="@color/on_primary"
+                    android:visibility="gone" />
+
+            </FrameLayout>
 
 
             <!-- Sign Up -->

@@ -186,7 +186,7 @@ public interface ApiService {
     // 7. Notifications
     // ==========================================
     @GET("notifications")
-    Call<ApiResponse<List<Map<String, Object>>>> getNotifications(
+    Call<ApiResponse<List<com.example.smarttourismapp.model.NotificationItem>>> getNotifications(
             @Query("search") String search,
             @Query("category") String category,
             @Query("unread_only") Boolean unreadOnly

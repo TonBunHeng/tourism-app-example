@@ -26,6 +26,18 @@ public class Booking implements Serializable {
     @SerializedName("total_price")
     private Double totalPrice;
 
+    @SerializedName("special_requests")
+    private String specialRequests;
+
+    @SerializedName("business")
+    private Business business;
+
+    @SerializedName("service_name")
+    private String serviceName;
+
+    @SerializedName("place_name")
+    private String placeName;
+
     public Long getId() {
         return id;
     }
@@ -35,7 +47,7 @@ public class Booking implements Serializable {
     }
 
     public String getBookingReference() {
-        return bookingReference;
+        return bookingReference != null ? bookingReference : (id != null ? "#BK-" + id : "#BK-REF");
     }
 
     public void setBookingReference(String bookingReference) {
@@ -43,7 +55,7 @@ public class Booking implements Serializable {
     }
 
     public String getStatus() {
-        return status;
+        return status != null ? status : "Pending";
     }
 
     public void setStatus(String status) {
@@ -51,7 +63,7 @@ public class Booking implements Serializable {
     }
 
     public String getBookingDate() {
-        return bookingDate;
+        return bookingDate != null ? bookingDate : "";
     }
 
     public void setBookingDate(String bookingDate) {
@@ -59,7 +71,7 @@ public class Booking implements Serializable {
     }
 
     public String getBookingTime() {
-        return bookingTime;
+        return bookingTime != null ? bookingTime : "";
     }
 
     public void setBookingTime(String bookingTime) {
@@ -67,7 +79,7 @@ public class Booking implements Serializable {
     }
 
     public int getNumberOfGuests() {
-        return numberOfGuests;
+        return numberOfGuests > 0 ? numberOfGuests : 1;
     }
 
     public void setNumberOfGuests(int numberOfGuests) {
@@ -81,5 +93,33 @@ public class Booking implements Serializable {
     public void setTotalPrice(Double totalPrice) {
         this.totalPrice = totalPrice;
     }
-}
 
+    public String getSpecialRequests() {
+        return specialRequests;
+    }
+
+    public void setSpecialRequests(String specialRequests) {
+        this.specialRequests = specialRequests;
+    }
+
+    public Business getBusiness() {
+        return business;
+    }
+
+    public void setBusiness(Business business) {
+        this.business = business;
+    }
+
+    public String getTitle() {
+        if (business != null && !business.getName().isEmpty()) {
+            return business.getName();
+        }
+        if (serviceName != null && !serviceName.isEmpty()) {
+            return serviceName;
+        }
+        if (placeName != null && !placeName.isEmpty()) {
+            return placeName;
+        }
+        return "Angkor Destination Visit";
+    }
+}

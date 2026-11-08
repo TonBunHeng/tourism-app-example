@@ -15,13 +15,40 @@ public class Business implements Serializable {
     private String name;
 
     @SerializedName("category")
-    private String category;
+    private Object category;
+
+    @SerializedName("category_name")
+    private String categoryName;
 
     @SerializedName("province")
-    private String province;
+    private Object province;
+
+    @SerializedName("province_name")
+    private String provinceName;
 
     @SerializedName("address")
     private String address;
+
+    @SerializedName("description")
+    private String description;
+
+    @SerializedName("phone")
+    private String phone;
+
+    @SerializedName("email")
+    private String email;
+
+    @SerializedName("website")
+    private String website;
+
+    @SerializedName("image_url")
+    private String imageUrl;
+
+    @SerializedName("rating")
+    private float rating;
+
+    @SerializedName("reviews_count")
+    private int reviewsCount;
 
     @SerializedName("status")
     private String status;
@@ -46,35 +73,103 @@ public class Business implements Serializable {
     }
 
     public String getName() {
-        return name;
+        return name != null ? name : "";
     }
 
     public void setName(String name) {
         this.name = name;
     }
 
-    public String getCategory() {
-        return category;
+    public String getCategoryString() {
+        if (categoryName != null && !categoryName.isEmpty()) return categoryName;
+        if (category instanceof String) return (String) category;
+        return "Business Service";
     }
 
-    public void setCategory(String category) {
+    public String getCategory() {
+        return getCategoryString();
+    }
+
+    public void setCategory(Object category) {
         this.category = category;
     }
 
-    public String getProvince() {
-        return province;
+    public String getProvinceString() {
+        if (provinceName != null && !provinceName.isEmpty()) return provinceName;
+        if (province instanceof String) return (String) province;
+        return "Cambodia";
     }
 
-    public void setProvince(String province) {
+    public String getProvince() {
+        return getProvinceString();
+    }
+
+    public void setProvince(Object province) {
         this.province = province;
     }
 
     public String getAddress() {
-        return address;
+        return address != null ? address : "";
     }
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getDescription() {
+        return description != null ? description : "";
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getWebsite() {
+        return website;
+    }
+
+    public void setWebsite(String website) {
+        this.website = website;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
+    public float getRating() {
+        return rating > 0 ? rating : 4.6f;
+    }
+
+    public void setRating(float rating) {
+        this.rating = rating;
+    }
+
+    public int getReviewsCount() {
+        return reviewsCount;
+    }
+
+    public void setReviewsCount(int reviewsCount) {
+        this.reviewsCount = reviewsCount;
     }
 
     public String getStatus() {
@@ -93,4 +188,3 @@ public class Business implements Serializable {
         this.verificationStatus = verificationStatus;
     }
 }
-

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Title -->
+    <string name="onboarding_title_1">បើកដំណើរការទីតាំង!</string>
+    <string name="onboarding_title_2">ទទួលបានការជូនដំណឹង</string>
+    <string name="onboarding_title_3">ស្វែងយល់ជាមួយដំណើរកម្សាន្ត</string>
+    <string name="onboarding_title_4">តោះចាប់ផ្តើមទាំងអស់គ្នា</string>
+
+    <!-- Description -->
+    <string name="onboarding_description1">សម្រាប់បទពិសោធន៍ដ៏ល្អបំផុត យើងត្រូវការទីតាំងរបស់អ្នក ដើម្បីជួយណែនាំកន្លែងក្បែរៗ និងច្រើនទៀត!</string>
+    <string name="onboarding_description2">យើងនឹងជូនដំណឹងនៅពេលអ្នកនៅជិតកន្លែងទស្សនាដ៏អស្ចារ្យ ត្រៀមខ្លួនដើម្បីរុករក។</string>
+    <string name="onboarding_description3">ចុចលើប៊ូតុង Journey ដើម្បីទស្សនាដំណើរកម្សាន្តពហុព័ត៌មានដ៏សម្បូរបែប។</string>
+    <string name="onboarding_description4">គ្រប់គ្រងការកក់ សំបុត្រ ការជជែកផ្ទាល់ បញ្ជីកន្លែងទេសចរណ៍ និងផែនទី នៅក្នុងកម្មវិធីតែមួយ។</string>
+</resources>

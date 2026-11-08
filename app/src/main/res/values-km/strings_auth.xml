@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Sign In Screen -->
+    <string name="auth_sign_in">ចូលគណនី</string>
+    <string name="auth_sign_guide">សូមចូលទៅក្នុងគណនីរបស់អ្នកដើម្បីបន្ត!</string>
+    <string name="auth_no_account">មិនទាន់មានគណនីមែនទេ?</string>
+    <string name="auth_already_have_account">មានគណនីរួចហើយ?</string>
+    <string name="auth_or">ឬ</string>
+
+    <!-- Sign Up / Register Screen -->
+    <string name="auth_sign_up">បង្កើតគណនី</string>
+    <string name="auth_sign_up_guide">ជ្រើសរើសប្រភេទគណនីរបស់អ្នកដើម្បីចាប់ផ្តើមរុករក ឬគ្រប់គ្រងទេសចរណ៍នៅកម្ពុជា</string>
+    <string name="auth_account_type">ជ្រើសរើសប្រភេទគណនី</string>
+    <string name="auth_role_tourist">អ្នកដំណើរ / ភ្ញៀវទេសចរ</string>
+    <string name="auth_role_tourist_desc">រុករកប្រាសាទបុរាណ កក់ដំណើរកម្សាន្ត និងរៀបចំដំណើរកម្សាន្ត</string>
+    <string name="auth_role_business">ម្ចាស់អាជីវកម្ម</string>
+    <string name="auth_role_business_desc">ចុះឈ្មោះ និងគ្រប់គ្រងសណ្ឋាគារ ភោជនីយដ្ឋាន និងសេវាកម្មទេសចរណ៍</string>
+    <string name="auth_full_name">ឈ្មោះពេញ*</string>
+    <string name="auth_full_name_hint">ឧ. ចាន់ សុផល / John Doe</string>
+    <string name="auth_phone">លេខទូរស័ព្ទ</string>
+    <string name="auth_phone_hint">+855 12 345 678</string>
+    <string name="auth_location">ខេត្ត / ក្រុង</string>
+    <string name="auth_bio_tourist">ចំណាប់អារម្មណ៍ទេសចរណ៍ &amp; ជីវប្រវត្តិ</string>
+    <string name="auth_bio_business">ការពិពណ៌នាអំពីអាជីវកម្ម &amp; ប្រភេទ</string>
+    <string name="auth_bio_tourist_hint">ឧ. ស្រឡាញ់បេតិកភណ្ឌប្រាសាទបុរាណ និងចង់ទស្សនាអង្គរវត្ត...</string>
+    <string name="auth_bio_business_hint">ឧ. ភោជនីយដ្ឋានប្រពៃណីខ្មែរនៅក្រុងសៀមរាប...</string>
+    <string name="auth_confirm_password">បញ្ជាក់ពាក្យសម្ងាត់*</string>
+    <string name="auth_confirm_password_hint">បញ្ចូលពាក្យសម្ងាត់របស់អ្នកម្តងទៀត</string>
+    <string name="auth_btn_register">បញ្ចប់ការចុះឈ្មោះ</string>
+    <string name="auth_signing_in">កំពុងចូល...</string>
+    <string name="auth_registering">កំពុងបង្កើតគណនី...</string>
+</resources>

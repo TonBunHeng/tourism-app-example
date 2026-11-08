@@ -17,6 +17,9 @@ public class Province implements Serializable {
     @SerializedName("icon")
     private String icon;
 
+    @SerializedName("image")
+    private String image;
+
     @SerializedName("description")
     private String description;
 
@@ -56,6 +59,19 @@ public class Province implements Serializable {
 
     public void setIcon(String icon) {
         this.icon = icon;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public String getImageUrl() {
+        if (image != null && !image.isEmpty()) return image;
+        return icon;
     }
 
     public String getDescription() {

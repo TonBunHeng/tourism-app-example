@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">កម្មវិធីទេសចរណ៍ឆ្លាតវៃ</string>
+
+    <!-- Navigation -->
+    <string name="nav_home">ទំព័រដើម</string>
+    <string name="nav_explore">រុករក</string>
+    <string name="nav_bookings">ការកក់</string>
+    <string name="nav_favorites">ពេញចិត្ត</string>
+    <string name="nav_profile">គណនី</string>
+
+    <!-- Common -->
+    <string name="action_search">ស្វែងរក</string>
+    <string name="action_retry">ព្យាយាមម្តងទៀត</string>
+    <string name="action_cancel">បោះបង់</string>
+    <string name="action_save">រក្សាទុក</string>
+    <string name="action_edit">កែប្រែ</string>
+    <string name="action_delete">លុប</string>
+    <string name="action_sign_out">ចាកចេញ</string>
+    <string name="action_view_all">មើលទាំងអស់</string>
+    <string name="action_book_now">កក់ឥឡូវនេះ</string>
+    <string name="action_share">ចែករំលែក</string>
+    <string name="action_write_review">សរសេរការវាយតម្លៃ</string>
+
+    <!-- Home -->
+    <string name="home_hero_title">បទពិសោធន៍បេតិកភណ្ឌបុរាណ</string>
+    <string name="home_hero_subtitle">អង្គរ និងទូទាំងកម្ពុជា</string>
+    <string name="home_search_hint">ស្វែងរកប្រាសាទ ខេត្ត សណ្ឋាគារ...</string>
+    <string name="home_categories">ប្រភេទកន្លែង</string>
+    <string name="home_featured">គោលដៅពិសេស</string>
+    <string name="home_provinces">បណ្តាខេត្តនៃកម្ពុជា</string>
+    <string name="home_popular">កន្លែងទាក់ទាញពេញនិយម</string>
+    <string name="home_emergency_hotlines">លេខទូរស័ព្ទសង្គ្រោះបន្ទាន់</string>
+
+    <!-- Explore -->
+    <string name="explore_title">រុករកកម្ពុជា</string>
+    <string name="explore_all_categories">គ្រប់ប្រភេទ</string>
+    <string name="explore_no_places">មិនមានទិន្នន័យស្របតាមលក្ខខណ្ឌស្វែងរកទេ។</string>
+
+    <!-- Bookings -->
+    <string name="bookings_title">ការកក់របស់ខ្ញុំ</string>
+    <string name="bookings_empty">អ្នកមិនទាន់មានការកក់ណាមួយនៅឡើយទេ។</string>
+    <string name="bookings_cancel_confirm">តើអ្នកពិតជាចង់បោះបង់ការកក់នេះមែនទេ?</string>
+
+    <!-- Favorites -->
+    <string name="favorites_title">បញ្ជីពេញចិត្ត</string>
+    <string name="favorites_empty">បញ្ជីពេញចិត្តរបស់អ្នកនៅទទេនៅឡើយ។ ចុចរូបបេះដូងដើម្បីរក្សាទុក!</string>
+    <string name="favorites_all">ទាំងអស់</string>
+    <string name="favorites_visited">បានទៅដល់</string>
+    <string name="favorites_unvisited">ចង់ទៅ</string>
+
+    <!-- Profile & Settings -->
+    <string name="profile_edit">កែប្រែព័ត៌មាន</string>
+    <string name="profile_change_password">ពាក្យសម្ងាត់</string>
+    <string name="profile_preferences">ការកំណត់ទូទៅ</string>
+    <string name="profile_language">ភាសា / Language</string>
+    <string name="profile_dark_mode">មុខងារងងឹត (Dark Mode)</string>
+    <string name="profile_help_support">ជំនួយទេសចរណ៍ &amp; សំណួរញឹកញាប់</string>
+    <string name="profile_delete_account">ស្នើសុំលុបគណនី</string>
+
+    <!-- Notifications -->
+    <string name="notifications_title">ការជូនដំណឹង</string>
+    <string name="notifications_empty">មិនទាន់មានការជូនដំណឹងនៅឡើយទេ។</string>
+    <string name="notifications_mark_all_read">សម្គាល់ថាបានអានទាំងអស់</string>
+
+    <!-- Support & AI -->
+    <string name="support_title">ជំនួយ និងសេវាសង្គ្រោះបន្ទាន់</string>
+    <string name="ai_assistant_title">ជំនួយការវៃឆ្លាត AngkorVers</string>
+    <string name="ai_ask_hint">សួរសំណួរអំពីប្រាសាទ ម្ហូបអាហារ វប្បធម៌...</string>
+</resources>

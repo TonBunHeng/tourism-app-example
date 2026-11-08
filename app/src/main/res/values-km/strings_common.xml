@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Button -->
+    <string name="common_btn_get_start">ចាប់ផ្តើម</string>
+    <string name="common_btn_next">បន្ទាប់</string>
+    <string name="common_btn_skip">រំលង</string>
+    <string name="common_btn_forgot">ភ្លេចពាក្យសម្ងាត់របស់អ្នកមែនទេ?</string>
+    <string name="common_btn_sign_in">ចូលគណនី</string>
+    <string name="common_btn_sign_up">ចុះឈ្មោះ</string>
+    <string name="common_btn_continue_with_facebook">បន្តជាមួយ Facebook</string>
+    <string name="common_btn_continue_with_google">បន្តជាមួយ Google</string>
+
+    <!-- Text Input -->
+    <string name="common_text_input_email">អ៊ីមែល*</string>
+    <string name="common_text_input_email_hint">user@example.com</string>
+    <string name="common_text_input_password">ពាក្យសម្ងាត់*</string>
+    <string name="common_text_input_password_hint">សូមបញ្ចូលពាក្យសម្ងាត់</string>
+    
+    <!-- Check Box -->
+    <string name="common_check_box_remember">ចងចាំខ្ញុំ</string>
+</resources>
