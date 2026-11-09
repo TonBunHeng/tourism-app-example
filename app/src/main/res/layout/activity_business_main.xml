@@ -36,8 +36,7 @@
                 android:layout_weight="1"
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
-                android:background="@drawable/splash_background"
-                android:backgroundTint="#F1F5F9"
+                android:background="@drawable/bg_pill_user"
                 android:paddingHorizontal="10dp"
                 android:paddingVertical="6dp"
                 android:clickable="true"
@@ -76,11 +75,6 @@
                         android:textColor="@color/text_secondary" />
                 </LinearLayout>
 
-                <ImageView
-                    android:layout_width="16dp"
-                    android:layout_height="16dp"
-                    android:src="@drawable/ic_arrow_drop_down"
-                    app:tint="@color/text_secondary" />
             </LinearLayout>
 
             <!-- Notifications Icon with Unread Badge -->
@@ -107,8 +101,7 @@
                     android:layout_gravity="top|end"
                     android:layout_marginTop="4dp"
                     android:layout_marginEnd="4dp"
-                    android:background="@drawable/splash_background"
-                    android:backgroundTint="@color/error"
+                    android:background="@drawable/bg_badge_circle"
                     android:text="2"
                     android:textColor="@android:color/white"
                     android:textSize="9sp"
@@ -147,8 +140,9 @@
             android:layout_height="wrap_content"
             android:background="@color/background"
             app:elevation="8dp"
-            app:itemIconTint="@color/primary"
-            app:itemTextColor="@color/primary"
+            app:itemActiveIndicatorStyle="@null"
+            app:itemIconTint="@color/nav_item_color"
+            app:itemTextColor="@color/nav_item_color"
             app:labelVisibilityMode="labeled"
             app:menu="@menu/menu_business_bottom_nav"
             app:layout_constraintBottom_toBottomOf="parent"

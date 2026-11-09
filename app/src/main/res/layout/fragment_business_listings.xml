@@ -66,7 +66,7 @@
         android:layout_gravity="bottom|end"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
-        android:text="+ Add Offering"
+        android:text="Add Offering"
         android:textColor="@color/on_primary"
         app:icon="@drawable/ic_add"
         app:iconTint="@color/on_primary"

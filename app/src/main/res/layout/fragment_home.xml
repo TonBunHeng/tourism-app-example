@@ -68,8 +68,7 @@
                             android:layout_width="32dp"
                             android:layout_height="32dp"
                             android:layout_marginStart="8dp"
-                            android:background="@drawable/splash_background"
-                            android:backgroundTint="#26FFFFFF"
+                            android:background="?android:attr/selectableItemBackgroundBorderless"
                             android:src="@drawable/ic_bell"
                             app:tint="@color/on_primary"
                             android:contentDescription="Notifications" />
@@ -168,11 +167,8 @@
                         android:background="?android:attr/selectableItemBackground">
 
                         <ImageView
-                            android:layout_width="44dp"
-                            android:layout_height="44dp"
-                            android:background="@drawable/splash_background"
-                            android:backgroundTint="#EFF6FF"
-                            android:padding="10dp"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
                             android:src="@drawable/ic_hotel"
                             app:tint="@color/primary" />
 
@@ -199,11 +195,8 @@
                         android:background="?android:attr/selectableItemBackground">
 
                         <ImageView
-                            android:layout_width="44dp"
-                            android:layout_height="44dp"
-                            android:background="@drawable/splash_background"
-                            android:backgroundTint="#F0FDF4"
-                            android:padding="10dp"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
                             android:src="@drawable/ic_location"
                             app:tint="#16A34A" />
 
@@ -230,11 +223,8 @@
                         android:background="?android:attr/selectableItemBackground">
 
                         <ImageView
-                            android:layout_width="44dp"
-                            android:layout_height="44dp"
-                            android:background="@drawable/splash_background"
-                            android:backgroundTint="#FFFBEB"
-                            android:padding="10dp"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
                             android:src="@drawable/ic_calendar"
                             app:tint="#D97706" />
 
@@ -261,11 +251,8 @@
                         android:background="?android:attr/selectableItemBackground">
 
                         <ImageView
-                            android:layout_width="44dp"
-                            android:layout_height="44dp"
-                            android:background="@drawable/splash_background"
-                            android:backgroundTint="#FAF5FF"
-                            android:padding="10dp"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
                             android:src="@drawable/ic_chat"
                             app:tint="#9333EA" />
 

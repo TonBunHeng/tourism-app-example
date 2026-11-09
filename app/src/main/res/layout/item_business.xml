@@ -29,21 +29,6 @@
                 android:background="#E2E8F0"
                 tools:srcCompat="@drawable/onboarding_2" />
 
-            <TextView
-                android:id="@+id/tvBusinessCategory"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="top|start"
-                android:layout_margin="12dp"
-                android:background="@drawable/splash_background"
-                android:backgroundTint="#CC003E83"
-                android:paddingHorizontal="10dp"
-                android:paddingVertical="5dp"
-                android:textColor="#FFFFFF"
-                android:textSize="11sp"
-                android:textStyle="bold"
-                tools:text="Hotel &amp; Resort" />
-
         </FrameLayout>
 
         <LinearLayout
@@ -51,6 +36,16 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="14dp">
+
+            <TextView
+                android:id="@+id/tvBusinessCategory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/primary"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:textAllCaps="true"
+                tools:text="Hotel &amp; Resort" />
 
             <TextView
                 android:id="@+id/tvBusinessName"
