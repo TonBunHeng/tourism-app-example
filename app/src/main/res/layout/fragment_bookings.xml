@@ -6,23 +6,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/background">
+    android:background="#F8FAFC">
 
-    <!-- Header -->
+    <!-- Top Header & Filter Bar -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingHorizontal="20dp"
+        android:paddingHorizontal="16dp"
         android:paddingTop="16dp"
-        android:paddingBottom="12dp"
+        android:paddingBottom="10dp"
+        android:background="@color/background"
+        android:elevation="2dp"
         android:orientation="vertical">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="My Reservations"
-            android:textColor="@color/primary"
-            android:textSize="22sp"
+            android:textColor="@color/text_primary"
+            android:textSize="20sp"
             android:textStyle="bold" />
 
         <TextView
@@ -31,64 +33,62 @@
             android:layout_marginTop="2dp"
             android:text="Track your upcoming trips, hotel stays, and guided visits"
             android:textColor="@color/text_secondary"
-            android:textSize="13sp" />
+            android:textSize="12sp" />
+
+        <!-- Status Filter Tabs (Chips) -->
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:scrollbars="none">
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chipGroupBookingStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:singleSelection="true">
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipBookingAll"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="All" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipBookingPending"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pending" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipBookingConfirmed"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Confirmed" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipBookingCompleted"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Completed" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipBookingCancelled"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cancelled" />
+
+            </com.google.android.material.chip.ChipGroup>
+
+        </HorizontalScrollView>
 
     </LinearLayout>
-
-    <!-- Status Filter Tabs (Chips) -->
-    <HorizontalScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:scrollbars="none"
-        android:paddingHorizontal="20dp"
-        android:clipToPadding="false"
-        android:layout_marginBottom="8dp">
-
-        <com.google.android.material.chip.ChipGroup
-            android:id="@+id/chipGroupBookingStatus"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:singleSelection="true">
-
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chipBookingAll"
-                style="@style/Widget.Material3.Chip.Filter"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:checked="true"
-                android:text="All" />
-
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chipBookingPending"
-                style="@style/Widget.Material3.Chip.Filter"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Pending" />
-
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chipBookingConfirmed"
-                style="@style/Widget.Material3.Chip.Filter"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Confirmed" />
-
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chipBookingCompleted"
-                style="@style/Widget.Material3.Chip.Filter"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Completed" />
-
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chipBookingCancelled"
-                style="@style/Widget.Material3.Chip.Filter"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Cancelled" />
-
-        </com.google.android.material.chip.ChipGroup>
-
-    </HorizontalScrollView>
 
     <!-- Swipe Refresh & List -->
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
@@ -104,7 +104,8 @@
                 android:id="@+id/rvBookings"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:paddingHorizontal="20dp"
+                android:paddingHorizontal="16dp"
+                android:paddingTop="12dp"
                 android:clipToPadding="false"
                 android:paddingBottom="80dp"
                 tools:listitem="@layout/item_booking" />
@@ -116,44 +117,60 @@
                 android:layout_gravity="center"
                 android:visibility="gone" />
 
-            <!-- Empty State -->
-            <LinearLayout
+            <!-- Empty State Card -->
+            <com.google.android.material.card.MaterialCardView
                 android:id="@+id/layoutBookingsEmpty"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:padding="24dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="24dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                app:strokeWidth="1dp"
+                app:strokeColor="#E2E8F0"
+                app:cardBackgroundColor="@color/background"
                 android:visibility="gone">
 
-                <ImageView
-                    android:layout_width="64dp"
-                    android:layout_height="64dp"
-                    android:src="@drawable/ic_calendar"
-                    app:tint="@color/text_disable" />
-
-                <TextView
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:text="No reservations found"
-                    android:textColor="@color/text_primary"
-                    android:textSize="17sp"
-                    android:textStyle="bold" />
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="28dp">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:text="Browse destinations or hotels to plan your next visit!"
-                    android:textColor="@color/text_secondary"
-                    android:textSize="13sp" />
+                    <ImageView
+                        android:layout_width="56dp"
+                        android:layout_height="56dp"
+                        android:background="@drawable/splash_background"
+                        android:backgroundTint="#FFFBEB"
+                        android:padding="14dp"
+                        android:src="@drawable/ic_calendar"
+                        app:tint="#D97706" />
 
-            </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="14dp"
+                        android:text="No Reservations Found"
+                        android:textColor="@color/text_primary"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:gravity="center"
+                        android:text="Browse destinations or hotels to plan your visit and check your itinerary here."
+                        android:textColor="@color/text_secondary"
+                        android:textSize="13sp" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
 
         </FrameLayout>
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 </LinearLayout>
-

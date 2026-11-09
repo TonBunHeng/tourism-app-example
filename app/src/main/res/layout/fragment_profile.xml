@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background"
+    android:background="#F8FAFC"
     android:clipToPadding="false"
     android:paddingBottom="80dp">
 
@@ -13,139 +13,177 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingHorizontal="20dp"
-        android:paddingTop="24dp">
+        android:padding="16dp">
 
-        <!-- User Avatar & Profile Card -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <FrameLayout
-                android:layout_width="100dp"
-                android:layout_height="100dp">
-
-                <ImageView
-                    android:id="@+id/ivProfileAvatar"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/ic_person"
-                    android:background="@drawable/splash_background"
-                    android:backgroundTint="#F1F5F9" />
-
-                <!-- Camera badge for avatar upload -->
-                <ImageView
-                    android:id="@+id/btnUploadAvatar"
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:layout_gravity="bottom|end"
-                    android:background="@drawable/splash_background"
-                    android:backgroundTint="@color/primary"
-                    android:padding="6dp"
-                    android:src="@drawable/ic_edit"
-                    app:tint="@color/on_primary" />
-
-            </FrameLayout>
-
-            <TextView
-                android:id="@+id/tvProfileName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:textColor="@color/text_primary"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                tools:text="Dara Sophal" />
-
-            <TextView
-                android:id="@+id/tvProfileEmail"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:textColor="@color/text_secondary"
-                android:textSize="13sp"
-                tools:text="dara@angkorverses.com" />
-
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chipRole"
-                style="@style/Widget.Material3.Chip.Assist"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Traveler / Tourist"
-                app:chipBackgroundColor="#EBF2FA"
-                android:textColor="@color/primary" />
-
-            <TextView
-                android:id="@+id/tvProfileLocation"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:textColor="@color/text_secondary"
-                android:textSize="13sp"
-                tools:text="Siem Reap, Cambodia" />
-
-            <TextView
-                android:id="@+id/tvProfileBio"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:gravity="center"
-                android:textColor="@color/text_secondary"
-                android:textSize="13sp"
-                tools:text="Passionate traveler exploring ancient Khmer temples and cultural heritage." />
-
-        </LinearLayout>
-
-        <!-- Account Actions -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:orientation="horizontal">
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnEditProfile"
-                style="@style/Widget.Material3.Button.OutlinedButton"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_marginEnd="6dp"
-                android:text="Edit Profile"
-                app:icon="@drawable/ic_edit" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnChangePassword"
-                style="@style/Widget.Material3.Button.OutlinedButton"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_marginStart="6dp"
-                android:text="Password" />
-
-        </LinearLayout>
-
-        <!-- Preferences & App Settings -->
+        <!-- Top Page Title -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
-            android:text="Preferences &amp; Settings"
-            android:textColor="@color/text_primary"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:text="Traveler Profile &amp; Preferences"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/text_primary" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="Profile identity, travel preferences, and account security"
+            android:textSize="12sp"
+            android:textColor="@color/text_secondary" />
+
+        <!-- User Identity Card -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="2dp"
+            app:strokeWidth="1dp"
+            app:strokeColor="#E2E8F0"
+            app:cardBackgroundColor="@color/background">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp"
+                android:gravity="center_horizontal">
+
+                <FrameLayout
+                    android:layout_width="96dp"
+                    android:layout_height="96dp">
+
+                    <ImageView
+                        android:id="@+id/ivProfileAvatar"
+                        android:layout_width="96dp"
+                        android:layout_height="96dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/ic_person"
+                        android:background="@drawable/splash_background"
+                        android:backgroundTint="#EFF6FF" />
+
+                    <!-- Camera badge for avatar upload -->
+                    <ImageView
+                        android:id="@+id/btnUploadAvatar"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:layout_gravity="bottom|end"
+                        android:background="@drawable/splash_background"
+                        android:backgroundTint="@color/primary"
+                        android:padding="6dp"
+                        android:src="@drawable/ic_edit"
+                        app:tint="@color/on_primary" />
+
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/tvProfileName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:textColor="@color/text_primary"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    tools:text="Dara Sophal" />
+
+                <TextView
+                    android:id="@+id/tvProfileEmail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="13sp"
+                    tools:text="dara@angkorverses.com" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipRole"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="8dp"
+                    android:text="Traveler / Tourist"
+                    android:textSize="11sp"
+                    app:chipMinHeight="26dp"
+                    app:chipBackgroundColor="@color/primary"
+                    android:textColor="@color/on_primary" />
+
+                <TextView
+                    android:id="@+id/tvProfileLocation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="13sp"
+                    tools:text="📍 Siem Reap, Cambodia" />
+
+                <TextView
+                    android:id="@+id/tvProfileBio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:gravity="center"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="13sp"
+                    tools:text="Passionate traveler exploring ancient Khmer temples and cultural heritage." />
+
+                <!-- Action buttons -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnEditProfile"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="6dp"
+                        android:text="Edit Info"
+                        android:textSize="12sp"
+                        app:strokeColor="@color/primary"
+                        app:cornerRadius="10dp"
+                        app:icon="@drawable/ic_edit"
+                        app:iconSize="16dp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnChangePassword"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="1"
+                        android:layout_marginStart="6dp"
+                        android:text="Password"
+                        android:textSize="12sp"
+                        app:strokeColor="@color/primary"
+                        app:cornerRadius="10dp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Menu Section 1: Preferences -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="8dp"
+            android:text="PREFERENCES &amp; SETTINGS"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:textColor="@color/text_secondary" />
 
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
             app:cardCornerRadius="16dp"
-            app:cardElevation="0dp"
+            app:cardElevation="2dp"
             app:strokeWidth="1dp"
-            app:strokeColor="@color/mute"
+            app:strokeColor="#E2E8F0"
             app:cardBackgroundColor="@color/background">
 
             <LinearLayout
@@ -157,19 +195,45 @@
                 <LinearLayout
                     android:id="@+id/rowLanguage"
                     android:layout_width="match_parent"
-                    android:layout_height="52dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
                     android:gravity="center_vertical"
-                    android:paddingHorizontal="16dp"
+                    android:padding="16dp"
                     android:clickable="true"
-                    android:focusable="true">
+                    android:focusable="true"
+                    android:background="?android:attr/selectableItemBackground">
 
-                    <TextView
+                    <ImageView
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:background="@drawable/splash_background"
+                        android:backgroundTint="#F0FDF4"
+                        android:padding="8dp"
+                        android:src="@drawable/ic_location"
+                        app:tint="#16A34A" />
+
+                    <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Language / ភាសា"
-                        android:textColor="@color/text_primary"
-                        android:textSize="14sp" />
+                        android:orientation="vertical"
+                        android:layout_marginStart="14dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Language / ភាសា"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/text_primary" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Select display language for app"
+                            android:textSize="12sp"
+                            android:textColor="@color/text_secondary" />
+                    </LinearLayout>
 
                     <TextView
                         android:id="@+id/tvCurrentLanguage"
@@ -178,28 +242,61 @@
                         android:text="English"
                         android:textColor="@color/primary"
                         android:textSize="13sp"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        android:layout_marginEnd="6dp" />
+
+                    <ImageView
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:src="@drawable/ic_chevron_right"
+                        app:tint="@color/text_secondary" />
                 </LinearLayout>
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="#F1F5F9" />
+                    android:background="#F1F5F9"
+                    android:layout_marginStart="66dp" />
 
                 <!-- Dark Mode Toggle Item -->
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="52dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
                     android:gravity="center_vertical"
-                    android:paddingHorizontal="16dp">
+                    android:padding="16dp">
 
-                    <TextView
+                    <ImageView
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:background="@drawable/splash_background"
+                        android:backgroundTint="#FAF5FF"
+                        android:padding="8dp"
+                        android:src="@drawable/ic_clock"
+                        app:tint="#9333EA" />
+
+                    <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Dark Mode"
-                        android:textColor="@color/text_primary"
-                        android:textSize="14sp" />
+                        android:orientation="vertical"
+                        android:layout_marginStart="14dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Dark Mode"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/text_primary" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Enable dark theme interface"
+                            android:textSize="12sp"
+                            android:textColor="@color/text_secondary" />
+                    </LinearLayout>
 
                     <com.google.android.material.materialswitch.MaterialSwitch
                         android:id="@+id/switchDarkMode"
@@ -207,63 +304,155 @@
                         android:layout_height="wrap_content" />
                 </LinearLayout>
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="#F1F5F9" />
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Menu Section 2: Support & Security -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="8dp"
+            android:text="SUPPORT &amp; ACCOUNT"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:textColor="@color/text_secondary" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="2dp"
+            app:strokeWidth="1dp"
+            app:strokeColor="#E2E8F0"
+            app:cardBackgroundColor="@color/background">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
                 <!-- Support & Helpdesk -->
                 <LinearLayout
                     android:id="@+id/rowSupport"
                     android:layout_width="match_parent"
-                    android:layout_height="52dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
                     android:gravity="center_vertical"
-                    android:paddingHorizontal="16dp"
+                    android:padding="16dp"
                     android:clickable="true"
-                    android:focusable="true">
+                    android:focusable="true"
+                    android:background="?android:attr/selectableItemBackground">
 
-                    <TextView
+                    <ImageView
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:background="@drawable/splash_background"
+                        android:backgroundTint="#EFF6FF"
+                        android:padding="8dp"
+                        android:src="@drawable/ic_chat"
+                        app:tint="@color/primary" />
+
+                    <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Tourism Helpdesk &amp; FAQs"
-                        android:textColor="@color/text_primary"
-                        android:textSize="14sp" />
+                        android:orientation="vertical"
+                        android:layout_marginStart="14dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Tourism Helpdesk &amp; FAQs"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/text_primary" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Emergency contacts, hotline numbers &amp; guides"
+                            android:textSize="12sp"
+                            android:textColor="@color/text_secondary" />
+                    </LinearLayout>
 
                     <ImageView
-                        android:layout_width="16dp"
-                        android:layout_height="16dp"
-                        android:src="@drawable/ic_location"
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:src="@drawable/ic_chevron_right"
                         app:tint="@color/text_secondary" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#F1F5F9"
+                    android:layout_marginStart="66dp" />
+
+                <!-- Delete Account -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="16dp">
+
+                    <ImageView
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:background="@drawable/splash_background"
+                        android:backgroundTint="#FEE2E2"
+                        android:padding="8dp"
+                        android:src="@drawable/ic_delete"
+                        app:tint="@color/error" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_marginStart="14dp">
+
+                        <TextView
+                            android:id="@+id/btnDeleteAccount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Delete Account &amp; Privacy"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/error"
+                            android:clickable="true"
+                            android:focusable="true" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Permanently remove your account and stored data"
+                            android:textSize="12sp"
+                            android:textColor="@color/text_secondary" />
+                    </LinearLayout>
                 </LinearLayout>
 
             </LinearLayout>
 
         </com.google.android.material.card.MaterialCardView>
 
-        <!-- Account Deletion Request -->
-        <TextView
-            android:id="@+id/btnDeleteAccount"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="24dp"
-            android:text="Request Account Erasure / Privacy Deletion"
-            android:textColor="@color/error"
-            android:textSize="12sp"
-            android:padding="8dp" />
-
         <!-- Sign Out Button -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnSignOut"
-            style="@style/AppButton.Secondary"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="20dp"
             android:text="Sign Out"
-            app:icon="@drawable/ic_logout" />
+            android:textColor="@color/error"
+            android:textSize="14sp"
+            app:strokeColor="#FCA5A5"
+            app:cornerRadius="12dp"
+            app:icon="@drawable/ic_logout"
+            app:iconTint="@color/error" />
 
     </LinearLayout>
 
 </androidx.core.widget.NestedScrollView>
-

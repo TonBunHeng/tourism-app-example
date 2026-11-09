@@ -6,13 +6,13 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background">
+    android:background="#F8FAFC">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/background"
-        app:elevation="0dp">
+        app:elevation="2dp">
 
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbar"
@@ -27,7 +27,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:scrollbars="none"
-            android:paddingHorizontal="12dp"
+            android:paddingHorizontal="16dp"
             android:paddingBottom="8dp">
 
             <com.google.android.material.chip.ChipGroup
@@ -88,6 +88,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:background="@color/background"
+            android:elevation="8dp"
             android:gravity="center_vertical"
             android:orientation="horizontal"
             android:paddingHorizontal="16dp"
@@ -120,11 +121,11 @@
                 android:backgroundTint="@color/primary"
                 android:padding="10dp"
                 android:src="@drawable/ic_check"
-                app:tint="@color/on_primary" />
+                app:tint="@color/on_primary"
+                android:contentDescription="Send" />
 
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
-

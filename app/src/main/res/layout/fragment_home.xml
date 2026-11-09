@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/swipeRefreshHome"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#F8FAFC">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -16,285 +17,279 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="16dp">
 
             <!-- =========================
-                 Header Bar
-                 ========================= -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingHorizontal="20dp"
-                android:paddingTop="16dp"
-                android:paddingBottom="12dp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/tvHomeGreeting"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/primary"
-                        android:textSize="22sp"
-                        android:textStyle="bold"
-                        tools:text="Hello, Traveler!" />
-
-                    <TextView
-                        android:id="@+id/tvHomeLocationSubtitle"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
-                        android:textColor="@color/text_secondary"
-                        android:textSize="13sp"
-                        tools:text="Explore the Wonders of Cambodia" />
-                </LinearLayout>
-
-                <ImageButton
-                    android:id="@+id/btnHomeNotifications"
-                    android:layout_width="44dp"
-                    android:layout_height="44dp"
-                    android:background="@drawable/splash_background"
-                    android:backgroundTint="#F1F5F9"
-                    android:src="@drawable/ic_bell"
-                    app:tint="@color/primary"
-                    android:contentDescription="Notifications" />
-
-            </LinearLayout>
-
-            <!-- =========================
-                 Hero Banner with Search
+                 Hero Card (Business Hub Style)
                  ========================= -->
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardHomeHero"
                 android:layout_width="match_parent"
-                android:layout_height="180dp"
-                android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="16dp"
-                app:cardCornerRadius="24dp"
-                app:cardElevation="3dp">
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="@color/primary"
+                android:layout_marginBottom="16dp">
 
-                <FrameLayout
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/onboarding_1" />
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="#77002D62" />
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="18dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:gravity="center_vertical"
-                        android:orientation="vertical"
-                        android:padding="20dp">
+                        android:orientation="horizontal">
 
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:id="@+id/tvHomeGreeting"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:text="Angkor &amp; Beyond"
+                            android:layout_weight="1"
                             android:textColor="#E0E7FF"
-                            android:textSize="12sp"
+                            android:textSize="13sp"
                             android:textStyle="bold"
-                            android:textAllCaps="true" />
+                            tools:text="Hello, Traveler!" />
 
-                        <TextView
+                        <com.google.android.material.chip.Chip
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="4dp"
-                            android:text="Experience Ancient Heritage"
-                            android:textColor="#FFFFFF"
-                            android:textSize="20sp"
-                            android:textStyle="bold" />
+                            android:layout_height="30dp"
+                            android:text="Explore Cambodia"
+                            android:textSize="11sp"
+                            app:chipMinHeight="26dp"
+                            app:chipBackgroundColor="@color/secondary"
+                            android:textColor="@color/on_secondary" />
 
-                        <!-- Search Box inside Banner -->
-                        <com.google.android.material.card.MaterialCardView
-                            android:id="@+id/cardHomeSearch"
-                            android:layout_width="match_parent"
-                            android:layout_height="46dp"
-                            android:layout_marginTop="14dp"
-                            android:clickable="true"
-                            android:focusable="true"
-                            app:cardCornerRadius="23dp"
-                            app:cardElevation="0dp"
-                            app:cardBackgroundColor="#FFFFFF">
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:gravity="center_vertical"
-                                android:orientation="horizontal"
-                                android:paddingHorizontal="16dp">
-
-                                <ImageView
-                                    android:layout_width="20dp"
-                                    android:layout_height="20dp"
-                                    android:src="@drawable/ic_search"
-                                    app:tint="@color/text_secondary" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginStart="10dp"
-                                    android:text="Search temples, provinces, hotels..."
-                                    android:textColor="@color/text_disable"
-                                    android:textSize="13sp" />
-                            </LinearLayout>
-
-                        </com.google.android.material.card.MaterialCardView>
+                        <ImageButton
+                            android:id="@+id/btnHomeNotifications"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:layout_marginStart="8dp"
+                            android:background="@drawable/splash_background"
+                            android:backgroundTint="#26FFFFFF"
+                            android:src="@drawable/ic_bell"
+                            app:tint="@color/on_primary"
+                            android:contentDescription="Notifications" />
 
                     </LinearLayout>
 
-                </FrameLayout>
+                    <TextView
+                        android:id="@+id/tvHomeHeroTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Discover Ancient Wonders"
+                        android:textColor="@color/on_primary"
+                        android:textSize="22sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvHomeLocationSubtitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:textColor="#CBD5E1"
+                        android:textSize="13sp"
+                        tools:text="Temples, Coastal Escapes &amp; Cultural Heritage" />
+
+                    <!-- Search Box inside Hero Banner -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cardHomeSearch"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginTop="16dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        app:cardCornerRadius="24dp"
+                        app:cardElevation="0dp"
+                        app:cardBackgroundColor="#FFFFFF">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:paddingHorizontal="16dp">
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:src="@drawable/ic_search"
+                                app:tint="@color/text_secondary" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                android:text="Search temples, provinces, hotels..."
+                                android:textColor="@color/text_disable"
+                                android:textSize="13sp" />
+                        </LinearLayout>
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                </LinearLayout>
 
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- Quick Service Badges (Hotels, Tours, Provinces, AI Guide) -->
-            <LinearLayout
+            <!-- =========================
+                 Quick Services / Features Grid
+                 ========================= -->
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="14dp"
-                android:paddingHorizontal="20dp"
-                android:orientation="horizontal">
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                app:strokeWidth="1dp"
+                app:strokeColor="#E2E8F0"
+                app:cardBackgroundColor="@color/background">
 
                 <LinearLayout
-                    android:id="@+id/btnQuickHotels"
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:clickable="true"
-                    android:focusable="true">
+                    android:paddingVertical="14dp"
+                    android:paddingHorizontal="8dp"
+                    android:orientation="horizontal">
 
-                    <ImageView
-                        android:layout_width="44dp"
-                        android:layout_height="44dp"
-                        android:background="@drawable/splash_background"
-                        android:backgroundTint="#EFF6FF"
-                        android:padding="10dp"
-                        android:src="@drawable/ic_hotel"
-                        app:tint="@color/primary" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <!-- Hotels / Businesses -->
+                    <LinearLayout
+                        android:id="@+id/btnQuickHotels"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:text="Businesses"
-                        android:textColor="@color/text_primary"
-                        android:textSize="11sp"
-                        android:textStyle="bold" />
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:background="?android:attr/selectableItemBackground">
+
+                        <ImageView
+                            android:layout_width="44dp"
+                            android:layout_height="44dp"
+                            android:background="@drawable/splash_background"
+                            android:backgroundTint="#EFF6FF"
+                            android:padding="10dp"
+                            android:src="@drawable/ic_hotel"
+                            app:tint="@color/primary" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:text="Businesses"
+                            android:textColor="@color/text_primary"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <!-- Provinces -->
+                    <LinearLayout
+                        android:id="@+id/btnQuickProvinces"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:background="?android:attr/selectableItemBackground">
+
+                        <ImageView
+                            android:layout_width="44dp"
+                            android:layout_height="44dp"
+                            android:background="@drawable/splash_background"
+                            android:backgroundTint="#F0FDF4"
+                            android:padding="10dp"
+                            android:src="@drawable/ic_location"
+                            app:tint="#16A34A" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:text="Provinces"
+                            android:textColor="@color/text_primary"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <!-- Bookings -->
+                    <LinearLayout
+                        android:id="@+id/btnQuickBookings"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:background="?android:attr/selectableItemBackground">
+
+                        <ImageView
+                            android:layout_width="44dp"
+                            android:layout_height="44dp"
+                            android:background="@drawable/splash_background"
+                            android:backgroundTint="#FFFBEB"
+                            android:padding="10dp"
+                            android:src="@drawable/ic_calendar"
+                            app:tint="#D97706" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:text="Bookings"
+                            android:textColor="@color/text_primary"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <!-- Ask AI -->
+                    <LinearLayout
+                        android:id="@+id/btnQuickAiChat"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:background="?android:attr/selectableItemBackground">
+
+                        <ImageView
+                            android:layout_width="44dp"
+                            android:layout_height="44dp"
+                            android:background="@drawable/splash_background"
+                            android:backgroundTint="#FAF5FF"
+                            android:padding="10dp"
+                            android:src="@drawable/ic_chat"
+                            app:tint="#9333EA" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:text="Ask AI"
+                            android:textColor="@color/text_primary"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
                 </LinearLayout>
 
-                <LinearLayout
-                    android:id="@+id/btnQuickProvinces"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:clickable="true"
-                    android:focusable="true">
-
-                    <ImageView
-                        android:layout_width="44dp"
-                        android:layout_height="44dp"
-                        android:background="@drawable/splash_background"
-                        android:backgroundTint="#F0FDF4"
-                        android:padding="10dp"
-                        android:src="@drawable/ic_location"
-                        app:tint="#16A34A" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:text="Provinces"
-                        android:textColor="@color/text_primary"
-                        android:textSize="11sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/btnQuickBookings"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:clickable="true"
-                    android:focusable="true">
-
-                    <ImageView
-                        android:layout_width="44dp"
-                        android:layout_height="44dp"
-                        android:background="@drawable/splash_background"
-                        android:backgroundTint="#FFFBEB"
-                        android:padding="10dp"
-                        android:src="@drawable/ic_calendar"
-                        app:tint="#D97706" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:text="Bookings"
-                        android:textColor="@color/text_primary"
-                        android:textSize="11sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/btnQuickAiChat"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:clickable="true"
-                    android:focusable="true">
-
-                    <ImageView
-                        android:layout_width="44dp"
-                        android:layout_height="44dp"
-                        android:background="@drawable/splash_background"
-                        android:backgroundTint="#FAF5FF"
-                        android:padding="10dp"
-                        android:src="@drawable/ic_chat"
-                        app:tint="#9333EA" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:text="Ask AI"
-                        android:textColor="@color/text_primary"
-                        android:textSize="11sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
-            </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
 
             <!-- =========================
-                 Categories Carousel
+                 Categories Carousel Section
                  ========================= -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:paddingHorizontal="20dp"
+                android:layout_marginTop="4dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
@@ -304,7 +299,7 @@
                     android:layout_weight="1"
                     android:text="Categories"
                     android:textColor="@color/text_primary"
-                    android:textSize="17sp"
+                    android:textSize="18sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -314,7 +309,8 @@
                     android:text="View All"
                     android:textColor="@color/primary"
                     android:textSize="13sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:padding="4dp" />
 
             </LinearLayout>
 
@@ -322,21 +318,19 @@
                 android:id="@+id/rvHomeCategories"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="8dp"
                 android:clipToPadding="false"
-                android:paddingHorizontal="20dp"
                 android:orientation="horizontal"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 tools:listitem="@layout/item_category" />
 
             <!-- =========================
-                 Featured Places Section
+                 Featured Destinations Section
                  ========================= -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:paddingHorizontal="20dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
@@ -346,7 +340,7 @@
                     android:layout_weight="1"
                     android:text="Featured Destinations"
                     android:textColor="@color/text_primary"
-                    android:textSize="17sp"
+                    android:textSize="18sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -356,7 +350,8 @@
                     android:text="Explore"
                     android:textColor="@color/primary"
                     android:textSize="13sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:padding="4dp" />
 
             </LinearLayout>
 
@@ -364,21 +359,19 @@
                 android:id="@+id/rvHomeFeatured"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="8dp"
                 android:clipToPadding="false"
-                android:paddingHorizontal="20dp"
                 android:orientation="horizontal"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 tools:listitem="@layout/item_place" />
 
             <!-- =========================
-                 Provinces Carousel
+                 Provinces Section
                  ========================= -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:paddingHorizontal="20dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
@@ -388,7 +381,7 @@
                     android:layout_weight="1"
                     android:text="Provinces &amp; Municipalities"
                     android:textColor="@color/text_primary"
-                    android:textSize="17sp"
+                    android:textSize="18sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -398,7 +391,8 @@
                     android:text="View All"
                     android:textColor="@color/primary"
                     android:textSize="13sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:padding="4dp" />
 
             </LinearLayout>
 
@@ -406,173 +400,175 @@
                 android:id="@+id/rvHomeProvinces"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="8dp"
                 android:clipToPadding="false"
-                android:paddingHorizontal="20dp"
                 android:orientation="horizontal"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 tools:listitem="@layout/item_province" />
 
             <!-- =========================
-                 Emergency Hotline Cards
+                 Emergency Hotline Section
                  ========================= -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="22dp"
+                android:text="Tourist Safety Hotlines"
+                android:textColor="@color/text_primary"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="Direct 24/7 emergency response numbers across Cambodia"
+                android:textColor="@color/text_secondary"
+                android:textSize="12sp" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:layout_marginHorizontal="20dp"
-                android:orientation="vertical">
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
 
-                <TextView
-                    android:layout_width="wrap_content"
+                <!-- Police 117 -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardCallPolice"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="Tourist Safety Hotlines"
-                    android:textColor="@color/text_primary"
-                    android:textSize="17sp"
-                    android:textStyle="bold" />
+                    android:layout_weight="1"
+                    android:layout_marginEnd="6dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:cardCornerRadius="14dp"
+                    app:cardElevation="1dp"
+                    app:strokeWidth="1dp"
+                    app:strokeColor="#E2E8F0"
+                    app:cardBackgroundColor="@color/background">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="12dp">
+
+                        <ImageView
+                            android:layout_width="22dp"
+                            android:layout_height="22dp"
+                            android:src="@drawable/ic_phone"
+                            app:tint="@color/primary" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="117"
+                            android:textColor="@color/primary"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Police"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="11sp" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Medical 119 -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardCallMedical"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:orientation="horizontal">
+                    android:layout_weight="1"
+                    android:layout_marginHorizontal="3dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:cardCornerRadius="14dp"
+                    app:cardElevation="1dp"
+                    app:strokeWidth="1dp"
+                    app:strokeColor="#E2E8F0"
+                    app:cardBackgroundColor="@color/background">
 
-                    <!-- Police 117 -->
-                    <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/cardCallPolice"
-                        android:layout_width="0dp"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:layout_marginEnd="6dp"
-                        android:clickable="true"
-                        android:focusable="true"
-                        app:cardCornerRadius="14dp"
-                        app:strokeWidth="1dp"
-                        app:strokeColor="#CBD5E1"
-                        app:cardBackgroundColor="@color/background">
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="12dp">
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
+                        <ImageView
+                            android:layout_width="22dp"
+                            android:layout_height="22dp"
+                            android:src="@drawable/ic_phone"
+                            app:tint="@color/error" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:orientation="vertical"
-                            android:padding="12dp">
+                            android:layout_marginTop="4dp"
+                            android:text="119"
+                            android:textColor="@color/error"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
 
-                            <ImageView
-                                android:layout_width="22dp"
-                                android:layout_height="22dp"
-                                android:src="@drawable/ic_phone"
-                                app:tint="@color/primary" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Medical"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="11sp" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="4dp"
-                                android:text="117"
-                                android:textColor="@color/primary"
-                                android:textSize="15sp"
-                                android:textStyle="bold" />
+                <!-- Fire 118 -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardCallFire"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="6dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:cardCornerRadius="14dp"
+                    app:cardElevation="1dp"
+                    app:strokeWidth="1dp"
+                    app:strokeColor="#E2E8F0"
+                    app:cardBackgroundColor="@color/background">
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Police"
-                                android:textColor="@color/text_secondary"
-                                android:textSize="11sp" />
-                        </LinearLayout>
-                    </com.google.android.material.card.MaterialCardView>
-
-                    <!-- Medical 119 -->
-                    <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/cardCallMedical"
-                        android:layout_width="0dp"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:layout_marginHorizontal="3dp"
-                        android:clickable="true"
-                        android:focusable="true"
-                        app:cardCornerRadius="14dp"
-                        app:strokeWidth="1dp"
-                        app:strokeColor="#CBD5E1"
-                        app:cardBackgroundColor="@color/background">
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="12dp">
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
+                        <ImageView
+                            android:layout_width="22dp"
+                            android:layout_height="22dp"
+                            android:src="@drawable/ic_phone"
+                            app:tint="@color/warning" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:orientation="vertical"
-                            android:padding="12dp">
+                            android:layout_marginTop="4dp"
+                            android:text="118"
+                            android:textColor="@color/warning"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
 
-                            <ImageView
-                                android:layout_width="22dp"
-                                android:layout_height="22dp"
-                                android:src="@drawable/ic_phone"
-                                app:tint="@color/error" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="4dp"
-                                android:text="119"
-                                android:textColor="@color/error"
-                                android:textSize="15sp"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Medical"
-                                android:textColor="@color/text_secondary"
-                                android:textSize="11sp" />
-                        </LinearLayout>
-                    </com.google.android.material.card.MaterialCardView>
-
-                    <!-- Fire 118 -->
-                    <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/cardCallFire"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:layout_marginStart="6dp"
-                        android:clickable="true"
-                        android:focusable="true"
-                        app:cardCornerRadius="14dp"
-                        app:strokeWidth="1dp"
-                        app:strokeColor="#CBD5E1"
-                        app:cardBackgroundColor="@color/background">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
+                        <TextView
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:orientation="vertical"
-                            android:padding="12dp">
-
-                            <ImageView
-                                android:layout_width="22dp"
-                                android:layout_height="22dp"
-                                android:src="@drawable/ic_phone"
-                                app:tint="@color/warning" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="4dp"
-                                android:text="118"
-                                android:textColor="@color/warning"
-                                android:textSize="15sp"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Fire Dept"
-                                android:textColor="@color/text_secondary"
-                                android:textSize="11sp" />
-                        </LinearLayout>
-                    </com.google.android.material.card.MaterialCardView>
-
-                </LinearLayout>
+                            android:text="Fire Dept"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="11sp" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
 
             </LinearLayout>
 
@@ -582,20 +578,18 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:paddingHorizontal="20dp"
+                android:layout_marginTop="22dp"
                 android:text="Popular Destinations"
                 android:textColor="@color/text_primary"
-                android:textSize="17sp"
+                android:textSize="18sp"
                 android:textStyle="bold" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvHomePopular"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="10dp"
                 android:nestedScrollingEnabled="false"
-                android:paddingHorizontal="20dp"
                 tools:listitem="@layout/item_place" />
 
         </LinearLayout>

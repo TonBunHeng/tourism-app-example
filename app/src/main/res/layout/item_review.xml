@@ -5,9 +5,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="10dp"
-    app:cardCornerRadius="14dp"
-    app:cardElevation="0dp"
+    android:layout_marginBottom="12dp"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="2dp"
     app:strokeWidth="1dp"
     app:strokeColor="#E2E8F0"
     app:cardBackgroundColor="@color/background">
@@ -16,7 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="12dp">
+        android:padding="16dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -26,15 +26,18 @@
 
             <ImageView
                 android:id="@+id/ivReviewUserAvatar"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:background="@drawable/splash_background"
+                android:backgroundTint="#EFF6FF"
+                android:padding="8dp"
                 android:src="@drawable/ic_person"
                 app:tint="@color/primary" />
 
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="12dp"
                 android:layout_weight="1"
                 android:orientation="vertical">
 
@@ -43,7 +46,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/text_primary"
-                    android:textSize="13sp"
+                    android:textSize="14sp"
                     android:textStyle="bold"
                     tools:text="Dara S." />
 
@@ -51,7 +54,7 @@
                     android:id="@+id/tvReviewDate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/text_disable"
+                    android:textColor="@color/text_secondary"
                     android:textSize="11sp"
                     tools:text="2 days ago" />
 
@@ -61,6 +64,10 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/splash_background"
+                android:backgroundTint="#FFFBEB"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="4dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
@@ -73,8 +80,8 @@
                     android:id="@+id/tvReviewRating"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="3dp"
-                    android:textColor="@color/text_primary"
+                    android:layout_marginStart="4dp"
+                    android:textColor="#D97706"
                     android:textSize="12sp"
                     android:textStyle="bold"
                     tools:text="5.0" />
@@ -87,9 +94,9 @@
             android:id="@+id/tvReviewTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
+            android:layout_marginTop="10dp"
             android:textColor="@color/text_primary"
-            android:textSize="13sp"
+            android:textSize="14sp"
             android:textStyle="bold"
             tools:text="Unbelievable sunrise experience!" />
 
@@ -97,7 +104,7 @@
             android:id="@+id/tvReviewComment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
+            android:layout_marginTop="4dp"
             android:textColor="@color/text_secondary"
             android:textSize="13sp"
             tools:text="Visited at 5am for the sunrise. Truly magnificent architecture that everyone should witness." />
@@ -105,4 +112,3 @@
     </LinearLayout>
 
 </com.google.android.material.card.MaterialCardView>
-
