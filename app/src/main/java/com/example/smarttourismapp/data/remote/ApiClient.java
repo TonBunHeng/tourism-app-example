@@ -21,6 +21,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * Singleton Retrofit & OkHttpClient factory.
  * Manages BASE_URL from BuildConfig, Bearer token authorization,
  * 401 unauthenticated redirect, timeouts, and JSON conversion.
+ * Supports both Traveler API (/api/travel/) and Business Owner API (/api/business/).
  */
 public class ApiClient {
 
@@ -28,6 +29,9 @@ public class ApiClient {
 
     private static Retrofit retrofit = null;
     private static ApiService apiService = null;
+
+    private static Retrofit businessRetrofit = null;
+    private static BusinessApiService businessApiService = null;
 
     public static synchronized ApiService getApiService(Context context) {
         if (apiService == null) {
@@ -37,9 +41,19 @@ public class ApiClient {
         return apiService;
     }
 
+    public static synchronized BusinessApiService getBusinessApiService(Context context) {
+        if (businessApiService == null) {
+            Retrofit retrofitInstance = getBusinessRetrofit(context);
+            businessApiService = retrofitInstance.create(BusinessApiService.class);
+        }
+        return businessApiService;
+    }
+
     public static synchronized void resetClient() {
         retrofit = null;
         apiService = null;
+        businessRetrofit = null;
+        businessApiService = null;
     }
 
     public static String getBaseUrl(Context context) {
@@ -56,56 +70,87 @@ public class ApiClient {
         return DEFAULT_BASE_URL;
     }
 
+    public static String getBusinessBaseUrl(Context context) {
+        String base = getBaseUrl(context);
+        if (base.endsWith("/travel/")) {
+            return base.substring(0, base.length() - "/travel/".length()) + "/business/";
+        } else if (base.endsWith("/travel")) {
+            return base.substring(0, base.length() - "/travel".length()) + "/business/";
+        } else if (base.endsWith("/")) {
+            return base + "business/";
+        }
+        return base + "/business/";
+    }
+
+    private static OkHttpClient buildOkHttpClient(Context context) {
+        final Context appContext = (context != null && context.getApplicationContext() != null)
+                ? context.getApplicationContext()
+                : context;
+        final AppPreference prefs = new AppPreference(appContext);
+
+        HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
+        loggingInterceptor.setLevel(BuildConfig.DEBUG ? HttpLoggingInterceptor.Level.BODY : HttpLoggingInterceptor.Level.NONE);
+
+        Interceptor authInterceptor = chain -> {
+            Request original = chain.request();
+            Request.Builder builder = original.newBuilder()
+                    .header("Accept", "application/json")
+                    .header("Content-Type", "application/json");
+
+            String token = prefs.getAuthToken();
+            if (token != null && !token.trim().isEmpty() && !token.equals("null")) {
+                builder.header("Authorization", "Bearer " + token);
+            }
+
+            Response response = chain.proceed(builder.build());
+
+            // If unauthorized or session expired (401), clear local session and navigate to SignInActivity
+            if (response.code() == 401) {
+                prefs.clearSession();
+                Intent intent = new Intent(appContext, SignInActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                appContext.startActivity(intent);
+            }
+
+            return response;
+        };
+
+        return new OkHttpClient.Builder()
+                .connectTimeout(30, TimeUnit.SECONDS)
+                .readTimeout(30, TimeUnit.SECONDS)
+                .writeTimeout(30, TimeUnit.SECONDS)
+                .addInterceptor(authInterceptor)
+                .addInterceptor(loggingInterceptor)
+                .build();
+    }
+
     private static synchronized Retrofit getRetrofit(Context context) {
         if (retrofit == null) {
             final Context appContext = (context != null && context.getApplicationContext() != null)
                     ? context.getApplicationContext()
                     : context;
-            final AppPreference prefs = new AppPreference(appContext);
-
-            HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
-            loggingInterceptor.setLevel(BuildConfig.DEBUG ? HttpLoggingInterceptor.Level.BODY : HttpLoggingInterceptor.Level.NONE);
-
-            Interceptor authInterceptor = chain -> {
-                Request original = chain.request();
-                Request.Builder builder = original.newBuilder()
-                        .header("Accept", "application/json")
-                        .header("Content-Type", "application/json");
-
-                String token = prefs.getAuthToken();
-                if (token != null && !token.trim().isEmpty() && !token.equals("null")) {
-                    builder.header("Authorization", "Bearer " + token);
-                }
-
-                Response response = chain.proceed(builder.build());
-
-                // If unauthorized or session expired (401), clear local session and navigate to SignInActivity
-                if (response.code() == 401) {
-                    prefs.clearSession();
-                    Intent intent = new Intent(appContext, SignInActivity.class);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                    appContext.startActivity(intent);
-                }
-
-                return response;
-            };
-
-            OkHttpClient okHttpClient = new OkHttpClient.Builder()
-                    .connectTimeout(30, TimeUnit.SECONDS)
-                    .readTimeout(30, TimeUnit.SECONDS)
-                    .writeTimeout(30, TimeUnit.SECONDS)
-                    .addInterceptor(authInterceptor)
-                    .addInterceptor(loggingInterceptor)
-                    .build();
-
-            String baseUrl = getBaseUrl(appContext);
 
             retrofit = new Retrofit.Builder()
-                    .baseUrl(baseUrl)
-                    .client(okHttpClient)
+                    .baseUrl(getBaseUrl(appContext))
+                    .client(buildOkHttpClient(appContext))
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
         }
         return retrofit;
+    }
+
+    private static synchronized Retrofit getBusinessRetrofit(Context context) {
+        if (businessRetrofit == null) {
+            final Context appContext = (context != null && context.getApplicationContext() != null)
+                    ? context.getApplicationContext()
+                    : context;
+
+            businessRetrofit = new Retrofit.Builder()
+                    .baseUrl(getBusinessBaseUrl(appContext))
+                    .client(buildOkHttpClient(appContext))
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+        }
+        return businessRetrofit;
     }
 }

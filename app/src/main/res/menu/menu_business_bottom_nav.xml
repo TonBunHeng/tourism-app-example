@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_business_dashboard"
+        android:icon="@drawable/ic_dashboard"
+        android:title="@string/business_nav_dashboard" />
+
+    <item
+        android:id="@+id/nav_business_listings"
+        android:icon="@drawable/ic_package"
+        android:title="@string/business_nav_listings" />
+
+    <item
+        android:id="@+id/nav_business_bookings"
+        android:icon="@drawable/ic_calendar"
+        android:title="@string/business_nav_bookings" />
+
+    <item
+        android:id="@+id/nav_business_reviews"
+        android:icon="@drawable/ic_star"
+        android:title="@string/business_nav_reviews" />
+
+    <item
+        android:id="@+id/nav_business_more"
+        android:icon="@drawable/ic_settings"
+        android:title="@string/business_nav_more" />
+</menu>
+

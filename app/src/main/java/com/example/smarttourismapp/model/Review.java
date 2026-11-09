@@ -11,6 +11,9 @@ public class Review implements Serializable {
     @SerializedName("place_id")
     private Long placeId;
 
+    @SerializedName("business_id")
+    private Long businessId;
+
     @SerializedName("rating")
     private float rating;
 
@@ -19,6 +22,15 @@ public class Review implements Serializable {
 
     @SerializedName("comment")
     private String comment;
+
+    @SerializedName("owner_reply")
+    private String ownerReply;
+
+    @SerializedName("reply")
+    private String reply;
+
+    @SerializedName("replied_at")
+    private String repliedAt;
 
     @SerializedName("user")
     private User user;
@@ -42,6 +54,14 @@ public class Review implements Serializable {
         this.placeId = placeId;
     }
 
+    public Long getBusinessId() {
+        return businessId;
+    }
+
+    public void setBusinessId(Long businessId) {
+        this.businessId = businessId;
+    }
+
     public float getRating() {
         return rating;
     }
@@ -51,7 +71,7 @@ public class Review implements Serializable {
     }
 
     public String getTitle() {
-        return title;
+        return title != null ? title : "";
     }
 
     public void setTitle(String title) {
@@ -59,11 +79,29 @@ public class Review implements Serializable {
     }
 
     public String getComment() {
-        return comment;
+        return comment != null ? comment : "";
     }
 
     public void setComment(String comment) {
         this.comment = comment;
+    }
+
+    public String getOwnerReply() {
+        if (ownerReply != null && !ownerReply.trim().isEmpty()) return ownerReply;
+        if (reply != null && !reply.trim().isEmpty()) return reply;
+        return null;
+    }
+
+    public void setOwnerReply(String ownerReply) {
+        this.ownerReply = ownerReply;
+    }
+
+    public String getRepliedAt() {
+        return repliedAt;
+    }
+
+    public void setRepliedAt(String repliedAt) {
+        this.repliedAt = repliedAt;
     }
 
     public User getUser() {
@@ -75,11 +113,10 @@ public class Review implements Serializable {
     }
 
     public String getCreatedAt() {
-        return createdAt;
+        return createdAt != null ? createdAt : "";
     }
 
     public void setCreatedAt(String createdAt) {
         this.createdAt = createdAt;
     }
 }
-

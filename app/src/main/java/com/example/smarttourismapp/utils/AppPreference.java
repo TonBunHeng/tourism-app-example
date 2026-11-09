@@ -23,6 +23,7 @@ public class AppPreference {
     private static final String KEY_BASE_URL = "custom_base_url";
     private static final String KEY_LANGUAGE = "app_language";
     private static final String KEY_DARK_MODE = "app_dark_mode";
+    private static final String KEY_SELECTED_BUSINESS = "selected_business_data";
 
     private final SharedPreferences preferences;
     private SharedPreferences securePreferences;
@@ -161,6 +162,33 @@ public class AppPreference {
         return preferences != null ? preferences.getBoolean(KEY_DARK_MODE, false) : false;
     }
 
+    public void saveSelectedBusiness(com.example.smarttourismapp.model.Business business) {
+        if (preferences != null) {
+            if (business != null) {
+                preferences.edit().putString(KEY_SELECTED_BUSINESS, gson.toJson(business)).apply();
+            } else {
+                preferences.edit().remove(KEY_SELECTED_BUSINESS).apply();
+            }
+        }
+    }
+
+    public com.example.smarttourismapp.model.Business getSelectedBusiness() {
+        if (preferences == null) return null;
+        String json = preferences.getString(KEY_SELECTED_BUSINESS, null);
+        if (json != null && !json.trim().isEmpty()) {
+            try {
+                return gson.fromJson(json, com.example.smarttourismapp.model.Business.class);
+            } catch (Exception ignored) {
+            }
+        }
+        return null;
+    }
+
+    public Long getSelectedBusinessId() {
+        com.example.smarttourismapp.model.Business b = getSelectedBusiness();
+        return b != null ? b.getId() : null;
+    }
+
     public void clearSession() {
         if (securePreferences != null) {
             securePreferences.edit().remove(KEY_AUTH_TOKEN).apply();
@@ -169,6 +197,7 @@ public class AppPreference {
             preferences.edit()
                     .remove(KEY_AUTH_TOKEN)
                     .remove(KEY_USER_DATA)
+                    .remove(KEY_SELECTED_BUSINESS)
                     .apply();
         }
     }

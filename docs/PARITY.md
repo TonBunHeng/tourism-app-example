@@ -66,4 +66,20 @@ This document tracks feature parity between the **tourism-travel** web portal, t
 | 58 | Settings: Theme Mode (Light / Dark) | Web Theme Toggle | AppCompatDelegate DayNight | `ui/settings/SettingsActivity` | Done |
 | 59 | Support & FAQs Screen | `src/pages/tourist/Support.jsx` | `GET /api/travel/settings`, `POST /api/travel/contact` | `ui/support/SupportActivity` | Done |
 | 60 | AI Chat Assistant (AngkorVers) | `src/pages/tourist/AIChat.jsx` | `POST /api/travel/ai/chat`, `GET /api/travel/ai/suggestions` | `ui/aichat/AIChatActivity` | Done |
+| 61 | Business Owner: Main Shell & Business Switcher | `src/pages/business-owner/*` | `GET /api/business/businesses` | `ui/business/BusinessMainActivity` | Done |
+| 62 | Business Owner: Dashboard & KPIs | `src/pages/business-owner/Dashboard.jsx` | `GET /api/business/dashboard`, `bookings/stats` | `ui/business/BusinessDashboardFragment` | Done |
+| 63 | Business Owner: Services Management (CRUD) | `src/pages/business-owner/Listings.jsx`, `ServicesTab.jsx` | `GET/POST/PUT/DELETE /api/business/services` | `ui/business/BusinessListingsFragment` | Done |
+| 64 | Business Owner: Promotions & Discounts (CRUD) | `src/pages/business-owner/Listings.jsx`, `PromotionsTab.jsx` | `GET/POST/PUT/DELETE /api/business/promotions` | `ui/business/BusinessListingsFragment` | Done |
+| 65 | Business Owner: Photo Gallery Management | `src/pages/business-owner/Listings.jsx`, `PhotosTab.jsx` | `GET/POST/DELETE /api/business/images` | `ui/business/BusinessListingsFragment` | Done |
+| 66 | Business Owner: Bookings Queue & Status Actions | `src/pages/business-owner/Bookings.jsx` | `GET /api/business/bookings`, `PATCH status` | `ui/business/BusinessBookingsFragment` | Done |
+| 67 | Business Owner: Booking Detail View | `src/pages/business-owner/Bookings.jsx` | `GET /api/business/bookings/{id}` | `ui/business/BusinessBookingDetailActivity` | Done |
+| 68 | Business Owner: Customer Reviews & Owner Replies | `src/pages/business-owner/Reviews.jsx` | `GET /api/business/reviews`, `POST reply` | `ui/business/BusinessReviewsFragment` | Done |
+| 69 | Business Owner: Weekly Operating Hours | `src/pages/business-owner/OperatingHours.jsx` | `GET/POST /api/business/hours` | `ui/business/BusinessHoursActivity` | Done |
+| 70 | Business Owner: Sales & Analytics Reports | `src/pages/business-owner/Reports.jsx` | `GET /api/business/reports` | `ui/business/BusinessReportsActivity` | Done |
+| 71 | Business Owner: Statement CSV Export | `src/pages/business-owner/Reports.jsx` | Client-generated CSV / FileProvider | `ui/business/BusinessReportsActivity` | Done |
+| 72 | Business Owner: Business Profile Editor | `src/pages/business-owner/Profile.jsx` | `GET/PUT /api/business/profile` | `ui/business/BusinessEditProfileActivity` | Done |
+| 73 | Business Owner: Manage Businesses (Multi-venue) | `src/components/business/BusinessSelectorModal.jsx` | `GET /api/business/businesses` | `ui/business/ManageBusinessesActivity` | Done |
+| 74 | Business Owner: Notifications Feed & Badge | `src/pages/business-owner/Notifications.jsx` | `GET /api/business/notifications`, `PATCH read` | `ui/business/BusinessNotificationsActivity` | Done |
+| 75 | Business Owner: Settings & Password Change | `src/pages/business-owner/Settings.jsx` | `PUT /api/travel/auth/password` | `ui/business/BusinessSettingsActivity` | Done |
+| 76 | Business Owner: Business Hub (More Menu) | `src/pages/business-owner/*` | Navigation Hub | `ui/business/BusinessMoreFragment` | Done |
 

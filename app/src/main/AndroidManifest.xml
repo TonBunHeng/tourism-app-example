@@ -90,6 +90,45 @@
             android:name=".ui.business.BusinessMainActivity"
             android:exported="false" />
 
+        <activity
+            android:name=".ui.business.BusinessHoursActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".ui.business.BusinessReportsActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".ui.business.BusinessEditProfileActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".ui.business.ManageBusinessesActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".ui.business.BusinessBookingDetailActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".ui.business.BusinessNotificationsActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".ui.business.BusinessSettingsActivity"
+            android:exported="false" />
+
+        <!-- FileProvider for Exporting Statements / Reports -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
         <!-- Register Screen -->
         <activity
             android:name=".ui.auth.RegisterActivity"

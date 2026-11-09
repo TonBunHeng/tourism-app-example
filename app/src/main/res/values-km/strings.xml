@@ -67,5 +67,12 @@
     <string name="support_title">ជំនួយ និងសេវាសង្គ្រោះបន្ទាន់</string>
     <string name="ai_assistant_title">ជំនួយការវៃឆ្លាត AngkorVers</string>
     <string name="ai_ask_hint">សួរសំណួរអំពីប្រាសាទ ម្ហូបអាហារ វប្បធម៌...</string>
+
+    <!-- Business Owner Portal Navigation -->
+    <string name="business_nav_dashboard">ផ្ទាំងគ្រប់គ្រង</string>
+    <string name="business_nav_listings">សេវាកម្ម</string>
+    <string name="business_nav_bookings">ការកក់</string>
+    <string name="business_nav_reviews">ការវាយតម្លៃ</string>
+    <string name="business_nav_more">ផ្សេងៗ</string>
 </resources>
 

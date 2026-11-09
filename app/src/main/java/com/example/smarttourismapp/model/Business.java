@@ -56,6 +56,18 @@ public class Business implements Serializable {
     @SerializedName("verification_status")
     private String verificationStatus;
 
+    @SerializedName("images")
+    private java.util.List<BusinessImage> images;
+
+    @SerializedName("services")
+    private java.util.List<BusinessService> services;
+
+    @SerializedName("hours")
+    private java.util.List<BusinessHour> hours;
+
+    @SerializedName("promotions")
+    private java.util.List<BusinessPromotion> promotions;
+
     public Long getId() {
         return id;
     }
@@ -186,5 +198,41 @@ public class Business implements Serializable {
 
     public void setVerificationStatus(String verificationStatus) {
         this.verificationStatus = verificationStatus;
+    }
+
+    public boolean isVerified() {
+        return "approved".equalsIgnoreCase(verificationStatus);
+    }
+
+    public java.util.List<BusinessImage> getImages() {
+        return images != null ? images : new java.util.ArrayList<>();
+    }
+
+    public void setImages(java.util.List<BusinessImage> images) {
+        this.images = images;
+    }
+
+    public java.util.List<BusinessService> getServices() {
+        return services != null ? services : new java.util.ArrayList<>();
+    }
+
+    public void setServices(java.util.List<BusinessService> services) {
+        this.services = services;
+    }
+
+    public java.util.List<BusinessHour> getHours() {
+        return hours != null ? hours : new java.util.ArrayList<>();
+    }
+
+    public void setHours(java.util.List<BusinessHour> hours) {
+        this.hours = hours;
+    }
+
+    public java.util.List<BusinessPromotion> getPromotions() {
+        return promotions != null ? promotions : new java.util.ArrayList<>();
+    }
+
+    public void setPromotions(java.util.List<BusinessPromotion> promotions) {
+        this.promotions = promotions;
     }
 }

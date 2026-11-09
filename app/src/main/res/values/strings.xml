@@ -66,4 +66,11 @@
     <string name="support_title">Tourism Help &amp; Support</string>
     <string name="ai_assistant_title">AngkorVers AI Assistant</string>
     <string name="ai_ask_hint">Ask about temples, culture, tips...</string>
+
+    <!-- Business Owner Portal Navigation -->
+    <string name="business_nav_dashboard">Dashboard</string>
+    <string name="business_nav_listings">Listings</string>
+    <string name="business_nav_bookings">Bookings</string>
+    <string name="business_nav_reviews">Reviews</string>
+    <string name="business_nav_more">More</string>
 </resources>

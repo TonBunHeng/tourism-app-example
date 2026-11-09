@@ -67,6 +67,15 @@ public class NotificationItem implements Serializable {
         isRead = read;
     }
 
+    public String getReadAt() {
+        return readAt;
+    }
+
+    public void setReadAt(String readAt) {
+        this.readAt = readAt;
+        this.isRead = readAt != null && !readAt.isEmpty();
+    }
+
     public String getCreatedAt() {
         return createdAt != null ? createdAt : "";
     }
