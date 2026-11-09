@@ -13,7 +13,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.smarttourismapp.databinding.ItemNotificationBinding;
 import com.example.smarttourismapp.model.NotificationItem;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 import java.util.Objects;
+import java.util.TimeZone;
+import java.util.concurrent.TimeUnit;
 
 public class NotificationAdapter extends ListAdapter<NotificationItem, NotificationAdapter.NotificationViewHolder> {
 
@@ -71,16 +76,26 @@ public class NotificationAdapter extends ListAdapter<NotificationItem, Notificat
             if (item == null) return;
 
             binding.tvNotificationTitle.setText(item.getTitle());
-            binding.tvNotificationMessage.setText(item.getMessage());
+
+            String message = item.getMessage();
+            if (message != null && !message.trim().isEmpty()) {
+                binding.tvNotificationMessage.setText(message);
+                binding.tvNotificationMessage.setVisibility(View.VISIBLE);
+            } else {
+                binding.tvNotificationMessage.setVisibility(View.GONE);
+            }
+
             binding.tvNotificationCategory.setText(item.getCategory().toUpperCase());
-            binding.tvNotificationTime.setText(item.getCreatedAt());
+            binding.tvNotificationTime.setText(formatNotificationTime(item.getCreatedAt()));
 
             if (item.isRead()) {
                 binding.viewUnreadDot.setVisibility(View.GONE);
-                binding.cardNotification.setCardBackgroundColor(Color.TRANSPARENT);
+                binding.cardNotification.setCardBackgroundColor(Color.WHITE);
+                binding.cardNotification.setStrokeColor(Color.parseColor("#E2E8F0"));
             } else {
                 binding.viewUnreadDot.setVisibility(View.VISIBLE);
-                binding.cardNotification.setCardBackgroundColor(Color.parseColor("#F8FAFC"));
+                binding.cardNotification.setCardBackgroundColor(Color.parseColor("#F0F7FF"));
+                binding.cardNotification.setStrokeColor(Color.parseColor("#BAE6FD"));
             }
 
             binding.getRoot().setOnClickListener(v -> {
@@ -90,6 +105,48 @@ public class NotificationAdapter extends ListAdapter<NotificationItem, Notificat
             binding.btnDeleteNotification.setOnClickListener(v -> {
                 if (listener != null) listener.onDeleteClick(item);
             });
+        }
+
+        private static String formatNotificationTime(String rawDate) {
+            if (rawDate == null || rawDate.trim().isEmpty()) {
+                return "";
+            }
+            try {
+                SimpleDateFormat isoFormat;
+                if (rawDate.contains(".")) {
+                    isoFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSSSS'Z'", Locale.US);
+                } else {
+                    isoFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.US);
+                }
+                isoFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
+                Date date = isoFormat.parse(rawDate);
+                if (date == null) return rawDate;
+
+                long diffMillis = System.currentTimeMillis() - date.getTime();
+                if (diffMillis < 0) diffMillis = 0;
+
+                long diffMinutes = TimeUnit.MILLISECONDS.toMinutes(diffMillis);
+                long diffHours = TimeUnit.MILLISECONDS.toHours(diffMillis);
+                long diffDays = TimeUnit.MILLISECONDS.toDays(diffMillis);
+
+                if (diffMinutes < 1) {
+                    return "Just now";
+                } else if (diffMinutes < 60) {
+                    return diffMinutes + "m ago";
+                } else if (diffHours < 24) {
+                    return diffHours + "h ago";
+                } else if (diffDays < 7) {
+                    return diffDays + "d ago";
+                } else {
+                    SimpleDateFormat outFormat = new SimpleDateFormat("MMM d, yyyy", Locale.US);
+                    return outFormat.format(date);
+                }
+            } catch (Exception e) {
+                if (rawDate.length() >= 10 && rawDate.charAt(4) == '-' && rawDate.charAt(7) == '-') {
+                    return rawDate.substring(0, 10);
+                }
+                return rawDate;
+            }
         }
     }
 }

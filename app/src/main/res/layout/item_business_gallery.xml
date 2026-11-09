@@ -60,11 +60,9 @@
             android:layout_height="32dp"
             android:layout_gravity="top|end"
             android:layout_margin="8dp"
-            android:background="@drawable/splash_background"
-            android:backgroundTint="#CC000000"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
             android:src="@drawable/ic_delete"
-            app:tint="@android:color/white"
-            android:padding="6dp"
+            app:tint="@color/error"
             android:contentDescription="Delete Image" />
 
     </FrameLayout>

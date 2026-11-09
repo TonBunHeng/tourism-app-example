@@ -12,7 +12,7 @@
     <!-- Top Header Image with overlay toolbar buttons -->
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="290dp">
+        android:layout_height="260dp">
 
         <ImageView
             android:id="@+id/ivPlaceCover"
@@ -22,15 +22,7 @@
             android:background="#E2E8F0"
             tools:srcCompat="@drawable/onboarding_1" />
 
-        <!-- Gradient scrim overlay -->
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="110dp"
-            android:layout_gravity="top"
-            android:background="@drawable/splash_background"
-            android:backgroundTint="#66000000" />
-
-        <!-- Floating Toolbar Buttons -->
+        <!-- Floating Toolbar Buttons (Clean borderless icons) -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -43,8 +35,7 @@
                 android:id="@+id/btnBack"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:background="@drawable/splash_background"
-                android:backgroundTint="#E6FFFFFF"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
                 android:src="@drawable/ic_arrow_back"
                 app:tint="@color/text_primary"
                 android:contentDescription="Back" />
@@ -59,8 +50,7 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_marginEnd="8dp"
-                android:background="@drawable/splash_background"
-                android:backgroundTint="#E6FFFFFF"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
                 android:src="@drawable/ic_share"
                 app:tint="@color/text_primary"
                 android:contentDescription="Share" />
@@ -69,41 +59,11 @@
                 android:id="@+id/btnFavorite"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:background="@drawable/splash_background"
-                android:backgroundTint="#E6FFFFFF"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
                 android:src="@drawable/ic_heart"
                 app:tint="@color/error"
                 android:contentDescription="Save Wishlist" />
 
-        </LinearLayout>
-
-        <!-- Rating Pill overlay -->
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|start"
-            android:layout_margin="16dp"
-            android:background="@drawable/splash_background"
-            android:backgroundTint="#CC000000"
-            android:paddingHorizontal="10dp"
-            android:paddingVertical="5dp"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="14dp"
-                android:layout_height="14dp"
-                android:src="@drawable/ic_star" />
-
-            <TextView
-                android:id="@+id/tvRating"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
-                android:textColor="#FFFFFF"
-                android:textSize="12sp"
-                android:textStyle="bold"
-                tools:text="4.8 (120 reviews)" />
         </LinearLayout>
 
     </FrameLayout>
@@ -112,7 +72,7 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="260dp"
+        android:layout_marginTop="230dp"
         android:layout_marginBottom="72dp"
         android:background="#F8FAFC"
         android:clipToPadding="false"
@@ -139,15 +99,46 @@
                     android:orientation="vertical"
                     android:padding="18dp">
 
-                    <TextView
-                        android:id="@+id/tvCategory"
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/primary"
-                        android:textSize="11sp"
-                        android:textStyle="bold"
-                        android:textAllCaps="true"
-                        tools:text="Historical &amp; Temple" />
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tvCategory"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:textColor="@color/primary"
+                            android:textSize="11sp"
+                            android:textStyle="bold"
+                            android:textAllCaps="true"
+                            tools:text="Historical &amp; Temple" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="14dp"
+                                android:layout_height="14dp"
+                                android:src="@drawable/ic_star" />
+
+                            <TextView
+                                android:id="@+id/tvRating"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="4dp"
+                                android:textColor="@color/text_primary"
+                                android:textSize="12sp"
+                                android:textStyle="bold"
+                                tools:text="4.8 (120 reviews)" />
+                        </LinearLayout>
+
+                    </LinearLayout>
 
                     <TextView
                         android:id="@+id/tvPlaceName"
@@ -200,8 +191,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:background="@drawable/splash_background"
-                            android:backgroundTint="#F8FAFC"
+                            android:background="@drawable/bg_rounded_card_subtle"
                             android:padding="12dp"
                             android:layout_marginEnd="4dp"
                             android:orientation="vertical">
@@ -229,8 +219,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:background="@drawable/splash_background"
-                            android:backgroundTint="#F8FAFC"
+                            android:background="@drawable/bg_rounded_card_subtle"
                             android:padding="12dp"
                             android:layout_marginHorizontal="4dp"
                             android:orientation="vertical">
@@ -258,8 +247,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:background="@drawable/splash_background"
-                            android:backgroundTint="#F8FAFC"
+                            android:background="@drawable/bg_rounded_card_subtle"
                             android:padding="12dp"
                             android:layout_marginStart="4dp"
                             android:orientation="vertical">

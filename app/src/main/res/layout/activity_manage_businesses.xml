@@ -78,7 +78,7 @@
             android:id="@+id/btnRegisterNewBusiness"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:text="+ Register New Business"
+            android:text="Register New Business"
             android:textSize="15sp"
             android:textColor="@color/on_primary"
             app:icon="@drawable/ic_add"

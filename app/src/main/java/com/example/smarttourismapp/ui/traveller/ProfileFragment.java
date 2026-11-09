@@ -52,7 +52,7 @@ public class ProfileFragment extends Fragment {
     private TextView tvProfileName, tvProfileEmail, tvProfileLocation, tvProfileBio;
     private Chip chipRole;
     private MaterialButton btnEditProfile, btnChangePassword, btnSignOut;
-    private View rowLanguage, rowSupport;
+    private View rowLanguage, rowSupport, rowDeleteAccount;
     private TextView tvCurrentLanguage, btnDeleteAccount;
     private MaterialSwitch switchDarkMode;
 
@@ -102,6 +102,7 @@ public class ProfileFragment extends Fragment {
         switchDarkMode = view.findViewById(R.id.switchDarkMode);
         rowSupport = view.findViewById(R.id.rowSupport);
         btnDeleteAccount = view.findViewById(R.id.btnDeleteAccount);
+        rowDeleteAccount = view.findViewById(R.id.rowDeleteAccount);
     }
 
     private void setupUserViews() {
@@ -170,6 +171,9 @@ public class ProfileFragment extends Fragment {
         });
 
         btnDeleteAccount.setOnClickListener(v -> showDeleteAccountDialog());
+        if (rowDeleteAccount != null) {
+            rowDeleteAccount.setOnClickListener(v -> showDeleteAccountDialog());
+        }
     }
 
     private void fetchFreshProfile() {

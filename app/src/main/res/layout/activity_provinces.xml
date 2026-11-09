@@ -71,11 +71,8 @@
                     android:padding="28dp">
 
                     <ImageView
-                        android:layout_width="56dp"
-                        android:layout_height="56dp"
-                        android:background="@drawable/splash_background"
-                        android:backgroundTint="#F0FDF4"
-                        android:padding="14dp"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
                         android:src="@drawable/ic_location"
                         app:tint="#16A34A" />
 

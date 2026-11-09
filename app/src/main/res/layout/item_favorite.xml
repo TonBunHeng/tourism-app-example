@@ -36,8 +36,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="top|start"
                 android:layout_margin="12dp"
-                android:background="@drawable/splash_background"
-                android:backgroundTint="#DCFCE7"
+                android:background="@drawable/bg_badge_visited"
                 android:paddingHorizontal="10dp"
                 android:paddingVertical="4dp"
                 android:text="✓ VISITED"
@@ -47,15 +46,14 @@
                 android:visibility="gone"
                 tools:visibility="visible" />
 
-            <!-- Delete / Remove button -->
+            <!-- Delete / Remove button (Borderless) -->
             <ImageButton
                 android:id="@+id/btnFavDelete"
                 android:layout_width="36dp"
                 android:layout_height="36dp"
                 android:layout_gravity="top|end"
                 android:layout_margin="12dp"
-                android:background="@drawable/splash_background"
-                android:backgroundTint="#E6FFFFFF"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
                 android:src="@drawable/ic_delete"
                 app:tint="@color/error"
                 android:contentDescription="Remove from Wishlist" />

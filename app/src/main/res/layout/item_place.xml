@@ -17,7 +17,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <!-- Place Banner Image with Rating & Favorite Button overlay -->
+        <!-- Place Banner Image with Favorite Button overlay -->
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="170dp">
@@ -30,44 +30,14 @@
                 android:background="#E2E8F0"
                 tools:srcCompat="@drawable/onboarding_1" />
 
-            <!-- Rating Pill -->
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="top|start"
-                android:layout_margin="12dp"
-                android:background="@drawable/splash_background"
-                android:backgroundTint="#CC000000"
-                android:paddingHorizontal="8dp"
-                android:paddingVertical="4dp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="14dp"
-                    android:layout_height="14dp"
-                    android:src="@drawable/ic_star" />
-
-                <TextView
-                    android:id="@+id/tvRating"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    android:textColor="#FFFFFF"
-                    android:textSize="12sp"
-                    android:textStyle="bold"
-                    tools:text="4.8" />
-            </LinearLayout>
-
-            <!-- Favorite Button -->
+            <!-- Favorite Button (Borderless) -->
             <ImageButton
                 android:id="@+id/btnFavorite"
                 android:layout_width="36dp"
                 android:layout_height="36dp"
                 android:layout_gravity="top|end"
                 android:layout_margin="12dp"
-                android:background="@drawable/splash_background"
-                android:backgroundTint="#E6FFFFFF"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
                 android:src="@drawable/ic_heart"
                 app:tint="@color/error"
                 android:contentDescription="Save to Wishlist" />
@@ -81,16 +51,47 @@
             android:orientation="vertical"
             android:padding="14dp">
 
-            <!-- Category Tag -->
-            <TextView
-                android:id="@+id/tvCategory"
-                android:layout_width="wrap_content"
+            <!-- Category Tag & Rating -->
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/primary"
-                android:textSize="11sp"
-                android:textStyle="bold"
-                android:textAllCaps="true"
-                tools:text="Historical &amp; Temple" />
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvCategory"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="@color/primary"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:textAllCaps="true"
+                    tools:text="Historical &amp; Temple" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="13dp"
+                        android:layout_height="13dp"
+                        android:src="@drawable/ic_star" />
+
+                    <TextView
+                        android:id="@+id/tvRating"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="3dp"
+                        android:textColor="@color/text_primary"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        tools:text="4.8" />
+                </LinearLayout>
+
+            </LinearLayout>
 
             <!-- Place Title -->
             <TextView

@@ -11,12 +11,10 @@
     android:paddingEnd="64dp">
 
     <ImageView
-        android:layout_width="28dp"
-        android:layout_height="28dp"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
         android:layout_marginEnd="8dp"
-        android:background="@drawable/splash_background"
-        android:backgroundTint="#EBF2FA"
-        android:padding="6dp"
+        android:layout_gravity="bottom"
         android:src="@drawable/ic_chat"
         app:tint="@color/primary" />
 
@@ -24,8 +22,7 @@
         android:id="@+id/tvMessage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/splash_background"
-        android:backgroundTint="#F1F5F9"
+        android:background="@drawable/bg_chat_bubble_ai"
         android:paddingHorizontal="14dp"
         android:paddingVertical="10dp"
         android:textColor="@color/text_primary"

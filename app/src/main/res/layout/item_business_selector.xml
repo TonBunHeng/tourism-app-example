@@ -11,12 +11,9 @@
 
     <ImageView
         android:id="@+id/ivBusinessIcon"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
         android:src="@drawable/ic_business"
-        android:padding="8dp"
-        android:background="@drawable/splash_background"
-        android:backgroundTint="#EFF6FF"
         app:tint="@color/primary"
         android:contentDescription="Business Icon" />
 

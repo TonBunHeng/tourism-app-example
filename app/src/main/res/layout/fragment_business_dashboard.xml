@@ -385,13 +385,10 @@
                     android:background="?android:attr/selectableItemBackground">
 
                     <ImageView
-                        android:layout_width="44dp"
-                        android:layout_height="44dp"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
                         android:src="@drawable/ic_calendar"
-                        android:background="@drawable/splash_background"
-                        android:backgroundTint="#EFF6FF"
-                        app:tint="@color/primary"
-                        android:padding="10dp" />
+                        app:tint="@color/primary" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -415,13 +412,10 @@
                     android:background="?android:attr/selectableItemBackground">
 
                     <ImageView
-                        android:layout_width="44dp"
-                        android:layout_height="44dp"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
                         android:src="@drawable/ic_package"
-                        android:background="@drawable/splash_background"
-                        android:backgroundTint="#EEF2FF"
-                        app:tint="#4F46E5"
-                        android:padding="10dp" />
+                        app:tint="#4F46E5" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -445,13 +439,10 @@
                     android:background="?android:attr/selectableItemBackground">
 
                     <ImageView
-                        android:layout_width="44dp"
-                        android:layout_height="44dp"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
                         android:src="@drawable/ic_clock"
-                        android:background="@drawable/splash_background"
-                        android:backgroundTint="#FFFBEB"
-                        app:tint="@color/warning"
-                        android:padding="10dp" />
+                        app:tint="@color/warning" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -476,13 +467,10 @@
                     android:background="?android:attr/selectableItemBackground">
 
                     <ImageView
-                        android:layout_width="44dp"
-                        android:layout_height="44dp"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
                         android:src="@drawable/ic_star"
-                        android:background="@drawable/splash_background"
-                        android:backgroundTint="#FAF5FF"
-                        app:tint="#9333EA"
-                        android:padding="10dp" />
+                        app:tint="#9333EA" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -507,13 +495,10 @@
                     android:background="?android:attr/selectableItemBackground">
 
                     <ImageView
-                        android:layout_width="44dp"
-                        android:layout_height="44dp"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
                         android:src="@drawable/ic_chart"
-                        android:background="@drawable/splash_background"
-                        android:backgroundTint="#ECFDF5"
-                        app:tint="#059669"
-                        android:padding="10dp" />
+                        app:tint="#059669" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -538,13 +523,10 @@
                     android:background="?android:attr/selectableItemBackground">
 
                     <ImageView
-                        android:layout_width="44dp"
-                        android:layout_height="44dp"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
                         android:src="@drawable/ic_business"
-                        android:background="@drawable/splash_background"
-                        android:backgroundTint="#ECFEFF"
-                        app:tint="#0891B2"
-                        android:padding="10dp" />
+                        app:tint="#0891B2" />
 
                     <TextView
                         android:layout_width="wrap_content"
