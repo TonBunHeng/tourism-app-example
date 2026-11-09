@@ -5,11 +5,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="12dp"
+    android:layout_marginBottom="14dp"
     app:cardCornerRadius="16dp"
     app:cardElevation="2dp"
     app:strokeWidth="1dp"
-    app:strokeColor="@color/mute"
+    app:strokeColor="#E2E8F0"
     app:cardBackgroundColor="@color/background">
 
     <LinearLayout
@@ -37,11 +37,11 @@
                 android:layout_gravity="top|start"
                 android:layout_margin="12dp"
                 android:background="@drawable/splash_background"
-                android:backgroundTint="#CC2E7D32"
+                android:backgroundTint="#DCFCE7"
                 android:paddingHorizontal="10dp"
                 android:paddingVertical="4dp"
                 android:text="✓ VISITED"
-                android:textColor="#FFFFFF"
+                android:textColor="#16A34A"
                 android:textSize="11sp"
                 android:textStyle="bold"
                 android:visibility="gone"
@@ -55,7 +55,7 @@
                 android:layout_gravity="top|end"
                 android:layout_margin="12dp"
                 android:background="@drawable/splash_background"
-                android:backgroundTint="#CCFFFFFF"
+                android:backgroundTint="#E6FFFFFF"
                 android:src="@drawable/ic_delete"
                 app:tint="@color/error"
                 android:contentDescription="Remove from Wishlist" />
@@ -84,7 +84,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
                 android:textColor="@color/text_primary"
-                android:textSize="18sp"
+                android:textSize="17sp"
                 android:textStyle="bold"
                 tools:text="Angkor Wat Temple" />
 
@@ -103,22 +103,51 @@
 
                 <TextView
                     android:id="@+id/tvFavLocation"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="4dp"
-                    android:layout_weight="1"
                     android:textColor="@color/text_secondary"
                     android:textSize="13sp"
-                    tools:text="Siem Reap, Cambodia" />
+                    tools:text="Siem Reap Province, Cambodia" />
+            </LinearLayout>
+
+            <!-- Divider -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#F1F5F9"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="12dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnToggleVisited"
-                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="36dp"
+                    android:text="Mark Visited"
+                    android:textColor="@color/primary"
+                    android:textSize="12sp"
+                    app:strokeColor="@color/primary"
+                    app:cornerRadius="10dp" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1" />
+
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Mark Visited"
-                    android:textSize="12sp"
-                    app:icon="@drawable/ic_check" />
+                    android:text="Details ›"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
 
             </LinearLayout>
 
@@ -127,4 +156,3 @@
     </LinearLayout>
 
 </com.google.android.material.card.MaterialCardView>
-

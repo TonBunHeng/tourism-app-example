@@ -5,50 +5,96 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="20dp">
+    android:padding="20dp"
+    android:background="@color/background">
 
-    <TextView
-        android:id="@+id/tvBookingDialogTitle"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Reserve Visit"
-        android:textColor="@color/text_primary"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
-        android:text="Select your visit date, time slot, and guest party."
-        android:textColor="@color/text_secondary"
-        android:textSize="13sp" />
+        <ImageView
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="@drawable/splash_background"
+            android:backgroundTint="#EFF6FF"
+            android:padding="8dp"
+            android:src="@drawable/ic_calendar"
+            app:tint="@color/primary" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_marginStart="12dp">
+
+            <TextView
+                android:id="@+id/tvBookingDialogTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Reserve Visit"
+                android:textColor="@color/text_primary"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="Select date, time slot, and party size"
+                android:textColor="@color/text_secondary"
+                android:textSize="12sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#F1F5F9"
+        android:layout_marginTop="14dp"
+        android:layout_marginBottom="14dp" />
 
     <!-- Date input -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/layoutBookingDate"
-        style="@style/AppTextInput.Layout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="14dp"
         android:hint="Visit Date (YYYY-MM-DD)*"
-        app:startIconDrawable="@drawable/ic_calendar">
+        app:boxCornerRadiusTopStart="12dp"
+        app:boxCornerRadiusTopEnd="12dp"
+        app:boxCornerRadiusBottomStart="12dp"
+        app:boxCornerRadiusBottomEnd="12dp"
+        app:boxStrokeColor="@color/primary"
+        app:startIconDrawable="@drawable/ic_calendar"
+        app:startIconTint="@color/primary">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etBookingDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="date" />
+            android:inputType="date"
+            android:focusable="false"
+            android:clickable="true" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <!-- Time input -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/layoutBookingTime"
-        style="@style/AppTextInput.Layout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:hint="Arrival Time (e.g. 09:00 AM)*">
+        android:hint="Arrival Time (e.g. 09:00 AM)*"
+        app:boxCornerRadiusTopStart="12dp"
+        app:boxCornerRadiusTopEnd="12dp"
+        app:boxCornerRadiusBottomStart="12dp"
+        app:boxCornerRadiusBottomEnd="12dp"
+        app:boxStrokeColor="@color/primary"
+        app:startIconDrawable="@drawable/ic_clock"
+        app:startIconTint="@color/primary">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etBookingTime"
@@ -61,11 +107,18 @@
     <!-- Number of guests -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/layoutBookingGuests"
-        style="@style/AppTextInput.Layout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:hint="Number of Guests*">
+        android:hint="Number of Guests*"
+        app:boxCornerRadiusTopStart="12dp"
+        app:boxCornerRadiusTopEnd="12dp"
+        app:boxCornerRadiusBottomStart="12dp"
+        app:boxCornerRadiusBottomEnd="12dp"
+        app:boxStrokeColor="@color/primary"
+        app:startIconDrawable="@drawable/ic_person"
+        app:startIconTint="@color/primary">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etBookingGuests"
@@ -78,11 +131,16 @@
     <!-- Special Requests -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/layoutBookingRequests"
-        style="@style/AppTextInput.Layout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:hint="Special Requests / Notes (optional)">
+        android:hint="Special Requests / Notes (optional)"
+        app:boxCornerRadiusTopStart="12dp"
+        app:boxCornerRadiusTopEnd="12dp"
+        app:boxCornerRadiusBottomStart="12dp"
+        app:boxCornerRadiusBottomEnd="12dp"
+        app:boxStrokeColor="@color/primary">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etBookingRequests"
@@ -94,4 +152,3 @@
     </com.google.android.material.textfield.TextInputLayout>
 
 </LinearLayout>
-

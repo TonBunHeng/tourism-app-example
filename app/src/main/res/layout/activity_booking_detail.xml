@@ -1,49 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background">
+    android:orientation="vertical"
+    android:background="#F8FAFC">
 
-    <com.google.android.material.appbar.AppBarLayout
+    <!-- Top AppBar Toolbar -->
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="?attr/actionBarSize"
         android:background="@color/background"
-        app:elevation="0dp">
-
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            app:navigationIcon="@drawable/ic_arrow_back"
-            app:title="Booking Details"
-            app:titleTextColor="@color/text_primary" />
-
-    </com.google.android.material.appbar.AppBarLayout>
+        app:title="Reservation Receipt"
+        app:titleTextColor="@color/text_primary"
+        app:navigationIcon="@drawable/ic_arrow_back"
+        app:elevation="2dp" />
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="20dp"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="16dp">
 
-            <!-- Ticket Card -->
+            <!-- Reservation Receipt Card -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="2dp"
-                app:cardBackgroundColor="@color/background"
                 app:strokeWidth="1dp"
-                app:strokeColor="@color/mute">
+                app:strokeColor="#E2E8F0"
+                app:cardBackgroundColor="@color/background">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -62,9 +59,8 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:fontFamily="monospace"
-                            android:textColor="@color/text_secondary"
-                            android:textSize="14sp"
+                            android:textColor="@color/primary"
+                            android:textSize="18sp"
                             android:textStyle="bold"
                             tools:text="#BK-89240" />
 
@@ -72,9 +68,12 @@
                             android:id="@+id/tvBookingStatus"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:background="@drawable/splash_background"
+                            android:backgroundTint="#EFF6FF"
                             android:paddingHorizontal="12dp"
-                            android:paddingVertical="4dp"
-                            android:textSize="12sp"
+                            android:paddingVertical="5dp"
+                            android:textColor="@color/primary"
+                            android:textSize="11sp"
                             android:textStyle="bold"
                             tools:text="CONFIRMED" />
                     </LinearLayout>
@@ -83,51 +82,80 @@
                         android:id="@+id/tvTargetName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
+                        android:layout_marginTop="10dp"
                         android:textColor="@color/text_primary"
-                        android:textSize="20sp"
+                        android:textSize="18sp"
                         android:textStyle="bold"
                         tools:text="Angkor Wat Grand Tour" />
 
-                    <TextView
-                        android:id="@+id/tvTargetLocation"
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
-                        android:textColor="@color/text_secondary"
-                        android:textSize="13sp"
-                        tools:text="Siem Reap, Cambodia" />
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="14dp"
+                            android:layout_height="14dp"
+                            android:src="@drawable/ic_location"
+                            app:tint="@color/text_secondary" />
+
+                        <TextView
+                            android:id="@+id/tvTargetLocation"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="4dp"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="13sp"
+                            tools:text="Siem Reap, Cambodia" />
+                    </LinearLayout>
 
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:layout_marginVertical="16dp"
-                        android:background="@color/mute" />
+                        android:layout_marginTop="16dp"
+                        android:layout_marginBottom="16dp"
+                        android:background="#F1F5F9" />
 
-                    <!-- Date & Time -->
+                    <!-- Section: RESERVATION DETAILS -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="RESERVATION SCHEDULE"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/text_secondary" />
+
+                    <!-- Date & Time Grid -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
                         android:orientation="horizontal">
 
                         <LinearLayout
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:background="@drawable/splash_background"
+                            android:backgroundTint="#F8FAFC"
+                            android:padding="12dp"
+                            android:layout_marginEnd="6dp"
                             android:orientation="vertical">
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Date"
+                                android:text="📅 Visit Date"
                                 android:textColor="@color/text_secondary"
-                                android:textSize="12sp" />
+                                android:textSize="11sp" />
 
                             <TextView
                                 android:id="@+id/tvBookingDate"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="2dp"
+                                android:layout_marginTop="4dp"
                                 android:textColor="@color/text_primary"
                                 android:textSize="14sp"
                                 android:textStyle="bold"
@@ -138,20 +166,24 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:background="@drawable/splash_background"
+                            android:backgroundTint="#F8FAFC"
+                            android:padding="12dp"
+                            android:layout_marginStart="6dp"
                             android:orientation="vertical">
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Time / Slot"
+                                android:text="⏰ Arrival Slot"
                                 android:textColor="@color/text_secondary"
-                                android:textSize="12sp" />
+                                android:textSize="11sp" />
 
                             <TextView
                                 android:id="@+id/tvBookingTime"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="2dp"
+                                android:layout_marginTop="4dp"
                                 android:textColor="@color/text_primary"
                                 android:textSize="14sp"
                                 android:textStyle="bold"
@@ -163,27 +195,31 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
+                        android:layout_marginTop="12dp"
                         android:orientation="horizontal">
 
                         <LinearLayout
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:background="@drawable/splash_background"
+                            android:backgroundTint="#F8FAFC"
+                            android:padding="12dp"
+                            android:layout_marginEnd="6dp"
                             android:orientation="vertical">
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Guests"
+                                android:text="👥 Party Size"
                                 android:textColor="@color/text_secondary"
-                                android:textSize="12sp" />
+                                android:textSize="11sp" />
 
                             <TextView
                                 android:id="@+id/tvBookingGuests"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="2dp"
+                                android:layout_marginTop="4dp"
                                 android:textColor="@color/text_primary"
                                 android:textSize="14sp"
                                 android:textStyle="bold"
@@ -194,22 +230,27 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:background="@drawable/splash_background"
+                            android:backgroundTint="#EFF6FF"
+                            android:padding="12dp"
+                            android:layout_marginStart="6dp"
                             android:orientation="vertical">
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Total Amount"
-                                android:textColor="@color/text_secondary"
-                                android:textSize="12sp" />
+                                android:text="💳 Total Fee"
+                                android:textColor="@color/primary"
+                                android:textSize="11sp"
+                                android:textStyle="bold" />
 
                             <TextView
                                 android:id="@+id/tvBookingPrice"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="2dp"
+                                android:layout_marginTop="4dp"
                                 android:textColor="@color/primary"
-                                android:textSize="15sp"
+                                android:textSize="16sp"
                                 android:textStyle="bold"
                                 tools:text="$45.00" />
                         </LinearLayout>
@@ -220,18 +261,28 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
-                        android:text="Special Requests / Notes"
-                        android:textColor="@color/text_secondary"
-                        android:textSize="12sp" />
+                        android:text="SPECIAL REQUESTS / NOTES"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/text_secondary" />
 
-                    <TextView
-                        android:id="@+id/tvSpecialRequests"
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:textColor="@color/text_primary"
-                        android:textSize="13sp"
-                        tools:text="Please arrange English speaking tour guide and vegetarian lunch." />
+                        android:layout_marginTop="8dp"
+                        android:background="@drawable/splash_background"
+                        android:backgroundTint="#F8FAFC"
+                        android:padding="12dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvSpecialRequests"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/text_primary"
+                            android:textSize="13sp"
+                            tools:text="Please arrange English speaking tour guide and vegetarian lunch." />
+                    </LinearLayout>
 
                 </LinearLayout>
 
@@ -240,12 +291,15 @@
             <!-- Actions -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnCancelReservation"
-                style="@style/Widget.Material3.Button.TonalButton"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="20dp"
                 android:text="Cancel Reservation"
                 android:textColor="@color/error"
+                android:textSize="14sp"
+                app:strokeColor="#FCA5A5"
+                app:cornerRadius="12dp"
                 app:icon="@drawable/ic_delete"
                 app:iconTint="@color/error" />
 
@@ -253,5 +307,4 @@
 
     </androidx.core.widget.NestedScrollView>
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
-
+</LinearLayout>

@@ -5,11 +5,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="@dimen/spacing_md"
+    android:layout_marginBottom="14dp"
     app:cardCornerRadius="16dp"
     app:cardElevation="2dp"
     app:strokeWidth="1dp"
-    app:strokeColor="@color/mute"
+    app:strokeColor="#E2E8F0"
     app:cardBackgroundColor="@color/background">
 
     <LinearLayout
@@ -20,7 +20,7 @@
         <!-- Place Banner Image with Rating & Favorite Button overlay -->
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="180dp">
+            android:layout_height="170dp">
 
             <ImageView
                 android:id="@+id/ivPlaceImage"
@@ -30,7 +30,7 @@
                 android:background="#E2E8F0"
                 tools:srcCompat="@drawable/onboarding_1" />
 
-            <!-- Rating Chip -->
+            <!-- Rating Pill -->
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -67,7 +67,7 @@
                 android:layout_gravity="top|end"
                 android:layout_margin="12dp"
                 android:background="@drawable/splash_background"
-                android:backgroundTint="#CCFFFFFF"
+                android:backgroundTint="#E6FFFFFF"
                 android:src="@drawable/ic_heart"
                 app:tint="@color/error"
                 android:contentDescription="Save to Wishlist" />
@@ -79,7 +79,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="@dimen/spacing_md">
+            android:padding="14dp">
 
             <!-- Category Tag -->
             <TextView
@@ -99,7 +99,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
                 android:textColor="@color/text_primary"
-                android:textSize="18sp"
+                android:textSize="17sp"
                 android:textStyle="bold"
                 android:maxLines="2"
                 android:ellipsize="end"
@@ -129,11 +129,18 @@
                     tools:text="Siem Reap Province, Cambodia" />
             </LinearLayout>
 
+            <!-- Divider -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#F1F5F9"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp" />
+
             <!-- Best Time & Price -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
@@ -151,7 +158,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/primary"
-                    android:textSize="14sp"
+                    android:textSize="15sp"
                     android:textStyle="bold"
                     tools:text="$37 / Day Pass" />
             </LinearLayout>
@@ -161,4 +168,3 @@
     </LinearLayout>
 
 </com.google.android.material.card.MaterialCardView>
-
