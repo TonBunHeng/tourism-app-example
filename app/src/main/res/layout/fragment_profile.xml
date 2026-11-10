@@ -98,13 +98,13 @@
                     android:id="@+id/chipRole"
                     style="@style/Widget.MaterialComponents.Chip.Choice"
                     android:layout_width="wrap_content"
-                    android:layout_height="30dp"
+                    android:layout_height="45dp"
                     android:layout_marginTop="8dp"
                     android:text="Traveler / Tourist"
+                    android:textColor="@color/on_primary"
                     android:textSize="11sp"
-                    app:chipMinHeight="26dp"
                     app:chipBackgroundColor="@color/primary"
-                    android:textColor="@color/on_primary" />
+                    app:chipMinHeight="26dp" />
 
                 <TextView
                     android:id="@+id/tvProfileLocation"
