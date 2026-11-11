@@ -67,11 +67,24 @@ public class BusinessListingsFragment extends Fragment {
         repository = new BusinessRepository(requireContext());
         appPreference = new AppPreference(requireContext());
 
+        refreshListings();
+        setupFab();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        Business b = appPreference.getSelectedBusiness();
+        Long newId = b != null ? b.getId() : null;
+        if (newId != null && !newId.equals(businessId)) {
+            refreshListings();
+        }
+    }
+
+    public void refreshListings() {
         Business b = appPreference.getSelectedBusiness();
         businessId = b != null ? b.getId() : null;
-
         setupViewPager();
-        setupFab();
     }
 
     private void setupViewPager() {
@@ -137,6 +150,10 @@ public class BusinessListingsFragment extends Fragment {
         AlertDialog dialog = new AlertDialog.Builder(requireContext())
                 .setView(dialogView)
                 .create();
+
+        if (dialog.getWindow() != null) {
+            dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        }
 
         TextView tvTitle = dialogView.findViewById(R.id.tvDialogServiceTitle);
         EditText etName = dialogView.findViewById(R.id.etServiceName);
@@ -228,6 +245,10 @@ public class BusinessListingsFragment extends Fragment {
                 .setView(dialogView)
                 .create();
 
+        if (dialog.getWindow() != null) {
+            dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        }
+
         TextView tvTitle = dialogView.findViewById(R.id.tvDialogPromoTitle);
         EditText etTitle = dialogView.findViewById(R.id.etPromoTitle);
         EditText etCode = dialogView.findViewById(R.id.etPromoCode);
@@ -316,6 +337,10 @@ public class BusinessListingsFragment extends Fragment {
         AlertDialog dialog = new AlertDialog.Builder(requireContext())
                 .setView(dialogView)
                 .create();
+
+        if (dialog.getWindow() != null) {
+            dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        }
 
         EditText etUrl = dialogView.findViewById(R.id.etImageUrl);
         EditText etCaption = dialogView.findViewById(R.id.etImageCaption);
@@ -430,6 +455,14 @@ public class BusinessListingsFragment extends Fragment {
             loadServices();
         }
 
+        @Override
+        public void onResume() {
+            super.onResume();
+            Business b = new AppPreference(requireContext()).getSelectedBusiness();
+            bId = b != null ? b.getId() : null;
+            loadServices();
+        }
+
         private void loadServices() {
             if (bId == null) {
                 emptyView.setVisibility(View.VISIBLE);
@@ -536,6 +569,14 @@ public class BusinessListingsFragment extends Fragment {
             loadPromotions();
         }
 
+        @Override
+        public void onResume() {
+            super.onResume();
+            Business b = new AppPreference(requireContext()).getSelectedBusiness();
+            bId = b != null ? b.getId() : null;
+            loadPromotions();
+        }
+
         private void loadPromotions() {
             if (bId == null) {
                 emptyView.setVisibility(View.VISIBLE);
@@ -627,6 +668,14 @@ public class BusinessListingsFragment extends Fragment {
             recyclerView.setAdapter(adapter);
 
             swipeRefresh.setOnRefreshListener(this::loadGallery);
+            loadGallery();
+        }
+
+        @Override
+        public void onResume() {
+            super.onResume();
+            Business b = new AppPreference(requireContext()).getSelectedBusiness();
+            bId = b != null ? b.getId() : null;
             loadGallery();
         }
 

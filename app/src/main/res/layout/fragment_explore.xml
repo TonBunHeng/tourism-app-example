@@ -22,28 +22,20 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/searchLayout"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            style="@style/AppTextInput.Layout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:boxCornerRadiusTopStart="12dp"
-            app:boxCornerRadiusTopEnd="12dp"
-            app:boxCornerRadiusBottomStart="12dp"
-            app:boxCornerRadiusBottomEnd="12dp"
-            app:boxStrokeColor="@color/primary"
             app:startIconDrawable="@drawable/ic_search"
-            app:startIconTint="@color/text_secondary"
             app:endIconMode="clear_text"
             app:hintEnabled="false">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etExploreSearch"
                 android:layout_width="match_parent"
-                android:layout_height="44dp"
-                android:paddingTop="0dp"
-                android:paddingBottom="0dp"
+                android:layout_height="wrap_content"
                 android:hint="Search temples, provinces, destinations..."
-                android:textSize="13sp"
+                android:textSize="14sp"
                 android:imeOptions="actionSearch"
                 android:inputType="text"
                 android:maxLines="1" />
@@ -106,7 +98,7 @@
                 android:paddingHorizontal="16dp"
                 android:paddingTop="8dp"
                 android:clipToPadding="false"
-                android:paddingBottom="80dp"
+                android:paddingBottom="100dp"
                 tools:listitem="@layout/item_place" />
 
             <!-- Loading Spinner -->

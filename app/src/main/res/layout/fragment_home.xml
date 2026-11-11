@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:clipToPadding="false"
-        android:paddingBottom="80dp">
+        android:paddingBottom="100dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -56,12 +56,12 @@
 
                         <com.google.android.material.chip.Chip
                             android:layout_width="wrap_content"
-                            android:layout_height="30dp"
+                            android:layout_height="44dp"
                             android:text="Explore Cambodia"
+                            android:textColor="@color/on_secondary"
                             android:textSize="11sp"
-                            app:chipMinHeight="26dp"
                             app:chipBackgroundColor="@color/secondary"
-                            android:textColor="@color/on_secondary" />
+                            app:chipMinHeight="26dp" />
 
                         <ImageButton
                             android:id="@+id/btnHomeNotifications"

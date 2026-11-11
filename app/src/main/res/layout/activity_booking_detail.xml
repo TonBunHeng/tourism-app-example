@@ -285,17 +285,12 @@
             <!-- Actions -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnCancelReservation"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                style="@style/AppButton.OutlinedDanger"
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:text="Cancel Reservation"
-                android:textColor="@color/error"
-                android:textSize="14sp"
-                app:strokeColor="#FCA5A5"
-                app:cornerRadius="12dp"
-                app:icon="@drawable/ic_delete"
-                app:iconTint="@color/error" />
+                app:icon="@drawable/ic_delete" />
 
         </LinearLayout>
 

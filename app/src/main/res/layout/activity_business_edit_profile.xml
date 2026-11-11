@@ -33,7 +33,7 @@
 
             <!-- Business Name -->
             <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                style="@style/AppTextInput.Layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Business Name *">
@@ -53,7 +53,7 @@
                 android:layout_marginTop="10dp">
 
                 <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    style="@style/AppTextInput.Layout.Dropdown"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -68,7 +68,7 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    style="@style/AppTextInput.Layout.Dropdown"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -85,7 +85,7 @@
 
             <!-- Physical Address -->
             <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                style="@style/AppTextInput.Layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -106,7 +106,7 @@
                 android:layout_marginTop="10dp">
 
                 <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    style="@style/AppTextInput.Layout"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -121,7 +121,7 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    style="@style/AppTextInput.Layout"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -138,7 +138,7 @@
 
             <!-- Official Website -->
             <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                style="@style/AppTextInput.Layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -153,7 +153,7 @@
 
             <!-- About / Description -->
             <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                style="@style/AppTextInput.Layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -188,13 +188,10 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnSaveBusinessProfile"
+            style="@style/AppButton.Primary"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:text="Save Profile Updates"
-            android:textSize="15sp"
-            android:textColor="@color/on_primary"
-            app:backgroundTint="@color/primary"
-            app:cornerRadius="12dp" />
+            android:layout_height="wrap_content"
+            android:text="Save Profile Updates" />
     </LinearLayout>
 
 </LinearLayout>

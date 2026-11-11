@@ -158,7 +158,7 @@ public class BusinessNotificationsActivity extends AppCompatActivity implements 
                 @Override
                 public void onResponse(Call<ApiResponse<Void>> call, Response<ApiResponse<Void>> response) {
                     notification.setReadAt("now");
-                    adapter.submitList(new ArrayList<>(list));
+                    adapter.notifyDataSetChanged();
                     loadUnreadCount();
                 }
 

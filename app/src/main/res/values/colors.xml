@@ -5,12 +5,14 @@
     <color name="on_primary">#FFFFFF</color>
 
     <color name="secondary">#00E676</color>
-    <color name="on_secondary">#000000</color>
+    <color name="on_secondary">#003E83</color>
 
     <!-- UI Background and Surface -->
     <color name="background">#FFFFFF</color>
-    <color name="surface">#A9A9A9</color>
-    <color name="mute">#CCCCCC</color>
+    <color name="surface">#FFFFFF</color>
+    <color name="on_surface">#1D1B20</color>
+    <color name="surface_variant">#F8FAFC</color>
+    <color name="mute">#CBD5E1</color>
 
     <!-- Text Color -->
     <color name="text_primary">#1D1B20</color>

@@ -5,147 +5,165 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="20dp"
-    android:background="@color/background">
+    android:background="@drawable/bg_dialog_popup">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
-
-        <ImageView
-            android:layout_width="28dp"
-            android:layout_height="28dp"
-            android:src="@drawable/ic_calendar"
-            app:tint="@color/primary" />
+        android:orientation="vertical"
+        android:paddingHorizontal="24dp"
+        android:paddingTop="24dp"
+        android:paddingBottom="20dp">
 
         <LinearLayout
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:layout_marginStart="12dp">
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/tvBookingDialogTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Reserve Visit"
-                android:textColor="@color/text_primary"
-                android:textSize="17sp"
-                android:textStyle="bold" />
+            <ImageView
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/ic_calendar"
+                app:tint="@color/primary" />
 
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:text="Select date, time slot, and party size"
-                android:textColor="@color/text_secondary"
-                android:textSize="12sp" />
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_marginStart="12dp">
+
+                <TextView
+                    android:id="@+id/tvBookingDialogTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Reserve Visit"
+                    android:textColor="@color/text_primary"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="Select date, time slot, and party size"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="13sp" />
+            </LinearLayout>
         </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#F1F5F9"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Date input -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutBookingDate"
+            style="@style/AppTextInput.Layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Visit Date (YYYY-MM-DD)*"
+            app:startIconDrawable="@drawable/ic_calendar">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etBookingDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="date"
+                android:focusable="false"
+                android:clickable="true" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Time input -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutBookingTime"
+            style="@style/AppTextInput.Layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:hint="Arrival Time (e.g. 09:00 AM)*"
+            app:startIconDrawable="@drawable/ic_clock">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etBookingTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:text="09:00 AM" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Number of guests -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutBookingGuests"
+            style="@style/AppTextInput.Layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:hint="Number of Guests*"
+            app:startIconDrawable="@drawable/ic_person">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etBookingGuests"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:text="2" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Special Requests -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutBookingRequests"
+            style="@style/AppTextInput.Layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:hint="Special Requests / Notes (optional)">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etBookingRequests"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:minLines="2"
+                android:maxLines="3" />
+        </com.google.android.material.textfield.TextInputLayout>
+
     </LinearLayout>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#F1F5F9"
-        android:layout_marginTop="14dp"
-        android:layout_marginBottom="14dp" />
-
-    <!-- Date input -->
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/layoutBookingDate"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+    <!-- Bottom Action Footer Bar -->
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Visit Date (YYYY-MM-DD)*"
-        app:boxCornerRadiusTopStart="12dp"
-        app:boxCornerRadiusTopEnd="12dp"
-        app:boxCornerRadiusBottomStart="12dp"
-        app:boxCornerRadiusBottomEnd="12dp"
-        app:boxStrokeColor="@color/primary"
-        app:startIconDrawable="@drawable/ic_calendar"
-        app:startIconTint="@color/primary">
+        android:background="@drawable/bg_dialog_footer"
+        android:gravity="end|center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="12dp">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etBookingDate"
-            android:layout_width="match_parent"
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnCancelBooking"
+            style="@style/AppButton.Tertiary"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="date"
-            android:focusable="false"
-            android:clickable="true" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:text="Cancel"
+            android:textColor="#0F4C81"
+            android:textSize="15sp"
+            android:layout_marginEnd="12dp" />
 
-    <!-- Time input -->
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/layoutBookingTime"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:hint="Arrival Time (e.g. 09:00 AM)*"
-        app:boxCornerRadiusTopStart="12dp"
-        app:boxCornerRadiusTopEnd="12dp"
-        app:boxCornerRadiusBottomStart="12dp"
-        app:boxCornerRadiusBottomEnd="12dp"
-        app:boxStrokeColor="@color/primary"
-        app:startIconDrawable="@drawable/ic_clock"
-        app:startIconTint="@color/primary">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etBookingTime"
-            android:layout_width="match_parent"
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnConfirmBooking"
+            style="@style/AppButton.Tertiary"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="text"
-            android:text="09:00 AM" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:text="Confirm Reservation"
+            android:textColor="@color/primary"
+            android:textSize="15sp"
+            android:textStyle="bold" />
 
-    <!-- Number of guests -->
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/layoutBookingGuests"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:hint="Number of Guests*"
-        app:boxCornerRadiusTopStart="12dp"
-        app:boxCornerRadiusTopEnd="12dp"
-        app:boxCornerRadiusBottomStart="12dp"
-        app:boxCornerRadiusBottomEnd="12dp"
-        app:boxStrokeColor="@color/primary"
-        app:startIconDrawable="@drawable/ic_person"
-        app:startIconTint="@color/primary">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etBookingGuests"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="number"
-            android:text="2" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <!-- Special Requests -->
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/layoutBookingRequests"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:hint="Special Requests / Notes (optional)"
-        app:boxCornerRadiusTopStart="12dp"
-        app:boxCornerRadiusTopEnd="12dp"
-        app:boxCornerRadiusBottomStart="12dp"
-        app:boxCornerRadiusBottomEnd="12dp"
-        app:boxStrokeColor="@color/primary">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etBookingRequests"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textMultiLine"
-            android:minLines="2"
-            android:maxLines="3" />
-    </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
 
 </LinearLayout>

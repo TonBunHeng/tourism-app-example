@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="#F8FAFC"
     android:clipToPadding="false"
-    android:paddingBottom="80dp">
+    android:paddingBottom="100dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -98,13 +98,13 @@
                     android:id="@+id/chipRole"
                     style="@style/Widget.MaterialComponents.Chip.Choice"
                     android:layout_width="wrap_content"
-                    android:layout_height="30dp"
+                    android:layout_height="45dp"
                     android:layout_marginTop="8dp"
                     android:text="Traveler / Tourist"
+                    android:textColor="@color/on_primary"
                     android:textSize="11sp"
-                    app:chipMinHeight="26dp"
                     app:chipBackgroundColor="@color/primary"
-                    android:textColor="@color/on_primary" />
+                    app:chipMinHeight="26dp" />
 
                 <TextView
                     android:id="@+id/tvProfileLocation"
@@ -134,29 +134,25 @@
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/btnEditProfile"
-                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        style="@style/AppButton.Secondary"
                         android:layout_width="0dp"
-                        android:layout_height="40dp"
+                        android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:layout_marginEnd="6dp"
                         android:text="Edit Info"
-                        android:textSize="12sp"
-                        app:strokeColor="@color/primary"
-                        app:cornerRadius="10dp"
+                        android:textSize="13sp"
                         app:icon="@drawable/ic_edit"
                         app:iconSize="16dp" />
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/btnChangePassword"
-                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        style="@style/AppButton.Secondary"
                         android:layout_width="0dp"
-                        android:layout_height="40dp"
+                        android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:layout_marginStart="6dp"
                         android:text="Password"
-                        android:textSize="12sp"
-                        app:strokeColor="@color/primary"
-                        app:cornerRadius="10dp" />
+                        android:textSize="13sp" />
 
                 </LinearLayout>
 
@@ -438,27 +434,18 @@
 
         </com.google.android.material.card.MaterialCardView>
 
-        <!-- Sign Out Button (Pill Outlined) -->
+        <!-- Sign Out Button -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnSignOut"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            style="@style/AppButton.OutlinedDanger"
             android:layout_width="match_parent"
-            android:layout_height="52dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:layout_marginBottom="32dp"
             android:text="SIGN OUT"
-            android:textColor="#DC2626"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            android:letterSpacing="0.06"
-            app:cornerRadius="26dp"
-            app:strokeColor="#FCA5A5"
-            app:strokeWidth="1.5dp"
             app:icon="@drawable/ic_logout"
-            app:iconTint="#DC2626"
             app:iconSize="20dp"
-            app:iconGravity="textStart"
-            app:iconPadding="10dp" />
+            app:iconGravity="textStart" />
 
     </LinearLayout>
 

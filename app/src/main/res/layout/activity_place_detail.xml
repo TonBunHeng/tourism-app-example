@@ -180,16 +180,17 @@
                         android:layout_marginTop="14dp"
                         android:layout_marginBottom="14dp" />
 
-                    <!-- Quick Specs Grid -->
+                    <!-- Quick Specs Grid (3 Equal Height & Width Boxes) -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:baselineAligned="false"
                         android:orientation="horizontal">
 
                         <!-- Price Card -->
                         <LinearLayout
                             android:layout_width="0dp"
-                            android:layout_height="wrap_content"
+                            android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:background="@drawable/bg_rounded_card_subtle"
                             android:padding="12dp"
@@ -205,11 +206,11 @@
 
                             <TextView
                                 android:id="@+id/tvPrice"
-                                android:layout_width="wrap_content"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="2dp"
                                 android:textColor="@color/primary"
-                                android:textSize="15sp"
+                                android:textSize="14sp"
                                 android:textStyle="bold"
                                 tools:text="$37.00" />
                         </LinearLayout>
@@ -217,11 +218,12 @@
                         <!-- Best Time Card -->
                         <LinearLayout
                             android:layout_width="0dp"
-                            android:layout_height="wrap_content"
+                            android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:background="@drawable/bg_rounded_card_subtle"
                             android:padding="12dp"
-                            android:layout_marginHorizontal="4dp"
+                            android:layout_marginStart="4dp"
+                            android:layout_marginEnd="4dp"
                             android:orientation="vertical">
 
                             <TextView
@@ -233,10 +235,10 @@
 
                             <TextView
                                 android:id="@+id/tvBestTime"
-                                android:layout_width="wrap_content"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="2dp"
-                                android:textColor="@color/text_primary"
+                                android:textColor="@color/primary"
                                 android:textSize="14sp"
                                 android:textStyle="bold"
                                 tools:text="Nov - Feb" />
@@ -245,7 +247,7 @@
                         <!-- Duration Card -->
                         <LinearLayout
                             android:layout_width="0dp"
-                            android:layout_height="wrap_content"
+                            android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:background="@drawable/bg_rounded_card_subtle"
                             android:padding="12dp"
@@ -261,10 +263,10 @@
 
                             <TextView
                                 android:id="@+id/tvDuration"
-                                android:layout_width="wrap_content"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="2dp"
-                                android:textColor="@color/text_primary"
+                                android:textColor="@color/primary"
                                 android:textSize="14sp"
                                 android:textStyle="bold"
                                 tools:text="Full Day" />
@@ -410,16 +412,13 @@
 
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/btnWriteReview"
-                            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                            style="@style/AppButton.Secondary"
                             android:layout_width="wrap_content"
-                            android:layout_height="36dp"
+                            android:layout_height="38dp"
                             android:text="Write Review"
-                            android:textColor="@color/primary"
                             android:textSize="12sp"
-                            app:strokeColor="@color/primary"
-                            app:cornerRadius="10dp"
                             app:icon="@drawable/ic_edit"
-                            app:iconTint="@color/primary" />
+                            app:iconSize="14dp" />
 
                     </LinearLayout>
 
@@ -461,13 +460,10 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnBook"
+            style="@style/AppButton.Primary"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:text="Book Destination Visit"
-            android:textColor="@color/on_primary"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            app:cornerRadius="12dp" />
+            android:layout_height="wrap_content"
+            android:text="Book Destination Visit" />
 
     </LinearLayout>
 

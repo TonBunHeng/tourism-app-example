@@ -133,10 +133,6 @@ public class SignInActivity extends AppCompatActivity {
             Intent signInIntent = googleSignInClient.getSignInIntent();
             googleSignInLauncher.launch(signInIntent);
         });
-
-        binding.btnFacebook.setOnClickListener(v -> {
-            Toast.makeText(SignInActivity.this, "Connecting to Facebook Sign-In...", Toast.LENGTH_SHORT).show();
-        });
     }
 
     private void observeViewModel() {

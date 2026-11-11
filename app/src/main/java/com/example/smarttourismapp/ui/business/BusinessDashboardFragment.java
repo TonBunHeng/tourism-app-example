@@ -72,6 +72,12 @@ public class BusinessDashboardFragment extends Fragment {
         loadDashboard();
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        loadDashboard();
+    }
+
     private void initViews(View view) {
         swipeRefresh = view.findViewById(R.id.swipeRefreshDashboard);
         tvOwnerGreeting = view.findViewById(R.id.tvOwnerGreeting);
@@ -210,6 +216,14 @@ public class BusinessDashboardFragment extends Fragment {
         activeBusiness = appPreference.getSelectedBusiness();
         if (activeBusiness != null) {
             updateBusinessHeader(activeBusiness);
+        } else {
+            User u = appPreference.getUser();
+            String ownerName = u != null ? u.getName() : "Owner";
+            tvActiveBusinessName.setText(ownerName + " Enterprise");
+            tvActiveBusinessMeta.setText("Tap 'Switch Business' to register or select an active business");
+            chipVerification.setText("Action Required");
+            chipVerification.setChipBackgroundColorResource(R.color.warning);
+            cardPendingNotice.setVisibility(View.GONE);
         }
 
         Long bizId = activeBusiness != null ? activeBusiness.getId() : null;

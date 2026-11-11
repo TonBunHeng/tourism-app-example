@@ -228,25 +228,15 @@
 
             </LinearLayout>
 
-            <!-- Facebook button -->
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnFacebook"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/common_btn_continue_with_facebook"
-                app:iconTint="@null"
-                app:icon="@drawable/ic_facebook"
-                style="@style/AppButton.Secondary"/>
-
             <!-- Google button -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnGoogle"
+                style="@style/AppButton.Secondary"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/common_btn_continue_with_google"
-                app:iconTint="@null"
                 app:icon="@drawable/ic_google"
-                style="@style/AppButton.Secondary"/>
+                app:iconTint="@null" />
 
         </LinearLayout>
 
