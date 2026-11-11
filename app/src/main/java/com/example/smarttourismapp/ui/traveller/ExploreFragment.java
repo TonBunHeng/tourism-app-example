@@ -18,6 +18,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.example.smarttourismapp.R;
 import com.example.smarttourismapp.data.repository.TravelRepository;
 import com.example.smarttourismapp.databinding.FragmentExploreBinding;
 import com.example.smarttourismapp.model.Category;
@@ -174,8 +175,14 @@ public class ExploreFragment extends Fragment implements PlaceAdapter.OnPlaceCli
     private void populateCategoryChips(List<Category> categories) {
         if (categories == null || binding == null) return;
 
+        // Clear dynamic chips, keeping only chipExploreAll (index 0)
+        int childCount = binding.chipGroupExploreCategories.getChildCount();
+        if (childCount > 1) {
+            binding.chipGroupExploreCategories.removeViews(1, childCount - 1);
+        }
+
         for (Category category : categories) {
-            Chip chip = new Chip(requireContext());
+            Chip chip = (Chip) getLayoutInflater().inflate(R.layout.item_chip_filter, binding.chipGroupExploreCategories, false);
             chip.setText(category.getName());
             chip.setCheckable(true);
             chip.setClickable(true);

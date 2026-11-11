@@ -71,6 +71,14 @@ public class BusinessReviewsFragment extends Fragment {
         loadReviews();
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        Business b = appPreference.getSelectedBusiness();
+        businessId = b != null ? b.getId() : null;
+        loadReviews();
+    }
+
     private void initViews(View view) {
         tvAverageRatingValue = view.findViewById(R.id.tvAverageRatingValue);
         tvTotalReviewsCount = view.findViewById(R.id.tvTotalReviewsCount);
@@ -179,6 +187,10 @@ public class BusinessReviewsFragment extends Fragment {
         AlertDialog dialog = new AlertDialog.Builder(requireContext())
                 .setView(dialogView)
                 .create();
+
+        if (dialog.getWindow() != null) {
+            dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        }
 
         TextView tvQuote = dialogView.findViewById(R.id.tvCustomerReviewQuote);
         EditText etReply = dialogView.findViewById(R.id.etReplyText);

@@ -155,21 +155,22 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <!-- AI Assistant Floating Action Button -->
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/fabAiAssistant"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:text="Ask AI"
+            android:textColor="@color/on_primary"
+            app:icon="@drawable/ic_chat"
+            app:iconTint="@color/on_primary"
+            app:backgroundTint="@color/primary"
+            app:elevation="6dp"
+            app:layout_constraintBottom_toTopOf="@id/bottomNav"
+            app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- AI Assistant Floating Action Button -->
-    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-        android:id="@+id/fabAiAssistant"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="76dp"
-        android:text="Ask AI"
-        android:textColor="@color/on_primary"
-        app:icon="@drawable/ic_chat"
-        app:iconTint="@color/on_primary"
-        app:backgroundTint="@color/primary"
-        app:elevation="6dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

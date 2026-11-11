@@ -220,6 +220,10 @@ public class BusinessMainActivity extends AppCompatActivity {
                 .setView(dialogView)
                 .create();
 
+        if (dialog.getWindow() != null) {
+            dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        }
+
         RecyclerView rv = dialogView.findViewById(R.id.rvDialogBusinesses);
         MaterialButton btnAdd = dialogView.findViewById(R.id.btnAddNewBusinessInDialog);
         MaterialButton btnClose = dialogView.findViewById(R.id.btnCloseSwitchDialog);
@@ -235,6 +239,7 @@ public class BusinessMainActivity extends AppCompatActivity {
             if (dashboardFragment != null) dashboardFragment.loadDashboard();
             if (bookingsFragment != null) bookingsFragment.loadBookings();
             if (reviewsFragment != null) reviewsFragment.loadReviews();
+            if (listingsFragment != null) listingsFragment.refreshListings();
         });
 
         rv.setLayoutManager(new LinearLayoutManager(this));

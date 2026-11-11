@@ -109,16 +109,21 @@ public class ManageBusinessesActivity extends AppCompatActivity {
         EditText etName = dialogView.findViewById(R.id.etServiceName);
         EditText etDesc = dialogView.findViewById(R.id.etServiceDesc);
         EditText etPrice = dialogView.findViewById(R.id.etServicePrice);
-        EditText etDuration = dialogView.findViewById(R.id.etServiceDuration);
         MaterialButton btnCancel = dialogView.findViewById(R.id.btnCancelService);
         MaterialButton btnSave = dialogView.findViewById(R.id.btnSaveService);
 
         etName.setHint("Business Enterprise Name *");
         etDesc.setHint("Description & Tourism Services");
-        etPrice.setVisibility(View.GONE);
-        etDuration.setVisibility(View.GONE);
-        dialogView.findViewById(R.id.etServiceCapacity).setVisibility(View.GONE);
-        dialogView.findViewById(R.id.switchServiceActive).setVisibility(View.GONE);
+
+        View priceParent = (View) etPrice.getParent();
+        if (priceParent != null && priceParent.getParent() instanceof View) {
+            ((View) priceParent.getParent()).setVisibility(View.GONE);
+        }
+
+        View capacityView = dialogView.findViewById(R.id.etServiceCapacity);
+        if (capacityView != null && capacityView.getParent() != null && capacityView.getParent().getParent() instanceof View) {
+            ((View) capacityView.getParent().getParent()).setVisibility(View.GONE);
+        }
 
         btnSave.setText("Register Enterprise");
 

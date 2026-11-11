@@ -113,7 +113,7 @@ public class AIChatActivity extends AppCompatActivity {
     private void populateSuggestionChips(List<String> suggestions) {
         binding.chipGroupSuggestions.removeAllViews();
         for (String suggestion : suggestions) {
-            Chip chip = new Chip(this);
+            Chip chip = (Chip) getLayoutInflater().inflate(R.layout.item_chip_filter, binding.chipGroupSuggestions, false);
             chip.setText(suggestion);
             chip.setClickable(true);
             chip.setCheckable(false);

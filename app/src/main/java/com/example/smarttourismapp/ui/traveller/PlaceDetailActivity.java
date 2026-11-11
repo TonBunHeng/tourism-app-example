@@ -271,38 +271,46 @@ public class PlaceDetailActivity extends AppCompatActivity {
 
         DialogWriteReviewBinding dialogBinding = DialogWriteReviewBinding.inflate(LayoutInflater.from(this));
 
-        new AlertDialog.Builder(this)
+        AlertDialog dialog = new AlertDialog.Builder(this)
                 .setView(dialogBinding.getRoot())
-                .setPositiveButton("Submit Review", (dialog, which) -> {
-                    int rating = (int) dialogBinding.ratingBar.getRating();
-                    String title = dialogBinding.etReviewTitle.getText() != null ? dialogBinding.etReviewTitle.getText().toString().trim() : "";
-                    String comment = dialogBinding.etReviewComment.getText() != null ? dialogBinding.etReviewComment.getText().toString().trim() : "";
+                .create();
 
-                    if (TextUtils.isEmpty(comment)) {
-                        Toast.makeText(this, "Please write your review feedback.", Toast.LENGTH_SHORT).show();
-                        return;
+        if (dialog.getWindow() != null) {
+            dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        }
+
+        dialogBinding.btnCancelReview.setOnClickListener(v -> dialog.dismiss());
+        dialogBinding.btnSubmitReview.setOnClickListener(v -> {
+            int rating = (int) dialogBinding.ratingBar.getRating();
+            String title = dialogBinding.etReviewTitle.getText() != null ? dialogBinding.etReviewTitle.getText().toString().trim() : "";
+            String comment = dialogBinding.etReviewComment.getText() != null ? dialogBinding.etReviewComment.getText().toString().trim() : "";
+
+            if (TextUtils.isEmpty(comment)) {
+                Toast.makeText(this, "Please write your review feedback.", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            dialog.dismiss();
+            ReviewRequest request = new ReviewRequest(currentPlace.getId(), rating > 0 ? rating : 5, title, comment);
+            apiService.createReview(request).enqueue(new Callback<ApiResponse<Review>>() {
+                @Override
+                public void onResponse(Call<ApiResponse<Review>> call, Response<ApiResponse<Review>> response) {
+                    if (response.isSuccessful()) {
+                        Toast.makeText(PlaceDetailActivity.this, "Thank you! Your review has been submitted.", Toast.LENGTH_SHORT).show();
+                        fetchReviews(currentPlace.getId());
+                    } else {
+                        Toast.makeText(PlaceDetailActivity.this, ApiErrorParser.parseMessage(response), Toast.LENGTH_SHORT).show();
                     }
+                }
 
-                    ReviewRequest request = new ReviewRequest(currentPlace.getId(), rating > 0 ? rating : 5, title, comment);
-                    apiService.createReview(request).enqueue(new Callback<ApiResponse<Review>>() {
-                        @Override
-                        public void onResponse(Call<ApiResponse<Review>> call, Response<ApiResponse<Review>> response) {
-                            if (response.isSuccessful()) {
-                                Toast.makeText(PlaceDetailActivity.this, "Thank you! Your review has been submitted.", Toast.LENGTH_SHORT).show();
-                                fetchReviews(currentPlace.getId());
-                            } else {
-                                Toast.makeText(PlaceDetailActivity.this, ApiErrorParser.parseMessage(response), Toast.LENGTH_SHORT).show();
-                            }
-                        }
+                @Override
+                public void onFailure(Call<ApiResponse<Review>> call, Throwable t) {
+                    Toast.makeText(PlaceDetailActivity.this, ApiErrorParser.parseThrowable(t), Toast.LENGTH_SHORT).show();
+                }
+            });
+        });
 
-                        @Override
-                        public void onFailure(Call<ApiResponse<Review>> call, Throwable t) {
-                            Toast.makeText(PlaceDetailActivity.this, ApiErrorParser.parseThrowable(t), Toast.LENGTH_SHORT).show();
-                        }
-                    });
-                })
-                .setNegativeButton("Cancel", null)
-                .show();
+        dialog.show();
     }
 
     private void showBookingDialog() {
@@ -323,21 +331,29 @@ public class PlaceDetailActivity extends AppCompatActivity {
             }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH)).show();
         });
 
-        new AlertDialog.Builder(this)
+        AlertDialog dialog = new AlertDialog.Builder(this)
                 .setView(dialogBinding.getRoot())
-                .setPositiveButton("Confirm Reservation", (dialog, which) -> {
-                    String date = dialogBinding.etBookingDate.getText() != null ? dialogBinding.etBookingDate.getText().toString().trim() : "";
-                    String time = dialogBinding.etBookingTime.getText() != null ? dialogBinding.etBookingTime.getText().toString().trim() : "09:00 AM";
-                    String guestsStr = dialogBinding.etBookingGuests.getText() != null ? dialogBinding.etBookingGuests.getText().toString().trim() : "2";
-                    int guests = 2;
-                    try {
-                        guests = Integer.parseInt(guestsStr);
-                    } catch (NumberFormatException ignored) {}
+                .create();
 
-                    String requests = dialogBinding.etBookingRequests.getText() != null ? dialogBinding.etBookingRequests.getText().toString().trim() : "";
+        if (dialog.getWindow() != null) {
+            dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        }
 
-                    Map<String, Object> bookingPayload = new HashMap<>();
-                    bookingPayload.put("booking_date", date);
+        dialogBinding.btnCancelBooking.setOnClickListener(v -> dialog.dismiss());
+        dialogBinding.btnConfirmBooking.setOnClickListener(v -> {
+            String date = dialogBinding.etBookingDate.getText() != null ? dialogBinding.etBookingDate.getText().toString().trim() : "";
+            String time = dialogBinding.etBookingTime.getText() != null ? dialogBinding.etBookingTime.getText().toString().trim() : "09:00 AM";
+            String guestsStr = dialogBinding.etBookingGuests.getText() != null ? dialogBinding.etBookingGuests.getText().toString().trim() : "2";
+            int guests = 2;
+            try {
+                guests = Integer.parseInt(guestsStr);
+            } catch (NumberFormatException ignored) {}
+
+            String requests = dialogBinding.etBookingRequests.getText() != null ? dialogBinding.etBookingRequests.getText().toString().trim() : "";
+
+            dialog.dismiss();
+            Map<String, Object> bookingPayload = new HashMap<>();
+            bookingPayload.put("booking_date", date);
                     bookingPayload.put("booking_time", time);
                     bookingPayload.put("number_of_guests", guests);
                     bookingPayload.put("special_requests", requests);
@@ -358,8 +374,8 @@ public class PlaceDetailActivity extends AppCompatActivity {
                             Toast.makeText(PlaceDetailActivity.this, ApiErrorParser.parseThrowable(t), Toast.LENGTH_SHORT).show();
                         }
                     });
-                })
-                .setNegativeButton("Cancel", null)
-                .show();
+        });
+
+        dialog.show();
     }
 }

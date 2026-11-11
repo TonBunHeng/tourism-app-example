@@ -5,6 +5,8 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.DiffUtil;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -46,6 +48,26 @@ public class CategoryAdapter extends ListAdapter<Category, CategoryAdapter.Categ
                 parent,
                 false
         );
+
+        if (parent instanceof RecyclerView) {
+            RecyclerView rv = (RecyclerView) parent;
+            RecyclerView.LayoutManager lm = rv.getLayoutManager();
+            ViewGroup.MarginLayoutParams lp = (ViewGroup.MarginLayoutParams) binding.getRoot().getLayoutParams();
+            if (lp != null) {
+                if (lm instanceof GridLayoutManager) {
+                    lp.width = ViewGroup.LayoutParams.MATCH_PARENT;
+                    int dp6 = (int) (6 * parent.getContext().getResources().getDisplayMetrics().density);
+                    lp.setMargins(dp6, dp6, dp6, dp6);
+                } else if (lm instanceof LinearLayoutManager && ((LinearLayoutManager) lm).getOrientation() == LinearLayoutManager.HORIZONTAL) {
+                    lp.width = ViewGroup.LayoutParams.WRAP_CONTENT;
+                    int dp10 = (int) (10 * parent.getContext().getResources().getDisplayMetrics().density);
+                    int dp4 = (int) (4 * parent.getContext().getResources().getDisplayMetrics().density);
+                    lp.setMargins(0, dp4, dp10, dp4);
+                }
+                binding.getRoot().setLayoutParams(lp);
+            }
+        }
+
         return new CategoryViewHolder(binding);
     }
 

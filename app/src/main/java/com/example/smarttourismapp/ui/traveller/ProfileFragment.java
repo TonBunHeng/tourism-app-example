@@ -243,38 +243,54 @@ public class ProfileFragment extends Fragment {
             etEditBio.setText(currentUser.getBio());
         }
 
-        new MaterialAlertDialogBuilder(requireContext())
+        androidx.appcompat.app.AlertDialog dialog = new MaterialAlertDialogBuilder(requireContext())
                 .setView(dialogView)
-                .setPositiveButton("Save", (dialog, which) -> {
-                    String name = etEditName.getText() != null ? etEditName.getText().toString().trim() : "";
-                    String phone = etEditPhone.getText() != null ? etEditPhone.getText().toString().trim() : "";
-                    String location = etEditLocation.getText() != null ? etEditLocation.getText().toString().trim() : "";
-                    String bio = etEditBio.getText() != null ? etEditBio.getText().toString().trim() : "";
+                .create();
 
-                    if (TextUtils.isEmpty(name)) {
-                        Toast.makeText(requireContext(), "Name is required", Toast.LENGTH_SHORT).show();
-                        return;
+        if (dialog.getWindow() != null) {
+            dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        }
+
+        View btnCancel = dialogView.findViewById(R.id.btnCancelEditProfile);
+        View btnSave = dialogView.findViewById(R.id.btnSaveEditProfile);
+
+        if (btnCancel != null) {
+            btnCancel.setOnClickListener(v -> dialog.dismiss());
+        }
+
+        if (btnSave != null) {
+            btnSave.setOnClickListener(v -> {
+                String name = etEditName.getText() != null ? etEditName.getText().toString().trim() : "";
+                String phone = etEditPhone.getText() != null ? etEditPhone.getText().toString().trim() : "";
+                String location = etEditLocation.getText() != null ? etEditLocation.getText().toString().trim() : "";
+                String bio = etEditBio.getText() != null ? etEditBio.getText().toString().trim() : "";
+
+                if (TextUtils.isEmpty(name)) {
+                    Toast.makeText(requireContext(), "Name is required", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                dialog.dismiss();
+                Toast.makeText(requireContext(), "Saving profile...", Toast.LENGTH_SHORT).show();
+                authRepository.updateProfile(name, phone, location, bio, new AuthRepository.AuthCallback<User>() {
+                    @Override
+                    public void onSuccess(User updated) {
+                        if (!isAdded()) return;
+                        Toast.makeText(requireContext(), "Profile updated!", Toast.LENGTH_SHORT).show();
+                        currentUser = updated;
+                        displayUserData(updated);
                     }
 
-                    Toast.makeText(requireContext(), "Saving profile...", Toast.LENGTH_SHORT).show();
-                    authRepository.updateProfile(name, phone, location, bio, new AuthRepository.AuthCallback<User>() {
-                        @Override
-                        public void onSuccess(User updated) {
-                            if (!isAdded()) return;
-                            Toast.makeText(requireContext(), "Profile updated!", Toast.LENGTH_SHORT).show();
-                            currentUser = updated;
-                            displayUserData(updated);
-                        }
+                    @Override
+                    public void onError(String errorMessage) {
+                        if (!isAdded()) return;
+                        Toast.makeText(requireContext(), errorMessage != null ? errorMessage : "Could not update profile", Toast.LENGTH_LONG).show();
+                    }
+                });
+            });
+        }
 
-                        @Override
-                        public void onError(String errorMessage) {
-                            if (!isAdded()) return;
-                            Toast.makeText(requireContext(), errorMessage != null ? errorMessage : "Could not update profile", Toast.LENGTH_LONG).show();
-                        }
-                    });
-                })
-                .setNegativeButton("Cancel", null)
-                .show();
+        dialog.show();
     }
 
     private void showChangePasswordDialog() {
@@ -283,43 +299,59 @@ public class ProfileFragment extends Fragment {
         TextInputEditText etNewPassword = dialogView.findViewById(R.id.etNewPassword);
         TextInputEditText etConfirmNewPassword = dialogView.findViewById(R.id.etConfirmNewPassword);
 
-        new MaterialAlertDialogBuilder(requireContext())
+        androidx.appcompat.app.AlertDialog dialog = new MaterialAlertDialogBuilder(requireContext())
                 .setView(dialogView)
-                .setPositiveButton("Update", (dialog, which) -> {
-                    String current = etCurrentPassword.getText() != null ? etCurrentPassword.getText().toString().trim() : "";
-                    String newPass = etNewPassword.getText() != null ? etNewPassword.getText().toString().trim() : "";
-                    String confirm = etConfirmNewPassword.getText() != null ? etConfirmNewPassword.getText().toString().trim() : "";
+                .create();
 
-                    if (TextUtils.isEmpty(current)) {
-                        Toast.makeText(requireContext(), "Enter your current password", Toast.LENGTH_SHORT).show();
-                        return;
-                    }
-                    if (newPass.length() < 8) {
-                        Toast.makeText(requireContext(), "New password must be at least 8 characters", Toast.LENGTH_SHORT).show();
-                        return;
-                    }
-                    if (!newPass.equals(confirm)) {
-                        Toast.makeText(requireContext(), "New passwords do not match", Toast.LENGTH_SHORT).show();
-                        return;
+        if (dialog.getWindow() != null) {
+            dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        }
+
+        View btnCancel = dialogView.findViewById(R.id.btnCancelPassword);
+        View btnSubmit = dialogView.findViewById(R.id.btnSubmitPassword);
+
+        if (btnCancel != null) {
+            btnCancel.setOnClickListener(v -> dialog.dismiss());
+        }
+
+        if (btnSubmit != null) {
+            btnSubmit.setOnClickListener(v -> {
+                String current = etCurrentPassword.getText() != null ? etCurrentPassword.getText().toString().trim() : "";
+                String newPass = etNewPassword.getText() != null ? etNewPassword.getText().toString().trim() : "";
+                String confirm = etConfirmNewPassword.getText() != null ? etConfirmNewPassword.getText().toString().trim() : "";
+
+                if (TextUtils.isEmpty(current)) {
+                    Toast.makeText(requireContext(), "Enter your current password", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (newPass.length() < 8) {
+                    Toast.makeText(requireContext(), "New password must be at least 8 characters", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (!newPass.equals(confirm)) {
+                    Toast.makeText(requireContext(), "New passwords do not match", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                dialog.dismiss();
+                Toast.makeText(requireContext(), "Updating password...", Toast.LENGTH_SHORT).show();
+                authRepository.changePassword(current, newPass, confirm, new AuthRepository.AuthCallback<Void>() {
+                    @Override
+                    public void onSuccess(Void result) {
+                        if (!isAdded()) return;
+                        Toast.makeText(requireContext(), "Password changed successfully!", Toast.LENGTH_SHORT).show();
                     }
 
-                    Toast.makeText(requireContext(), "Updating password...", Toast.LENGTH_SHORT).show();
-                    authRepository.changePassword(current, newPass, confirm, new AuthRepository.AuthCallback<Void>() {
-                        @Override
-                        public void onSuccess(Void result) {
-                            if (!isAdded()) return;
-                            Toast.makeText(requireContext(), "Password changed successfully!", Toast.LENGTH_SHORT).show();
-                        }
+                    @Override
+                    public void onError(String errorMessage) {
+                        if (!isAdded()) return;
+                        Toast.makeText(requireContext(), errorMessage != null ? errorMessage : "Failed to change password", Toast.LENGTH_LONG).show();
+                    }
+                });
+            });
+        }
 
-                        @Override
-                        public void onError(String errorMessage) {
-                            if (!isAdded()) return;
-                            Toast.makeText(requireContext(), errorMessage != null ? errorMessage : "Failed to change password", Toast.LENGTH_LONG).show();
-                        }
-                    });
-                })
-                .setNegativeButton("Cancel", null)
-                .show();
+        dialog.show();
     }
 
     private void showLanguageDialog() {

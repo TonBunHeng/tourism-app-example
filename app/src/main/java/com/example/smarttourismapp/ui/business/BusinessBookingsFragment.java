@@ -71,6 +71,14 @@ public class BusinessBookingsFragment extends Fragment {
         loadBookings();
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        Business b = appPreference.getSelectedBusiness();
+        businessId = b != null ? b.getId() : null;
+        loadBookings();
+    }
+
     private void initViews(View view) {
         etSearch = view.findViewById(R.id.etSearchBookings);
         chipGroupStatus = view.findViewById(R.id.chipGroupBookingStatus);
